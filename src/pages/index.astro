@@ -1,50 +1,23 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import Batch from '../components/Batch.astro';
 ---
 
 <Layout title="Paty Cuenca's portfolio">
 	<main>
-		
-		<h1>Welcome to <span class="text-gradient">Paty Cuenca's portfolio</span></h1>
-		<p class="instructions">
-			This page is under construction. <br />
-			Stay tuned for updates!
-		</p>
-		
+		<!-- Section: Intro -->
+		<section class="px-18 mt-12">
+			<h1 class="text-white">Hi, I am Paty.</h1>
+			<h2>Senior Engineering Manager and Front End Developer.</h2>
+			<h3>+15 years of experience.</h3>
+			<p>From sunny <span class="text-cyan-500">Barcelona</span> ☀️. </p>
+			<p>Specialised in leading autonomous and high-performing front-end teams</p>
+			<p>Tinkering with front-end development non-professinally (so to not to get exceedingly rusty)</p>
+			<div>
+				<Batch color="green">Looking for opportunities</Batch>
+				<Batch color="yellow">IC Management</Batch>
+				<Batch color="yellow">Leader of leaders</Batch>
+			</div>
+		</section>
 	</main>
 </Layout>
-
-<style>
-	main {
-		margin: auto;
-		padding: 1rem;
-		width: 800px;
-		max-width: calc(100% - 2rem);
-		color: white;
-		font-size: 20px;
-		line-height: 1.6;
-	}
-	h1 {
-		font-size: 4rem;
-		font-weight: 700;
-		line-height: 1;
-		text-align: center;
-		margin-bottom: 1em;
-	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
-	.instructions {
-		margin-bottom: 2rem;
-		border: 1px solid rgba(var(--accent-light), 25%);
-		background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%));
-		padding: 1.5rem;
-		border-radius: 8px;
-	}
-
-</style>

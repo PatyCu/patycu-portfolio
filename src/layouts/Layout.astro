@@ -1,4 +1,7 @@
 ---
+import Header from '../components/Header.astro';
+import '@fontsource/barlow';
+
 interface Props {
 	title: string;
 }
@@ -16,26 +19,27 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body>
+	<body class="flex flex-wrap">
+		<div class="relative h-full w-full bg-slate-950"><div class="absolute bottom-0 left-[-20%] right-0 top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]"></div><div class="absolute bottom-0 right-[-20%] top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]"></div></div>
+		<Header />
 		<slot />
 	</body>
 </html>
 <style is:global>
 	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
+		color-scheme: light dark;
 	}
 	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-		background-size: 224px;
+		font-family: 'Barlow', sans-serif;
+	}
+
+	body {
+		display: flex;
+		justify-content: center;
+		background-color: #323949;
+		color: #d8f2f6; 
+		line-height: 2;
+		/*min-height: 100vh;*/
 	}
 	code {
 		font-family:
@@ -48,4 +52,14 @@ const { title } = Astro.props;
 			Courier New,
 			monospace;
 	}
+	h1{
+		font-size: 2rem;
+	}
+	h2{
+		font-size: 1.5rem;
+	}
+	h3{
+		font-size: 1.25rem;
+	}
+	
 </style>
