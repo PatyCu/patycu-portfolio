@@ -12,6 +12,7 @@ Welcome to my portfolio 🙋🏻‍♀️
 - Background from https://bg.ibelick.com/
 - Fountsource: open source fonts
 - Flowbite: open-source library of UI components built over tailwind
+- Icons from https://svgl.vercel.app/
 
 
 ## 👩🏻‍💻 NPM Commands

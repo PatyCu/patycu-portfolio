@@ -1,23 +1,52 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Batch from '../components/Batch.astro';
+import Layout from '../layouts/Layout.astro'
+import Batch from '../components/Batch.astro'
+import SocialPill from '../components/SocialPill.astro'
+import GitHub from '../icons/GitHub.astro'
+import LinkedIn from '../icons/LinkedIn.astro'
+import Twitter from '../icons/Twitter.astro'
 ---
 
 <Layout title="Paty Cuenca's portfolio">
-	<main class="flex justify-center">
-		<!-- Section: Intro -->
-		<section class="mt-12">
-			<h1 class="text-white">Hi, I am Paty.</h1>
-			<h2>Senior Engineering Manager and Front End Developer.</h2>
-			<h3>+15 years of experience.</h3>
-			<p>From sunny <span class="text-cyan-500">Barcelona</span> ☀️. </p>
-			<p>Specialised in leading autonomous and high-performing front-end teams</p>
-			<p>Tinkering with front-end development non-professinally (so to not to get exceedingly rusty)</p>
-			<div>
-				<Batch color="green">Looking for opportunities</Batch>
-				<Batch color="yellow">IC Management</Batch>
-				<Batch color="yellow">Leader of leaders</Batch>
-			</div>
-		</section>
-	</main>
+  <main class=''>
+    <!-- Section: Intro -->
+    <section class='mt-12'>
+      <h1 class='text-white'>Hi, I am Paty.</h1>
+      <h2>Senior Engineering Manager and Front End Developer.</h2>
+      <h3>+15 years of experience.</h3>
+      <p>From sunny <span class='text-cyan-500'>Barcelona</span> ☀️.</p>
+      <p>
+        Specialised in leading autonomous and high-performing front-end teams
+      </p>
+      <p>
+        Tinkering with front-end development non-professinally (so to not to get
+        exceedingly rusty)
+      </p>
+      <div>
+        <Batch color='green'>Looking for opportunities</Batch>
+        <Batch color='yellow'>IC Management</Batch>
+        <Batch color='yellow'>Leader of leaders</Batch>
+        <Batch color='blue'>Front End</Batch>
+        <Batch color='blue'>JavaScript</Batch>
+        <Batch color='blue'>React</Batch>
+      </div>
+      <ul class='flex gap-x-4 mt-4'>
+        <li class=''>
+          <SocialPill href='https://www.linkedin.com/in/patycu/'>
+            <LinkedIn class='w-6 h-6 !bg-dark-turquoise' />
+          </SocialPill>
+        </li>
+        <li>
+          <SocialPill href='https://github.com/PatyCu'>
+            <GitHub class='w-6 h-6 !bg-dark-turquoise' />
+          </SocialPill>
+        </li>
+        <li>
+          <SocialPill href='https://twitter.com/patycuEM'>
+            <Twitter class='w-5 h-6 !bg-dark-turquoise' />
+          </SocialPill>
+        </li>
+      </ul>
+    </section>
+  </main>
 </Layout>
