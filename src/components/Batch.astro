@@ -1,22 +1,27 @@
 ---
 interface Props {
-    color: string;
+    color: string
 }
 
-const {color} = Astro.props;
+const { color } = Astro.props
 //const css = `bg-${color}-100 text-${color}-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-${color}-900 dark:text-${color}-300`;
-let css = ""; 
+let css = ""
 if (color === "green") {
-    css = "bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300";
+    css = "inline-block px-2.5 py-0.5 mr-1 text-xs font-medium text-green-800 bg-green-100 rounded-md"
 } else if (color === "yellow") {
-    css = "bg-yellow-100 text-yellow-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300";
-} else if (color === "purple") { 
-    css = "bg-purple-100 text-purple-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300"; 
-} else if(color === "blue"){
-    css = "bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300";
-} else{
-    css ? css = "bg-red-100 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300" : css = "bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300";
-    console.log("color not found");
+    css =
+        "inline-block  bg-yellow-100 text-yellow-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300"
+} else if (color === "purple") {
+    css =
+        "inline-block  bg-purple-100 text-purple-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300"
+} else if (color === "blue") {
+    css =
+        "inline-block bg-blue-100 text-blue-900 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300"
+} else if (color === "deep-blue") {
+    css =
+        "inline-block bg-blue-800 text-blue-100 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-800 dark:text-deep-blue-100"
+} else if (color === "dark-grey") {
+    css = "inline-block px-2.5 py-0.5 mr-1 text-xs font-medium text-gray-100 bg-gray-800 rounded-md"
 }
 ---
 
