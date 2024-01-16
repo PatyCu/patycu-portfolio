@@ -6,7 +6,10 @@ import GitHub from "../icons/GitHub.astro"
 import LinkedIn from "../icons/LinkedIn.astro"
 import Twitter from "../icons/Twitter.astro"
 import Email from "../icons/Email.astro"
+import Experience from "../icons/Experience.astro"
+import ProjectsIcon from "../icons/ProjectsIcon.astro"
 import Timeline from "../components/Timeline.astro"
+import Projects from "../components/Projects.astro"
 ---
 
 <Layout
@@ -58,10 +61,14 @@ import Timeline from "../components/Timeline.astro"
             </ul>
         </section>
         <section class="mt-8" id="experience">
-            <h2 class="text-white">👩🏻‍💻 Experience</h2>
+            <h2 class="text-white flex w-full gap-x-2"><Experience class="size-12" /> Experience</h2>
             <div class="mt-4">
                 <Timeline />
             </div>
+        </section>
+        <section class="mt-8" id="projects">
+            <h2 class="text-white flex w-full gap-x-2"><ProjectsIcon class="size-9 mt-1" />Projects</h2>
+            <div class="mt-4"><Projects /></div>
         </section>
     </main>
 </Layout>

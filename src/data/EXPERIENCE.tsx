@@ -57,7 +57,7 @@ export const EXPERIENCE = [
         ]
     },
     {
-        title: "Technial Project Manager",
+        title: "Technical Project Manager",
         company: "Caixabank Tech",
         location: "Barcelona, Spain",
         startDate: "July 2015",
@@ -65,5 +65,15 @@ export const EXPERIENCE = [
         description:
             "Project Manager within CaixaBank's Innovation department. Identify technological trends and new business ideas, with a special focus on Fintech. Design Proofs of Concept to demonstrate the viability of the identified opportunities, and apply them to the designed business area of the organization. Balance business needs to IT needs, becoming the product owner of the project. Coordinate, plan and supervise both the project and the allocated resources for the project (internal and/or external).Once the PoC has been deployed, analyze its results to decide whether it has to be upgraded to a regular project to be deployed in production to the whole organization.",
         tags: ["NLP", "Machine Learning", "Ontologies", "Watson", "ElasticsSearch", "Neo4j"]
+    },
+    {
+        title: "Engineering Manager",
+        company: "Scytl",
+        location: "Barcelona, Spain",
+        startDate: "April 2014",
+        endDate: "June 2015",
+        description:
+            "Direct responsible for the delivery of a group of projects. Lead cross-functional teams, coordinate involved teams within the project, or with other projects. dentify project risks and manage contingencies.",
+        tags: ["Conflict resolution", "burnout management", "delivery management"]
     }
 ]
