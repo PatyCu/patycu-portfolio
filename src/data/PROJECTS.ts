@@ -72,7 +72,7 @@ export const PROJECTS = [
         description: "Sistema d'Intermediació de les Comunitats Autònomes.",
         link: null,
         github: null,
-        image: "https://via.placeholder.com/300x200",
+        image: "/projects/soc.png",
         tags: ["Java", "Oracle 10", "Bea Weblogic 8.1"]
     }
 ]
