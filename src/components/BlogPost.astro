@@ -1,0 +1,16 @@
+---
+interface Props {
+    title: string | null
+    //description: string | null
+    //image: string | null
+    url: string | null
+    //date: string | null
+    //tags: string[] | null
+}
+
+const { title, url } = Astro.props
+---
+
+<li>
+    <a href={url}>{title}</a>
+</li>

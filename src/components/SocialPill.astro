@@ -1,10 +1,11 @@
 ---
-
+const { href } = Astro.props
+console.log(href)
 ---
 
 <a
-    {...Astro.props}
     class="rounded-full border border-white/10 flex justify-center items-center gap-x-2 px-3 py-1 text-xs hover:bg-purple-500 hover:bg-opacity-20 transition-colors"
+    href={href}
     target="_blank"
     rel="noopener noreferrer"
 >

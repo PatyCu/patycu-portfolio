@@ -1,0 +1,32 @@
+---
+import BaseLayout from "../../layouts/Layout.astro"
+import BlogPost from "../../components/BlogPost.astro"
+import type { Code } from "astro:components"
+
+export async function getStaticPaths() {
+    const posts = await Astro.glob("../blog/**/*.{md,mdx}")
+
+    const groupedPosts: { [tag: string]: Record<string, any>[] } = posts
+        .flatMap((post) => (post.frontmatter.tags || []).map((tag: string) => [tag, post]))
+        .reduce((groups, [tag, post]) => ({ ...groups, [tag]: [...(groups[tag] || []), post] }), {})
+
+    return Object.entries(groupedPosts).map(([tag, posts]) => ({
+        params: { tag },
+        props: {
+            posts: posts.sort(
+                (a, b) => new Date(b.frontmatter.publishedAt).valueOf() - new Date(a.frontmatter.publishedAt).valueOf()
+            )
+        }
+    }))
+}
+
+const { tag } = Astro.params
+const { posts } = Astro.props
+---
+
+<BaseLayout title={tag} description=`blog posts categorized as ${tag}`>
+    <p>Posts tagged with {tag}</p>
+    <ul>
+        {posts.map((post) => <BlogPost url={post.url} title={post.frontmatter.title} />)}
+    </ul>
+</BaseLayout>

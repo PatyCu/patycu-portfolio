@@ -22,7 +22,7 @@ const { title, description } = Astro.props
         <title>{title}</title>
     </head>
     <body class="flex flex-wrap">
-        <div class="relative h-full w-full">
+        <div class="relative h-full w-full border border-transparent">
             <div
                 class="absolute bottom-0 left-[-20%] right-0 top-[-10%] h-[500px]
           w-[500px] xl:h-[1000px] xl:w-[1500px] 2xl:h-[1000px] 2xl:w-[1500px]
@@ -36,9 +36,11 @@ const { title, description } = Astro.props
             >
             </div>
         </div>
-        <Header />
-        <slot />
-        <Footer />
+        <div class="relative">
+            <Header />
+            <slot />
+            <Footer />
+        </div>
     </body>
 </html>
 <style is:global>

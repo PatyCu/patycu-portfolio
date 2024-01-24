@@ -1,10 +1,27 @@
 ---
 import Layout from "../layouts/Layout.astro"
+const pageTitle = "An Engineering Manager in the wild appears!"
+const allPosts = await Astro.glob("./posts/*.md")
 ---
 
 <Layout
-    title="Paty Cuenca's blog"
+    title="{pageTitle}"
     description="Blog about Engineering Management, leadership, and in general navigating the difficult but rewarding tech industry"
 >
-    <h1>Home</h1>
+    <main>
+        <section>
+            <h1>{pageTitle}</h1>
+            <a href="" <ul>
+                <li>
+                    {
+                        allPosts.map((post) => (
+                            <a href={post.url} class="text-cyan-500 underline hover:text-white">
+                                {post.frontmatter.title}
+                            </a>
+                        ))
+                    }
+                </li>
+            </a>
+        </section>
+    </main>
 </Layout>

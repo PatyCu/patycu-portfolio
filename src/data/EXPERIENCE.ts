@@ -63,7 +63,7 @@ export const EXPERIENCE = [
         startDate: "July 2015",
         endDate: "December 2016",
         description:
-            "Project Manager within CaixaBank's Innovation department. Identify technological trends and new business ideas, with a special focus on Fintech. Design Proofs of Concept to demonstrate the viability of the identified opportunities, and apply them to the designed business area of the organization. Balance business needs to IT needs, becoming the product owner of the project. Coordinate, plan and supervise both the project and the allocated resources for the project (internal and/or external).Once the PoC has been deployed, analyze its results to decide whether it has to be upgraded to a regular project to be deployed in production to the whole organization.",
+            "Project Manager within CaixaBank's Innovation department. Design Proofs of Concept to demonstrate the viability of the identified opportunities, and apply them to the designed business area of the organization. Coordinate, plan and supervise both the project and the allocated resources for the project (internal and/or external).",
         tags: ["NLP", "Machine Learning", "Ontologies", "Watson", "ElasticsSearch", "Neo4j"]
     },
     {
@@ -75,5 +75,43 @@ export const EXPERIENCE = [
         description:
             "Direct responsible for the delivery of a group of projects. Lead cross-functional teams, coordinate involved teams within the project, or with other projects. dentify project risks and manage contingencies.",
         tags: ["Conflict resolution", "burnout management", "delivery management"]
+    },
+    {
+        title: "Engineering Manager",
+        company: "Altran",
+        location: "Barcelona, Spain",
+        startDate: "January 2012",
+        endDate: "October 2014",
+        description:
+            "Planning, execution and delivery of several projects (both agile and non-agile) managing its people, resources and scope.",
+        tags: ["Conflict resolution", "burnout management", "delivery management"]
+    },
+    {
+        title: "Software Engineer",
+        company: "Altran",
+        location: "Barcelona, Spain",
+        startDate: "May 2007",
+        endDate: "December 2013",
+        description: "Software development of several projects, both in the backend and the frontend.",
+        tags: ["Java", "EJB", "Oracle 10g", "Weblogic 8.1", "JSP", "Javascript", "HTML", "CSS"]
+    },
+    {
+        title: "Software Engineer",
+        company: "SPOC",
+        location: "Barcelona, Spain",
+        startDate: "January 2007",
+        endDate: "December 2007",
+        description:
+            "Firmware development for Point Of Sale (POS) terminals of Ingénico, under a C / Ingedev platform.",
+        tags: ["C", "Firmware", "Ingedev", "POS"]
+    },
+    {
+        title: "Software Engineering Intern",
+        company: "SPOC",
+        location: "Barcelona, Spain",
+        startDate: "September 2005",
+        endDate: "December 2006",
+        description: "Web development with HTML, CSS and XML. Maintenance of CMS systems and web applications.",
+        tags: ["HTML", "CSS", "XML", "CMS"]
     }
 ]
