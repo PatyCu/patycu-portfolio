@@ -6,7 +6,11 @@ const { frontmatter } = Astro.props
 
 <Layout title={frontmatter.title} description={frontmatter.description}>
     <section class="p-8">
-        <h2 class="text-cyan-500">{frontmatter.title}</h2>
+        <div class="ml-8 p-8">
+            <h1>A Wild Engineering Manager appears!</h1>
+            <span class="text-slate-300/70 text-xl italic">A Blog about Management and Stuff</span>
+        </div>
+        <h2 class="text-cyan-500 text-3xl">{frontmatter.title}</h2>
         <div class="flex flex-wrap">
             <div class="basis-1/2">
                 <p class="text-slate-300/70 text-sm italic">

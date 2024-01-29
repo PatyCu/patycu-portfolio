@@ -1,8 +1,8 @@
 ---
 layout: ../../layouts/BlogLayout.astro
-title: "Hello World"
+title: "Hello (World), is it me you're looking for?"
 pubDate: 2023-01-24
-description: "This is the first post of my new blog. Or the only post, possibly :shrug:"
+description: "'Cause I wonder where you are and I wonder what you do 🎷"
 author: "Paty Cuenca"
 image:
     url: "/blog/1_helloworld_paty.jpg"
@@ -18,7 +18,7 @@ I don't have many expectations about either myself or this blog, and you shouldn
 
 My quarterly attempt at keeping in touch with my technical side.
 This time it took the form of writing my portfolio while learning a new framework (Astro).
-And since I finished that up quite quickly, I created a blog also using Astro.
+And since I finished that up pretty quickly, I created a blog also using Astro.
 And here we are!
 
 ## What's next
