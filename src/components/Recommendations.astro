@@ -1,0 +1,16 @@
+---
+import { RECOMMENDATIONS } from "../data/RECOMMENDATIONS"
+import RecommendationItem from "../components/RecommendationItem.astro"
+---
+
+<ol>
+    {
+        RECOMMENDATIONS.map((recommendation) => {
+            return (
+                <li>
+                    <RecommendationItem {recommendation} />
+                </li>
+            )
+        })
+    }
+</ol>
