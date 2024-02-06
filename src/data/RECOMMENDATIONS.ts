@@ -10,8 +10,6 @@ export const RECOMMENDATIONS = [
             "She created an environment of trust and collaboration, where everyone's voice was heard and where everyone would feel valued. Her genuine concern for her team members goes beyond professional aspects.",
             "Throughout my time working with Paty, she provided constructive feedback that contributed to my professional development.",
             "I am truly grateful to her and I highly recommend her as a manager."
-        ],
-
-        tags: ["Leadership", "Mentorship", "Product", "Technology"]
+        ]
     }
 ]
