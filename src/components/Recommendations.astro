@@ -3,7 +3,7 @@ import { RECOMMENDATIONS } from "../data/RECOMMENDATIONS"
 import RecommendationItem from "../components/RecommendationItem.astro"
 ---
 
-<ol>
+<ol class="flex flex-col gap-4">
     {
         RECOMMENDATIONS.map((recommendation) => {
             return (
