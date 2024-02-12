@@ -7,9 +7,9 @@ import LinkedIn from "../icons/LinkedIn.astro"
 import Twitter from "../icons/Twitter.astro"
 import Email from "../icons/Email.astro"
 import Experience from "../icons/Experience.astro"
-//import ProjectsIcon from "../icons/ProjectsIcon.astro"
+import ProjectsIcon from "../icons/ProjectsIcon.astro"
 import Timeline from "../components/Experience.astro"
-//import Projects from "../components/Projects.astro"
+import Projects from "../components/Projects.astro"
 import About from "../icons/About.astro"
 import Search from "../icons/Search.astro"
 import RecommendationsIcon from "../icons/RecommendationsIcon.astro"
@@ -115,13 +115,13 @@ import Recommendations from "../components/Recommendations.astro"
                 <Timeline />
             </div>
         </section>
+        <section class="mt-8" id="projects">
+            <h2 class="text-white flex w-full gap-x-2"><ProjectsIcon class="size-9 mt-1" />Projects</h2>
+            <div class="mt-4"><Projects /></div>
+        </section>
         <section class="mt-8" id="recommendations">
             <h2 class="text-white flex w-full gap-x-2 py-4"><RecommendationsIcon class="size-10" /> Recommendations</h2>
             <Recommendations />
         </section>
-        <!-- <section class="mt-8" id="projects">
-            <h2 class="text-white flex w-full gap-x-2"><ProjectsIcon class="size-9 mt-1" />Projects</h2>
-            <div class="mt-4"><Projects /></div>
-        </section> -->
     </main>
 </Layout>
