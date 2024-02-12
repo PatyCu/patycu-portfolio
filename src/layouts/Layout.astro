@@ -36,10 +36,12 @@ const { title, description } = Astro.props
             >
             </div>
         </div>
-        <div class="relative">
-            <Header />
-            <slot />
-            <Footer />
+        <div class="fixed top-0 left-0 right-0">
+            <div class="relative mx-auto p-8 md:p-12 max-w-7xl">
+                <Header />
+                <slot />
+                <Footer />
+            </div>
         </div>
     </body>
 </html>
