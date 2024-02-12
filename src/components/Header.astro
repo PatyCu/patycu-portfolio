@@ -2,27 +2,29 @@
 import patycu_avatar from "../img/patycu_avatar.png"
 ---
 
-<header class="mt-10 justify-between p-2 flex flex-row">
+<header class="mt-10 justify-between flex flex-row">
     <div class="basis-1/12 my-auto">
-        <img src={patycu_avatar.src} alt="Paty avatar photo" class="rounded-full size-8 md:size-12 object-contain" />
+        <img src={patycu_avatar.src} alt="Paty avatar photo" class="rounded-full size-6 md:size-12 object-contain" />
     </div>
 
     <nav class="basis-10/12">
         <ul class="flex flex-wrap opacity-90 justify-around items-center">
-            <li class="basis-1/2 md:basis-1/12"><a href="/" class="hover:text-white active:text-cyan-500">Home</a></li>
-            <li class="basis-1/2 md:basis-1/12">
+            <li class="basis-auto">
+                <a href="/" class="hover:text-white active:text-cyan-500">Home</a>
+            </li>
+            <li class="basis-auto">
                 <a href="#about" class="hover:text-white active:text-cyan-500">About</a>
             </li>
-            <li class="basis-1/2 md:basis-1/12">
+            <li class="basis-auto">
                 <a href="#experience" class="hover:text-white active:text-cyan-500">Experience</a>
             </li>
-            <li class="basis-1/2 md:basis-1/12">
+            <li class="basis-auto">
                 <a href="#recommendations" class="hover:text-white active:text-cyan-500">Recommendations</a>
             </li>
-            <li class="basis-1/2 md:basis-1/12">
+            <li class="basis-auto">
                 <a href="/blog" class="hover:text-white active:text-cyan-500">Blog</a>
             </li>
-            <li class="basis-1/2 md:basis-1/12"><a href="#projects">Projects</a></li>
+            <li class="basis-auto"><a href="#projects">Projects</a></li>
         </ul>
     </nav>
 </header>
