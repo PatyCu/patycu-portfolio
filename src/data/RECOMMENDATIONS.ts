@@ -58,7 +58,7 @@ export const RECOMMENDATIONS = [
     },
     {
         name: "Jordi Martínez Llamas",
-        position: "Sofrware Enineer",
+        position: "Software Enineer",
         experience: "Engineering Manager @ Altran",
         location: "Barcelona, Spain",
         date: "October 2014",
