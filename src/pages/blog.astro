@@ -1,27 +1,24 @@
 ---
+import BlogPost from "../components/BlogPost.astro"
 import Layout from "../layouts/Layout.astro"
 const pageTitle = "An Engineering Manager in the wild appears!"
 const allPosts = await Astro.glob("./posts/*.md")
 ---
 
 <Layout
-    title="{pageTitle}"
+    title={pageTitle}
     description="Blog about Engineering Management, leadership, and in general navigating the difficult but rewarding tech industry"
 >
     <main>
-        <section>
+        <section class="mt-12">
             <h1>{pageTitle}</h1>
-            <a href="" <ul>
-                <li>
-                    {
-                        allPosts.map((post) => (
-                            <a href={post.url} class="text-cyan-500 underline hover:text-white">
-                                {post.frontmatter.title}
-                            </a>
-                        ))
-                    }
-                </li>
-            </a>
+            {
+                allPosts.reverse().map((post) => (
+                    <article>
+                        <BlogPost post={post} />
+                    </article>
+                ))
+            }
         </section>
     </main>
 </Layout>

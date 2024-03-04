@@ -2,7 +2,9 @@
 layout: ../../layouts/BlogLayout.astro
 title: "Hello (World), is it me you're looking for?"
 pubDate: 2023-01-24
-description: "'Cause I wonder where you are and I wonder what you do 🎷"
+quote: "'Cause I wonder where you are and I wonder what you do 🎷"
+description: "Welcome to my new blog about Engineering Management and possibly other semi-random stuff!
+This is me on the right, Paty Cuenca."
 author: "Paty Cuenca"
 image:
     url: "/blog/1_helloworld_paty.jpg"

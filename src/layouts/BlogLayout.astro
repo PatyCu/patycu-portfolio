@@ -2,6 +2,8 @@
 import Layout from "./Layout.astro"
 
 const { frontmatter } = Astro.props
+const imgExists = frontmatter.image && frontmatter.image.url.length > 0
+const basis = imgExists ? "basis-1/2" : "basis-full"
 ---
 
 <Layout title={frontmatter.title} description={frontmatter.description}>
@@ -10,9 +12,12 @@ const { frontmatter } = Astro.props
             <h1>A Wild Engineering Manager appears!</h1>
             <span class="text-slate-300/70 text-xl italic">A Blog about Management and Stuff</span>
         </div>
+        <p class="p-2">
+            <a href="/blog" class="underline underline-offset-4 hover:text-cyan-500">&larr; Back to the Blog</a>
+        </p>
         <h2 class="text-cyan-500 text-3xl">{frontmatter.title}</h2>
         <div class="flex flex-wrap">
-            <div class="basis-1/2">
+            <div class={basis}>
                 <p class="text-slate-300/70 text-sm italic">
                     Published on {frontmatter.pubDate.slice(0, 10)} by {frontmatter.author}
                 </p>
@@ -34,7 +39,13 @@ const { frontmatter } = Astro.props
 
                 <slot />
             </div>
-            <img src={frontmatter.image.url} alt={frontmatter.title.alt} class="basis-1/2 max-w-lg" />
+            {
+                imgExists && (
+                    <div class="basis-1/2">
+                        <img src={frontmatter.image.url} alt={frontmatter.title.alt} class="max-w-md" />
+                    </div>
+                )
+            }
         </div>
     </section>
 </Layout>

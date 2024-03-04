@@ -1,16 +1,14 @@
 ---
-interface Props {
-    title: string | null
-    //description: string | null
-    //image: string | null
-    url: string | null
-    //date: string | null
-    //tags: string[] | null
-}
+import PostLayout from "../layouts/PostLayout.astro"
 
-const { title, url } = Astro.props
+const { post } = Astro.props
+const { Content } = Astro.props.post
+console.log(post.url)
 ---
 
-<li>
-    <a href={url}>{title}</a>
-</li>
+<PostLayout frontmatter={post.frontmatter}>
+    <div>
+        <p>{post.frontmatter.description}</p>
+        <a href={post.url} class="text-cyan-500 underline hover:text-white"> Read more</a>
+    </div>
+</PostLayout>
