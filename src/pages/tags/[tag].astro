@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../../layouts/Layout.astro"
 import BlogPost from "../../components/BlogPost.astro"
-import type { Code } from "astro:components"
+//import type { Code } from "astro:components"
 
 export async function getStaticPaths() {
     const posts = await Astro.glob("../posts/*.md")
