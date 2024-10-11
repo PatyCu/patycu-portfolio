@@ -1,10 +1,20 @@
 export const EXPERIENCE = [
     {
+        title: "Engineering Manager",
+        company: "Glovo",
+        location: "Barcelona, Spain",
+        startDate: "November 2021",
+        endDate: null,
+        description:
+            "Engineering Manager for 1 or 2 teams of software engineers, both backend and mobile (iOS and Android).",
+        tags: ["Hybrid", "Performance management", "Backend "]
+    },
+    {
         title: "Senior Engineering Manager",
         company: "Mural",
         location: "Remote",
         startDate: "November 2021",
-        endDate: null,
+        endDate: "January, 2024",
         description:
             "Software Engineering Lead of the Devices team and more recently Canvas Core, teams owning the core experience of the product across all devices. I lead a team of 10 engineers, 1 engineering manager and mentored two ICs to transition to an EM role.",
         tags: ["Mentor", "Remote", "Async work", "Scale down"]
