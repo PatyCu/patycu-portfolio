@@ -2,13 +2,13 @@
 
 Welcome to my portfolio 🙋🏻‍♀️
 
-## 🚀 Tech stack
+## 🥞 Tech stack
 
 -   Astro 4
 -   Typescript
 -   Tailwind CSS
 
-## Resources
+## 📚 Resources
 
 -   Background from https://bg.ibelick.com/
 -   Fountsource: open source fonts
@@ -27,3 +27,10 @@ All commands are run from the root of the project, from a terminal:
 | `npm run preview`         | Preview your build locally, before deploying     |
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
+
+## 🚀 Deploy to prod
+
+The site is deployed to Production with [Netlify's CLI](https://docs.netlify.com/cli/get-started/).
+
+1. Run a production build with npm `npm run build`
+2. Deploy that build with `ntl deploy --prod`

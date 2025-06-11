@@ -6,8 +6,8 @@ export const EXPERIENCE = [
         startDate: "November 2021",
         endDate: null,
         description:
-            "Engineering Manager for 1 or 2 teams of software engineers, both backend and mobile (iOS and Android).",
-        tags: ["Hybrid", "Performance management", "Backend "]
+            "Engineering Manager for a team of software engineers, with both backend and mobile profiles (iOS and Android). Performance management of the team in a very high-bar environment. Responsible for balancing product and engineering needs in a very fast-paced environment, while maintaining quality and operational excellence.",
+        tags: ["Hybrid", "Performance management", "Backend ", "Mobile"]
     },
     {
         title: "Senior Engineering Manager",
