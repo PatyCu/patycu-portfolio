@@ -1,13 +1,13 @@
 ---
 const { frontmatter } = Astro.props
-const imgExists = frontmatter.image && frontmatter.image.url.length > 0
-const basis = imgExists ? "basis-1/2" : "basis-full"
+//const imgExists = frontmatter.image && frontmatter.image.url.length > 0
+//const basis = imgExists ? "basis-3/4" : "basis-full"
 ---
 
 <section class="p-8">
     <h2 class="text-cyan-500 text-3xl">{frontmatter.title}</h2>
     <div class="flex flex-wrap">
-        <div class={basis}>
+        <div>
             <p class="text-slate-300/70 text-sm italic">
                 Published on {frontmatter.pubDate.slice(0, 10)} by {frontmatter.author}
             </p>
@@ -29,13 +29,6 @@ const basis = imgExists ? "basis-1/2" : "basis-full"
 
             <slot />
         </div>
-        {
-            imgExists && (
-                <div class="basis-1/2">
-                    <img src={frontmatter.image.url} alt={frontmatter.title.alt} class="max-w-sm" />
-                </div>
-            )
-        }
     </div>
 </section>
 
