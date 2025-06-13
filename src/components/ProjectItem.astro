@@ -1,7 +1,7 @@
 ---
 import Batch from "./Batch.astro"
 
-const { title, image, link, description, tags } = Astro.props
+const { title, image, link, github, description, tags } = Astro.props
 console.log(tags)
 ---
 
@@ -10,8 +10,8 @@ console.log(tags)
         <h3 class="text-cyan-500">{title}</h3>
         <img src={image} alt="" class="w-full rounded-lg my-2" />
         <p>
-            <a href={link} class="text-sm text-slate-300/80 hover:text-cyan-500/80">
-                {link}
+            <a href={github || link} class="text-sm text-slate-300/80 hover:text-cyan-500/80">
+                {github || link}
             </a>
         </p>
         <p>{description}</p>
