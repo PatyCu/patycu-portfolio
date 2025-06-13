@@ -14,6 +14,7 @@ import About from "../icons/About.astro"
 import Search from "../icons/Search.astro"
 import RecommendationsIcon from "../icons/RecommendationsIcon.astro"
 import Recommendations from "../components/Recommendations.astro"
+import SectionHeader from "../components/SectionHeader.astro"
 ---
 
 <Layout
@@ -59,7 +60,7 @@ import Recommendations from "../components/Recommendations.astro"
             </ul>
         </section>
         <section class="mt-8" id="looking" hidden>
-            <h2 class="text-white flex w-full gap-x-2 py-4"><Search class="size-10" /> What am I looking for</h2>
+            <SectionHeader title="What am I looking for" icon={Search} />
             <p>
                 I am looking for <span class="text-cyan-500">Senior Engineering Manager</span> positions either <span
                     class="text-cyan-500">hybrid in Barcelona</span
@@ -81,14 +82,14 @@ import Recommendations from "../components/Recommendations.astro"
             </p>
         </section>
         <section class="mt-8" id="about">
-            <h2 class="text-white flex w-full gap-x-2 py-4"><About class="size-10" />About me</h2>
+            <SectionHeader title="About me" icon={About} />
             <p>
                 I am a Senior Engineering Manager with more than 10 years of experience leading software engineering
                 teams in agile environments, and leading and mentoring other Engineering Managers.
             </p>
             <p>Before that I was a software <span class="text-cyan-500">developer for 8 years</span>.</p>
             <p>
-                While already being a manager, I discovered a passion for frontend development and that’s what I’ve been
+                While already being a manager, I discovered a passion for frontend development and that's what I've been
                 learning since then: <span class="text-cyan-500">Javascript</span>, <span class="text-cyan-500"
                     >React</span
                 > and other JS frameworks, and more recently <span class="text-cyan-500">Typescript</span> (still a WiP).
@@ -110,17 +111,21 @@ import Recommendations from "../components/Recommendations.astro"
             </p>
         </section>
         <section class="mt-8" id="experience">
-            <h2 class="text-white flex w-full gap-x-2 py-4"><Experience class="size-12" /> Experience</h2>
+            <SectionHeader title="Experience" icon={Experience} iconSize="size-12" />
             <div class="mt-4">
                 <Timeline />
             </div>
         </section>
         <section class="mt-8" id="projects">
-            <h2 class="text-white flex w-full gap-x-2"><ProjectsIcon class="size-9 mt-1" />Projects</h2>
-            <div class="mt-4"><Projects /></div>
+            <SectionHeader title="Projects" icon={ProjectsIcon} iconSize="size-9 mt-1" />
+            <div class="mt-4"><Projects type="work" /></div>
+        </section>
+        <section class="mt-8" id="pet-projects">
+            <SectionHeader title="Pet projects" icon={ProjectsIcon} iconSize="size-9 mt-1" />
+            <div class="mt-4"><Projects type="side" /></div>
         </section>
         <section class="mt-8" id="recommendations">
-            <h2 class="text-white flex w-full gap-x-2 py-4"><RecommendationsIcon class="size-10" /> Recommendations</h2>
+            <SectionHeader title="Recommendations" icon={RecommendationsIcon} />
             <Recommendations />
         </section>
     </main>

@@ -1,5 +1,6 @@
 ---
-import { PROJECTS } from "../data/PROJECTS_old.ts"
+import { PROJECTS } from "../data/PROJECTS.ts"
+import { SIDE_PROJECTS } from "../data/SIDE_PROJECTS.ts"
 
 import ProjectItem from "./ProjectItem.astro"
 
@@ -11,12 +12,24 @@ interface Project {
     github: string | null
     tags: string[]
 }
+
+interface Props {
+    type: "work" | "side"
+}
+
+const { type } = Astro.props
+const projects = type === "work" ? PROJECTS : SIDE_PROJECTS
 ---
 
 <ol class="flex flex-wrap gap-x-2">
     {
-        PROJECTS.map(({ title, description, link, image }: Project) => (
-            <ProjectItem title={title} description={description} link={link} image={image} />
+        projects.map((project) => (
+            <ProjectItem
+                title={project.title}
+                description={project.description}
+                link={project.link}
+                image={project.image}
+            />
         ))
     }
 </ol>

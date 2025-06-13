@@ -1,0 +1,14 @@
+---
+interface Props {
+    title: string
+    icon: any // Astro component
+    iconSize?: string
+}
+
+const { title, icon: Icon, iconSize = "size-10" } = Astro.props
+---
+
+<h2 class="text-white flex w-full gap-x-2 py-4">
+    <Icon class={iconSize} />
+    {title}
+</h2>
