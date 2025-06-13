@@ -1,5 +1,8 @@
 ---
-const { title, image, link, description } = Astro.props
+import Batch from "./Batch.astro"
+
+const { title, image, link, description, tags } = Astro.props
+console.log(tags)
 ---
 
 <li class="p-2 bg-slate-600/50 my-2 w-[300px] border border-transparent rounded-lg">
@@ -12,5 +15,8 @@ const { title, image, link, description } = Astro.props
             </a>
         </p>
         <p>{description}</p>
+        <div>
+            {tags && tags.map((tag: string) => <Batch color="blue">{tag}</Batch>)}
+        </div>
     </div>
 </li>

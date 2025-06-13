@@ -5,13 +5,15 @@ export const SIDE_PROJECTS = [
             "The frontend for my own wedding's website and wedding registry, built with React and deployed with Netlify.",
         link: "https://oriolipaty.com",
         github: "https://github.com/PatyCu/wedding",
-        image: "/projects/oriolipaty_screenshot.jpg"
+        image: "/projects/oriolipaty_screenshot.jpg",
+        tags: ["React", "Netlify"]
     },
     {
         title: "this.portfolio",
         description: "This portfolio, built with Astro, some Typescript and deployed with Netlify.",
         link: "https://patycuenca.com",
         github: "https://github.com/PatyCu/patycu-portfolio",
-        image: "/projects/patycuenca_screenshot.jpg"
+        image: "/projects/patycuenca_screenshot.jpg",
+        tags: ["Astro", "Typescript", "Netlify"]
     }
 ]
