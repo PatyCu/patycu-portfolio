@@ -3,7 +3,7 @@ export const EXPERIENCE = [
         title: "Engineering Manager",
         company: "Glovo",
         location: "Barcelona, Spain",
-        startDate: "November 2021",
+        startDate: "March 2024",
         endDate: null,
         description:
             "Engineering Manager for a team of software engineers, with both backend and mobile profiles (iOS and Android). Performance management of the team in a very high-bar environment. Responsible for balancing product and engineering needs in a very fast-paced environment, while maintaining quality and operational excellence.",
