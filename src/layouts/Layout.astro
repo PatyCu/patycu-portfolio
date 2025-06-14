@@ -36,7 +36,7 @@ const { title, description } = Astro.props
             >
             </div>
         </div>
-        <div class="relative">
+        <div class="relative h-screen overflow-y-scroll snap-y snap-mandatory">
             <div class="relative mx-auto p-8 md:p-12 max-w-7xl">
                 <Header />
                 <slot />
@@ -53,6 +53,7 @@ const { title, description } = Astro.props
         font-family: "Barlow", sans-serif;
         scroll-behavior: smooth;
         text-rendering: optimizeLegibility;
+        height: 100%;
     }
 
     body {
@@ -61,25 +62,33 @@ const { title, description } = Astro.props
         background-color: #323949;
         color: #d8f2f6;
         line-height: 2;
-        /*min-height: 100vh;*/
+        height: 100%;
+        overflow: hidden; /* Prevent double scrollbars */
     }
-    /*
-    code {
-        font-family:
-            Menlo,
-            Monaco,
-            Lucida Console,
-            Liberation Mono,
-            DejaVu Sans Mono,
-            Bitstream Vera Sans Mono,
-            Courier New,
-            monospace;
+
+    main {
+        scroll-snap-type: y mandatory;
+        overflow-y: scroll;
+        height: 100vh;
+        scroll-behavior: smooth;
     }
-    */
+
+    /* Hide scrollbar but keep functionality */
+    .overflow-y-scroll {
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE and Edge */
+    }
+
+    .overflow-y-scroll::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
+    }
 
     @media (prefers-reduced-motion: reduce) {
         html {
             scroll-behavior: auto;
+        }
+        .snap-y {
+            scroll-snap-type: none;
         }
     }
     h1 {

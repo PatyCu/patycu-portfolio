@@ -3,12 +3,14 @@ import { EXPERIENCE } from "../data/EXPERIENCE.ts"
 import ExperienceItem from "./ExperienceItem.astro"
 ---
 
-<ol class="relative border-s border-gray-200 dark:border-gray-700">
-    {
-        EXPERIENCE.map((item) => (
-            <li class="mb-10 ms-6">
-                <ExperienceItem {item} />
-            </li>
-        ))
-    }
-</ol>
+<div class="overflow-y-auto pt-4">
+    <ol class="relative border-s border-gray-200 dark:border-gray-700 ml-6">
+        {
+            EXPERIENCE.map((item) => (
+                <li class="mb-10 ms-6">
+                    <ExperienceItem {item} />
+                </li>
+            ))
+        }
+    </ol>
+</div>

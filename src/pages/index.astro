@@ -23,7 +23,7 @@ import SectionHeader from "../components/SectionHeader.astro"
 >
     <main class="mx-auto w-full">
         <!-- Section: Intro -->
-        <section class="mt-12" id="#top">
+        <section class="h-screen snap-start snap-always flex flex-col justify-center" id="top">
             <h1 class="text-white">Hi, I am Paty 🙋🏻‍♀️</h1>
             <h2 class="text-balance uppercase">Senior Engineering Manager</h2>
             <h3>12 years of experience as a Manager + 8 years of experience as a software developer</h3>
@@ -59,7 +59,7 @@ import SectionHeader from "../components/SectionHeader.astro"
                 </li>
             </ul>
         </section>
-        <section class="mt-8" id="looking" hidden>
+        <section class="h-screen snap-start snap-always flex flex-col justify-center" id="looking" hidden>
             <SectionHeader title="What am I looking for" icon={Search} />
             <p>
                 I am looking for <span class="text-cyan-500">Senior Engineering Manager</span> positions either <span
@@ -81,52 +81,69 @@ import SectionHeader from "../components/SectionHeader.astro"
                 growth and I can help them do it in an efficient and orderly manner!
             </p>
         </section>
-        <section class="mt-8" id="about">
-            <SectionHeader title="About me" icon={About} />
-            <p>
-                I am a Senior Engineering Manager with more than 10 years of experience leading software engineering
-                teams in agile environments, and leading and mentoring other Engineering Managers.
-            </p>
-            <p>Before that I was a software <span class="text-cyan-500">developer for 8 years</span>.</p>
-            <p>
-                While already being a manager, I discovered a passion for frontend development and that's what I've been
-                learning since then: <span class="text-cyan-500">Javascript</span>, <span class="text-cyan-500"
-                    >React</span
-                > and other JS frameworks, and more recently <span class="text-cyan-500">Typescript</span> (still a WiP).
-            </p>
-            <p>
-                I have a track record of building and growing high-performing teams, which in my book means teams that
-                are autonomous, accountable, deliver quality software incrementally, and learn from their own mistakes.
-            </p>
-            <p>
-                My values are <span class="text-cyan-500">respect</span> (both for others and myself), <span
-                    class="text-cyan-500">honesty</span
-                >, <span class="text-cyan-500">transparency</span>, and <span class="text-cyan-500">responsibility</span
-                >.
-            </p>
-            <p>
-                Above all else, I am a flawed human being who tries her best to be a good person and a good
-                professional. I thrive on bringing order to chaos, solving problems, and helping others reach their full
-                potential.
-            </p>
-        </section>
-        <section class="mt-8" id="experience">
-            <SectionHeader title="Experience" icon={Experience} iconSize="size-12" />
-            <div class="mt-4">
-                <Timeline />
+        <section class="h-screen snap-start snap-always flex flex-col" id="about">
+            <div class="flex-1 overflow-y-auto">
+                <SectionHeader title="About me" icon={About} />
+                <div class="mt-4">
+                    <p>
+                        I am a Senior Engineering Manager with more than 10 years of experience leading software
+                        engineering teams in agile environments, and leading and mentoring other Engineering Managers.
+                    </p>
+                    <p>Before that I was a software <span class="text-cyan-500">developer for 8 years</span>.</p>
+                    <p>
+                        While already being a manager, I discovered a passion for frontend development and that's what
+                        I've been learning since then: <span class="text-cyan-500">Javascript</span>, <span
+                            class="text-cyan-500">React</span
+                        > and other JS frameworks, and more recently <span class="text-cyan-500">Typescript</span> (still
+                        a WiP).
+                    </p>
+                    <p>
+                        I have a track record of building and growing high-performing teams, which in my book means
+                        teams that are autonomous, accountable, deliver quality software incrementally, and learn from
+                        their own mistakes.
+                    </p>
+                    <p>
+                        My values are <span class="text-cyan-500">respect</span> (both for others and myself), <span
+                            class="text-cyan-500">honesty</span
+                        >, <span class="text-cyan-500">transparency</span>, and <span class="text-cyan-500"
+                            >responsibility</span
+                        >.
+                    </p>
+                    <p>
+                        Above all else, I am a flawed human being who tries her best to be a good person and a good
+                        professional. I thrive on bringing order to chaos, solving problems, and helping others reach
+                        their full potential.
+                    </p>
+                </div>
             </div>
         </section>
-        <section class="mt-8" id="projects">
-            <SectionHeader title="Projects" icon={ProjectsIcon} iconSize="size-9 mt-1" />
-            <div class="mt-4"><Projects type="work" /></div>
+        <section class="h-screen snap-start snap-always flex flex-col" id="experience">
+            <div class="flex-1 overflow-y-auto">
+                <SectionHeader title="Experience" icon={Experience} iconSize="size-12" />
+                <div class="mt-4">
+                    <Timeline />
+                </div>
+            </div>
         </section>
-        <section class="mt-8" id="pet-projects">
-            <SectionHeader title="Side projects" icon={ProjectsIcon} iconSize="size-9 mt-1" />
-            <div class="mt-4"><Projects type="side" /></div>
+        <section class="h-screen snap-start snap-always flex flex-col" id="projects">
+            <div class="flex-1 overflow-y-auto">
+                <SectionHeader title="Projects" icon={ProjectsIcon} iconSize="size-9 mt-1" />
+                <div class="mt-4"><Projects type="work" /></div>
+            </div>
         </section>
-        <section class="mt-8" id="recommendations">
-            <SectionHeader title="Recommendations" icon={RecommendationsIcon} />
-            <Recommendations />
+        <section class="h-screen snap-start snap-always flex flex-col" id="pet-projects">
+            <div class="flex-1 overflow-y-auto">
+                <SectionHeader title="Side projects" icon={ProjectsIcon} iconSize="size-9 mt-1" />
+                <div class="mt-4"><Projects type="side" /></div>
+            </div>
+        </section>
+        <section class="h-screen snap-start snap-always flex flex-col" id="recommendations">
+            <div class="flex-1 overflow-y-auto">
+                <SectionHeader title="Recommendations" icon={RecommendationsIcon} />
+                <div class="mt-4">
+                    <Recommendations />
+                </div>
+            </div>
         </section>
     </main>
 </Layout>

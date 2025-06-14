@@ -1,30 +1,121 @@
 ---
 import patycu_avatar from "../img/patycu_avatar.png"
+
+const navItems = [
+    { href: "/", label: "Home", section: "top" },
+    { href: "/", label: "About", section: "about" },
+    { href: "/", label: "Experience", section: "experience" },
+    { href: "/", label: "Projects", section: "projects" },
+    { href: "/", label: "Recommendations", section: "recommendations" },
+    { href: "/blog", label: "Blog", section: "blog" }
+]
+
+const currentPath = Astro.url.pathname
+const isBlogPage = currentPath === "/blog"
 ---
 
-<header class="mt-10 justify-between flex flex-row">
-    <div class="basis-1/12 my-auto">
-        <img src={patycu_avatar.src} alt="Paty avatar photo" class="rounded-full size-6 md:size-12 object-contain" />
-    </div>
-
-    <nav class="basis-10/12">
-        <ul class="flex flex-wrap opacity-90 justify-around items-center">
-            <li class="basis-auto">
-                <a href="/" class="hover:text-white active:text-cyan-500">Home</a>
-            </li>
-            <li class="basis-auto">
-                <a href="/#about" class="hover:text-white active:text-cyan-500">About</a>
-            </li>
-            <li class="basis-auto">
-                <a href="/#experience" class="hover:text-white active:text-cyan-500">Experience</a>
-            </li>
-            <li class="basis-auto"><a href="/#projects">Projects</a></li>
-            <li class="basis-auto">
-                <a href="/#recommendations" class="hover:text-white active:text-cyan-500">Recommendations</a>
-            </li>
-            <li class="basis-auto">
-                <a href="/blog" class="hover:text-white active:text-cyan-500">Blog</a>
-            </li>
-        </ul>
+<header class="sticky top-0 z-50 backdrop-blur-sm">
+    <nav class="container mx-auto px-4 py-4">
+        <div class="flex items-center justify-between">
+            <div class="flex items-center">
+                <a href="/" class="hover:opacity-80 transition-opacity">
+                    <img
+                        src={patycu_avatar.src}
+                        alt="Paty avatar photo"
+                        class="rounded-full size-8 md:size-10 object-contain"
+                    />
+                </a>
+            </div>
+            <ul class="flex flex-wrap gap-x-6 gap-y-2 items-center">
+                {
+                    navItems.map(({ href, label, section }) => {
+                        const isCurrentPage = isBlogPage ? section === "blog" : section === "top"
+                        return (
+                            <li>
+                                <a
+                                    href={section === "blog" ? "/blog" : `/#${section}`}
+                                    class={`text-slate-300 hover:text-cyan-500 transition-colors duration-200 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-cyan-500 after:transition-all after:duration-200 hover:after:w-full ${
+                                        isCurrentPage ? "text-cyan-500" : ""
+                                    }`}
+                                    data-section={section}
+                                >
+                                    {label}
+                                </a>
+                            </li>
+                        )
+                    })
+                }
+            </ul>
+        </div>
     </nav>
 </header>
+
+<script>
+    // Handle navigation and scrolling
+    document.querySelectorAll("a[data-section]").forEach((link) => {
+        link.addEventListener("click", (e) => {
+            const section = link.getAttribute("data-section")
+            if (!section || section === "blog") return // Let the default behavior handle blog navigation
+
+            e.preventDefault()
+
+            if (window.location.pathname === "/blog") {
+                // Store the target section in sessionStorage
+                sessionStorage.setItem("scrollToSection", section)
+                // Navigate to home
+                window.location.href = "/"
+            } else {
+                // If we're already on the home page, just scroll
+                const element = document.getElementById(section)
+                if (element) {
+                    element.scrollIntoView({ behavior: "smooth" })
+                }
+            }
+        })
+    })
+
+    // Check if we need to scroll to a section after page load
+    window.addEventListener("load", () => {
+        const sectionToScroll = sessionStorage.getItem("scrollToSection")
+        if (sectionToScroll) {
+            const element = document.getElementById(sectionToScroll)
+            if (element) {
+                element.scrollIntoView({ behavior: "smooth" })
+            }
+            // Clear the stored section
+            sessionStorage.removeItem("scrollToSection")
+        }
+    })
+</script>
+
+<style>
+    /* Add a subtle transition for the active state */
+    a[data-section] {
+        transition: color 0.3s ease;
+    }
+
+    a[data-section].text-cyan-500 {
+        color: rgb(6 182 212);
+    }
+
+    /* Optional: Add a subtle hover effect for the entire nav item */
+    li {
+        transition: transform 0.2s ease;
+    }
+
+    li:hover {
+        transform: translateY(-1px);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        a[data-section],
+        li {
+            transition: none;
+        }
+    }
+
+    /* Add scroll margin to all sections to account for header height */
+    :global(section[id]) {
+        scroll-margin-top: 5rem;
+    }
+</style>
