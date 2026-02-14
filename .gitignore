@@ -22,3 +22,7 @@ pnpm-debug.log*
 
 # Local Netlify folder
 .netlify
+
+# Private AI prompts and local Claude instructions
+.prompts/
+CLAUDE.local.md
