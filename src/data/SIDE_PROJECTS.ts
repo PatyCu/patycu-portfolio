@@ -10,10 +10,11 @@ export const SIDE_PROJECTS = [
     },
     {
         title: "this.portfolio",
-        description: "This portfolio, built with Astro, some Typescript and deployed with Netlify.",
+        description:
+            "This portfolio, built with Astro, some Typescript and deployed with Netlify. Now optimized with AI-assisted development tools 🪄✨",
         link: "https://patycuenca.com",
         github: "https://github.com/PatyCu/patycu-portfolio",
         image: "/projects/patycuenca_screenshot.jpg",
-        tags: ["Astro", "Typescript", "Netlify"]
+        tags: ["Astro", "Typescript", "Netlify", "AI-assisted development"]
     }
 ]
