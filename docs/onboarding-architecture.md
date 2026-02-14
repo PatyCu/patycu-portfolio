@@ -227,16 +227,16 @@ The homepage composes all sections in order:
 
 ```bash
 # Install dependencies
-npm install
+pnpm install
 
 # Start dev server (localhost:4321, hot reload)
-npm run dev
+pnpm dev
 
 # Type check + build to ./dist/
-npm run build
+pnpm build
 
 # Preview the production build locally
-npm run preview
+pnpm preview
 ```
 
 ### Deployment (Netlify)
@@ -246,7 +246,7 @@ npm run preview
 ntl deploy --prod
 ```
 
-Netlify is configured to auto-deploy from the `main` branch. The build command is `npm run build` and the publish directory is `dist/`.
+Netlify is configured to auto-deploy from the `main` branch. The build command is `pnpm build` and the publish directory is `dist/`.
 
 ---
 
@@ -302,10 +302,10 @@ Think of it as: **"A typed CMS where the data files are the database, the compon
 ## Practical Tips
 
 1. **Content changes don't require touching components** — edit only the data files in `src/data/`.
-2. **Type errors are caught at build time** — `npm run build` runs `astro check` first.
+2. **Type errors are caught at build time** — `pnpm build` runs `astro check` first.
 3. **No JavaScript bundle by default** — Astro ships zero JS unless you add client directives (`client:load`, etc.). None are currently used.
 4. **Images go in `public/`** — reference them with root-relative paths (e.g., `/projects/screenshot.png`).
-5. **Prettier formats `.astro` files** — run `npx prettier --write .` to format.
+5. **Prettier formats `.astro` files** — run `pnpm exec prettier --write .` to format.
 6. **Hidden sections exist in index.astro** — "What am I looking for" section exists but is commented out.
 7. **Tags on ExperienceItem are used for visual filtering context** — not functional filters currently.
 

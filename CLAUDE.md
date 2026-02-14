@@ -9,16 +9,16 @@ For full architecture reference, see [docs/onboarding-architecture.md](docs/onbo
 ## Commands
 
 ```bash
-npm run dev        # Dev server at http://localhost:4321 (hot reload)
-npm run build      # Type-check (astro check) then build to ./dist/
-npm run preview    # Preview production build locally
-npx astro check    # Type-check only, without building
-npx prettier --write .  # Format all files (no npm script for this)
+pnpm dev           # Dev server at http://localhost:4321 (hot reload)
+pnpm build         # Type-check (astro check) then build to ./dist/
+pnpm preview       # Preview production build locally
+pnpm astro check   # Type-check only, without building
+pnpm exec prettier --write .  # Format all files (no pnpm script for this)
 ```
 
 There is **no test suite** in this project.
 
-Deploy to production: `npm run build && ntl deploy --prod`
+Deploy to production: `pnpm build && ntl deploy --prod`
 
 ---
 
@@ -38,7 +38,7 @@ All content (experience, projects, recommendations) lives in typed TypeScript ar
 
 **Dark mode:** Tailwind's `darkMode: "class"` strategy is used. The `<html>` tag in `src/layouts/Layout.astro` carries the `dark` class — this must remain for all `dark:` utility classes to apply. Custom background color: `dark-turquoise: "#323949"`.
 
-**Build = type-check + build:** `npm run build` runs `astro check && astro build`. TypeScript errors fail the build before any output is produced.
+**Build = type-check + build:** `pnpm build` runs `astro check && astro build`. TypeScript errors fail the build before any output is produced.
 
 ---
 
