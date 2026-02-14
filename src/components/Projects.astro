@@ -4,15 +4,6 @@ import { SIDE_PROJECTS } from "../data/SIDE_PROJECTS.ts"
 
 import ProjectItem from "./ProjectItem.astro"
 
-interface Project {
-    title: string
-    description: string
-    link: string | null
-    image: string
-    github: string | null
-    tags: string[]
-}
-
 interface Props {
     type: "work" | "side"
 }

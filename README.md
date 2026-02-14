@@ -4,16 +4,16 @@ Welcome to my portfolio 🙋🏻‍♀️
 
 ## 🥞 Tech stack
 
--   Astro 4
--   Typescript
--   Tailwind CSS
+- Astro 5
+- Typescript
+- Tailwind CSS
 
 ## 📚 Resources
 
--   Background from https://bg.ibelick.com/
--   Fountsource: open source fonts
--   Flowbite: open-source library of UI components built over tailwind
--   Icons from https://svgl.vercel.app/
+- Background from https://bg.ibelick.com/
+- Fountsource: open source fonts
+- Flowbite: open-source library of UI components built over tailwind
+- Icons from https://svgl.vercel.app/
 
 ## 👩🏻‍💻 NPM Commands
 
