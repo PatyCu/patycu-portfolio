@@ -1,8 +1,8 @@
 ---
 import Layout from "./Layout.astro"
+import TagList from "../components/blog/TagList.astro"
 
 const { frontmatter } = Astro.props
-console.log(frontmatter.title)
 ---
 
 <Layout title={frontmatter.title} description={frontmatter.description}>
@@ -37,6 +37,14 @@ console.log(frontmatter.title)
                 </blockquote>
 
                 <slot />
+
+                {
+                    frontmatter.tags?.length > 0 && (
+                        <div class="mt-8">
+                            <TagList tags={frontmatter.tags} />
+                        </div>
+                    )
+                }
             </div>
         </div>
     </section>
