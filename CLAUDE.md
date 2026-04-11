@@ -42,6 +42,17 @@ All content (experience, projects, recommendations) lives in typed TypeScript ar
 
 ---
 
+## Environment Consistency
+
+When a task changes project requirements that affect the local system (e.g., changing the package manager, adding a required global tool, updating a runtime version), the task is not done until the local system reflects those changes. Verify the system is consistent before marking the task complete.
+
+Examples of changes that require system verification:
+- Changing `packageManager` in `package.json` → confirm the new package manager is installed and available in PATH
+- Adding a new global CLI dependency → confirm it is installed
+- Changing the Node.js version requirement → confirm the active version matches
+
+---
+
 ## Git
 
 Before starting any work, sync with the base branch and verify the build:
