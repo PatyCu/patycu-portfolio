@@ -1,0 +1,28 @@
+---
+interface Props {
+    tags: string[]
+    activeTag?: string
+}
+
+const { tags, activeTag } = Astro.props
+---
+
+<ol class="flex flex-col gap-1">
+    {
+        tags.map((tag) => (
+            <li>
+                <a
+                    href={`/blog?tag=${encodeURIComponent(tag)}`}
+                    class={`text-sm hover:text-cyan-500 transition-colors ${
+                        tag === activeTag
+                            ? "text-cyan-500 font-semibold"
+                            : "text-slate-300/70"
+                    }`}
+                    aria-current={tag === activeTag ? "true" : undefined}
+                >
+                    {tag}
+                </a>
+            </li>
+        ))
+    }
+</ol>
