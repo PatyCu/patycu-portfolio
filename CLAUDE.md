@@ -44,14 +44,16 @@ All content (experience, projects, recommendations) lives in typed TypeScript ar
 
 ## Git
 
-Before starting any work, sync with the base branch:
+Before starting any work, sync with the base branch and verify the build:
 
 ```bash
 git fetch origin main
-git log HEAD..origin/main --oneline
+git log HEAD..origin/main --oneline  # if behind, rebase first
+git rebase origin/main               # resolve conflicts, then:
+pnpm build                           # must pass before touching anything
 ```
 
-If the branch is behind, rebase first (`git rebase origin/main`), resolve any conflicts, then begin.
+Never push without a clean `pnpm build` locally.
 
 ---
 
