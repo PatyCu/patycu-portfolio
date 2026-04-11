@@ -42,25 +42,16 @@ All content (experience, projects, recommendations) lives in typed TypeScript ar
 
 ---
 
-## Skills
+## Git
 
-### onboard-me
+Before starting any work, sync with the base branch:
 
-Trigger automatically when the user asks to understand the codebase, onboard to the project, get an overview, explain the architecture, or produce technical documentation.
+```bash
+git fetch origin main
+git log HEAD..origin/main --oneline
+```
 
-Use the `/onboard-me` skill — it generates `docs/onboarding-architecture.md`.
-
-### pull-request-create
-
-Trigger automatically when the user asks to create a PR, open a pull request, or push changes for review.
-
-Use the `/pull-request-create` skill. It will offer a self-review first, then create a draft PR via `gh` CLI.
-
-### pull-request-self-review
-
-Trigger automatically when the user asks to review their own changes, do a self-review, or check code before opening a PR.
-
-Use the `/pull-request-self-review` skill. It runs a checklist against the current diff.
+If the branch is behind, rebase first (`git rebase origin/main`), resolve any conflicts, then begin.
 
 ---
 
