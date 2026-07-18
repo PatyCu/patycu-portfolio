@@ -1,0 +1,9 @@
+.astro/
+.claude/
+.netlify/
+agents/
+dist/
+node_modules/
+skills/
+CLAUDE.md
+pnpm-lock.yaml

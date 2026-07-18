@@ -6,16 +6,20 @@ import TagList from "../components/blog/TagList.astro"
 import Layout from "../layouts/Layout.astro"
 
 const pageTitle = "An Engineering Manager in the wild appears!"
-const allPosts = Object.values(import.meta.glob("./posts/*.md", { eager: true }))
+
+interface BlogPostModule {
+    frontmatter: {
+        tags?: string[]
+    }
+}
+
+const allPosts = Object.values(import.meta.glob<BlogPostModule>("./posts/*.md", { eager: true }))
 
 const activeTag = Astro.url.searchParams.get("tag") ?? undefined
 
-// Collect unique tags across all posts
-const allTags = [...new Set(allPosts.flatMap((post: any) => post.frontmatter?.tags ?? []))]
+const allTags = [...new Set(allPosts.flatMap((post) => post.frontmatter.tags ?? []))]
 
-const visiblePosts = activeTag
-    ? allPosts.filter((post: any) => post.frontmatter?.tags?.includes(activeTag))
-    : allPosts
+const visiblePosts = activeTag ? allPosts.filter((post) => post.frontmatter.tags?.includes(activeTag)) : allPosts
 ---
 
 <Layout
@@ -39,10 +43,7 @@ const visiblePosts = activeTag
             <h3 class="text-white text-sm font-semibold uppercase tracking-wider mb-3">Tags</h3>
             {
                 activeTag && (
-                    <a
-                        href="/blog"
-                        class="block mb-3 text-sm text-slate-300/70 hover:text-cyan-500 transition-colors"
-                    >
+                    <a href="/blog" class="block mb-3 text-sm text-slate-300/70 hover:text-cyan-500 transition-colors">
                         &larr; All posts
                     </a>
                 )
