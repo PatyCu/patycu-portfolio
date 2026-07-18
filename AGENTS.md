@@ -5,7 +5,7 @@ This file guides Codex when working in this repository. For architecture details
 
 ## Product Direction
 
-This portfolio is evolving from a static personal site into an interactive CV. The experience must work at two levels:
+This portfolio is an interactive CV evolving from a static personal site. The experience must work at two levels:
 
 - A visitor can understand Paty's profile and strengths in roughly 30 seconds without interacting.
 - A recruiter or hiring manager can explore roles, competencies, projects, and supporting evidence in greater depth.
@@ -39,7 +39,7 @@ Deploy to production with `pnpm build && ntl deploy --prod`.
 ## Architecture
 
 Astro remains responsible for routing, layouts, metadata, blog content, server rendering, and the production build. The
-interactive CV will use React only where persistent client-side state or coordinated interactions justify it.
+interactive CV uses React only where persistent client-side state or coordinated interactions justify it.
 
 The intended homepage boundary is:
 

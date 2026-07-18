@@ -2,7 +2,7 @@
 
 ## Product
 
-This repository contains Paty Cuenca's portfolio and blog. The portfolio is evolving into an interactive CV that supports
+This repository contains Paty Cuenca's portfolio and blog. The portfolio is an interactive CV that supports
 both a fast recruiter-friendly overview and deeper exploration of professional evidence.
 
 The design reference is the Lovable project in `PatyCu/sea-whispers-code`, but this repository keeps its own content,
@@ -40,7 +40,7 @@ src/data/*.ts
 The homepage server-renders the interactive CV's default perspective and hydrates that feature for URL-backed perspective
 selection. Blog routes remain framework-free and are rendered from files under `src/pages/` and `src/pages/posts/`.
 
-## Target Interactive-CV Architecture
+## Interactive-CV Architecture
 
 Astro remains the application shell. React is limited to the coordinated interactive CV experience.
 
@@ -52,7 +52,7 @@ Typed portfolio content
     -> selective hydration in the browser
 ```
 
-The expected responsibility boundaries are:
+The responsibility boundaries are:
 
 | Layer               | Responsibility                                                    |
 | ------------------- | ----------------------------------------------------------------- |
@@ -111,17 +111,16 @@ layers in anticipation of later phases.
 
 ## Routes
 
-| Source                  | Route      | Purpose                             |
-| ----------------------- | ---------- | ----------------------------------- |
-| `src/pages/index.astro` | `/`        | Portfolio and future interactive CV |
-| `src/pages/blog.astro`  | `/blog`    | Blog listing and tag filtering      |
-| `src/pages/posts/*.md`  | `/posts/*` | Individual blog posts               |
+| Source                  | Route      | Purpose                        |
+| ----------------------- | ---------- | ------------------------------ |
+| `src/pages/index.astro` | `/`        | Interactive CV and portfolio   |
+| `src/pages/blog.astro`  | `/blog`    | Blog listing and tag filtering |
+| `src/pages/posts/*.md`  | `/posts/*` | Individual blog posts          |
 
 ## Content Flow
 
-Experience, projects, side projects, and recommendations live in typed arrays under `src/data/`. Components should not own
-factual portfolio content. When the interactive CV introduces perspectives, competencies, and evidence relationships, those
-also belong in typed data or domain modules rather than JSX.
+Experience, projects, side projects, recommendations, perspectives, competencies, and evidence relationships live in typed
+data or domain modules. Components should not own factual portfolio content.
 
 Images placed in `public/` use root-relative URLs such as `/projects/example.png`.
 
