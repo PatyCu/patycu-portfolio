@@ -9,6 +9,7 @@
     --color-sea: #238c96;
     --color-sand: #eadfcd;
     --font-display: Georgia, "Times New Roman", serif;
+    --font-mono: "JetBrains Mono", ui-monospace, monospace;
     --shadow-soft: 0 18px 60px rgb(11 19 36 / 0.12);
 }
 
@@ -71,6 +72,25 @@
     .nav-link:focus-visible {
         outline: 2px solid var(--color-coral);
         outline-offset: 0.35rem;
+    }
+
+    .experience-card {
+        interpolate-size: allow-keywords;
+    }
+
+    .experience-card::details-content {
+        block-size: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition:
+            block-size 500ms ease-out,
+            opacity 300ms ease-out,
+            content-visibility 500ms allow-discrete;
+    }
+
+    .experience-card[open]::details-content {
+        block-size: auto;
+        opacity: 1;
     }
 }
 

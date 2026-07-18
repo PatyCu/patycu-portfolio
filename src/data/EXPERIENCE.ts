@@ -1,127 +1,239 @@
-export const EXPERIENCE = [
+import type { CvPerspectiveId } from "./CV_PERSPECTIVES"
+
+export const EXPERIENCE_ROLE_TYPE_IDS = ["leader-of-leaders", "team-lead", "software-engineer"] as const
+
+export type ExperienceRoleTypeId = (typeof EXPERIENCE_ROLE_TYPE_IDS)[number]
+
+export type WorkArrangement = "Remote" | "Fully remote" | "Hybrid" | "On-site" | "On-site → Remote"
+
+export interface ExperienceEntry {
+    id: string
+    title: string
+    company: string
+    companyType: string
+    location: string
+    workArrangement?: WorkArrangement
+    startDate: string
+    endDate: string | null
+    description: string
+    highlights: string[]
+    tags: string[]
+    perspectives: CvPerspectiveId[]
+    roleTypes: ExperienceRoleTypeId[]
+}
+
+export const EXPERIENCE: ExperienceEntry[] = [
     {
+        id: "glovo-engineering-manager",
         title: "Engineering Manager",
         company: "Glovo",
+        companyType: "Delivery marketplace",
         location: "Barcelona, Spain",
+        workArrangement: "Hybrid",
         startDate: "March 2024",
         endDate: null,
         description:
-            "Engineering Manager for a team of software engineers, with both backend and mobile profiles (iOS and Android). Performance management of the team in a very high-bar environment. Responsible for balancing product and engineering needs in a very fast-paced environment, while maintaining quality and operational excellence.",
-        tags: ["Hybrid", "Performance management", "Backend ", "Mobile"]
+            "Engineering Manager for a team of backend and mobile software engineers in a fast-paced, high-bar environment.",
+        highlights: [
+            "Leads backend, iOS, and Android engineers.",
+            "Balances product and engineering needs in fast-paced delivery.",
+            "Owns team performance management in a high-bar environment.",
+            "Maintains quality and operational excellence."
+        ],
+        tags: ["Hybrid", "Performance management", "Backend", "Mobile"],
+        perspectives: ["leadership", "product-engineering"],
+        roleTypes: ["team-lead"]
     },
     {
+        id: "mural-senior-engineering-manager",
         title: "Senior Engineering Manager",
         company: "Mural",
+        companyType: "Collaboration SaaS",
         location: "Remote",
+        workArrangement: "Fully remote",
         startDate: "November 2021",
-        endDate: "January, 2024",
+        endDate: "January 2024",
         description:
-            "Software Engineering Lead of the Devices team and more recently Canvas Core, teams owning the core experience of the product across all devices. I lead a team of 10 engineers, 1 engineering manager and mentored two ICs to transition to an EM role.",
-        tags: ["Mentor", "Remote", "Async work", "Scale down"]
+            "Software Engineering Lead for Devices and later Canvas Core, teams responsible for the product's core experience across devices.",
+        highlights: [
+            "Led 10 engineers and one Engineering Manager.",
+            "Owned core product experiences across desktop and mobile devices.",
+            "Mentored two individual contributors through the transition to Engineering Manager roles."
+        ],
+        tags: ["Mentor", "Remote", "Async work", "Scale down"],
+        perspectives: ["leadership", "product-engineering"],
+        roleTypes: ["leader-of-leaders"]
     },
     {
+        id: "new-relic-senior-engineering-manager",
         title: "Senior Engineering Manager",
         company: "New Relic",
+        companyType: "Observability",
         location: "Barcelona, Spain",
+        workArrangement: "Remote",
         startDate: "September 2020",
         endDate: "October 2021",
         description:
-            "Software Engineering Leader of Dashboards Ecosystem, a key initiative in New Relic offering to our customers three different products and two internal libraries. Responsible for growing the engineering org from 1 team to three teams with ~20 engineers and two Engineering Managers.",
-        tags: ["Observability", "Leader of leaders", "Hiring leaders", "performance as a feature"]
+            "Software Engineering Leader for Dashboards Ecosystem, a key New Relic initiative spanning customer products and internal libraries.",
+        highlights: [
+            "Led an ecosystem of three products and two internal libraries.",
+            "Grew the organisation from one team to three teams.",
+            "Led approximately 20 engineers and two Engineering Managers."
+        ],
+        tags: ["Observability", "Leader of leaders", "Hiring leaders", "Performance as a feature"],
+        perspectives: ["leadership", "product-engineering"],
+        roleTypes: ["leader-of-leaders"]
     },
     {
+        id: "new-relic-engineering-manager",
         title: "Engineering Manager",
         company: "New Relic",
+        companyType: "Observability",
         location: "Barcelona, Spain",
+        workArrangement: "On-site → Remote",
         startDate: "April 2018",
         endDate: "August 2020",
-        description:
-            "Leadership of an Engineering team that builds the future of New Relic's UI platform. I lead a team of 5 engineers, colaborating with  and 1 designer.",
-        tags: [
-            "Hiring",
-            "Onboarding",
-            "Data Visualization",
-            "Design System",
-            "Platform team",
-            "React",
-            "D3",
-            "Observability"
-        ]
+        description: "Led the engineering team building the future of New Relic's UI platform.",
+        highlights: [
+            "Led five engineers and collaborated closely with a product designer.",
+            "Guided the team through the transition from on-site to remote work during the pandemic.",
+            "Worked across data visualisation, design systems, and platform foundations.",
+            "Hired and onboarded engineers for a React-based platform team."
+        ],
+        tags: ["Hiring", "Onboarding", "Data visualisation", "Design system", "Platform team", "React", "D3"],
+        perspectives: ["leadership", "product-engineering"],
+        roleTypes: ["team-lead"]
     },
     {
+        id: "typeform-engineering-manager",
         title: "Engineering Manager",
         company: "Typeform",
+        companyType: "Form builder",
         location: "Barcelona, Spain",
+        workArrangement: "On-site",
         startDate: "January 2017",
         endDate: "April 2018",
         description:
-            "Management of a team of software engineers, making sure they have what they need to keep growing the product and advancing their careers.",
+            "Managed a team of software engineers, ensuring they had what they needed to grow the product and advance their careers.",
+        highlights: [
+            "Balanced product delivery with individual career development.",
+            "Supported people management, conflict resolution, and performance calibration.",
+            "Led engineers working with React, Vanilla JavaScript, and testing practices."
+        ],
         tags: [
-            "People Management",
+            "People management",
             "React",
             "Conflict resolution",
             "9-box calibration",
-            "React",
             "Vanilla JS",
-            "testing pyramid"
-        ]
+            "Testing pyramid"
+        ],
+        perspectives: ["leadership", "product-engineering"],
+        roleTypes: ["team-lead"]
     },
     {
+        id: "caixabank-technical-project-manager",
         title: "Technical Project Manager",
-        company: "Caixabank Tech",
+        company: "CaixaBank Tech",
+        companyType: "Financial services",
         location: "Barcelona, Spain",
+        workArrangement: "On-site",
         startDate: "July 2015",
         endDate: "December 2016",
         description:
-            "Project Manager within CaixaBank's Innovation department. Design Proofs of Concept to demonstrate the viability of the identified opportunities, and apply them to the designed business area of the organization. Coordinate, plan and supervise both the project and the allocated resources for the project (internal and/or external).",
-        tags: ["NLP", "Machine Learning", "Ontologies", "Watson", "ElasticsSearch", "Neo4j"]
+            "Technical Project Manager in CaixaBank's Innovation department, designing proofs of concept for new opportunities.",
+        highlights: [
+            "Designed proofs of concept to assess technical and business viability.",
+            "Coordinated project plans and internal and external contributors.",
+            "Explored NLP, machine learning, ontologies, and IBM Watson."
+        ],
+        tags: ["NLP", "Machine learning", "Ontologies", "IBM Watson", "Elasticsearch", "Neo4j"],
+        perspectives: ["leadership", "ai-assisted-development"],
+        roleTypes: []
     },
     {
+        id: "scytl-engineering-manager",
         title: "Engineering Manager",
         company: "Scytl",
+        companyType: "Election technology",
         location: "Barcelona, Spain",
+        workArrangement: "On-site",
         startDate: "April 2014",
         endDate: "June 2015",
-        description:
-            "Direct responsible for the delivery of a group of projects. Lead cross-functional teams, coordinate involved teams within the project, or with other projects. dentify project risks and manage contingencies.",
-        tags: ["Conflict resolution", "burnout management", "delivery management"]
+        description: "Directly responsible for delivering a group of projects through cross-functional teams.",
+        highlights: [
+            "Led cross-functional teams across related projects.",
+            "Coordinated dependencies with other teams and project groups.",
+            "Identified delivery risks and managed contingencies."
+        ],
+        tags: ["Conflict resolution", "Burnout management", "Delivery management"],
+        perspectives: ["leadership"],
+        roleTypes: ["team-lead"]
     },
     {
+        id: "altran-engineering-manager",
         title: "Engineering Manager",
         company: "Altran",
+        companyType: "Technology consultancy",
         location: "Barcelona, Spain",
+        workArrangement: "On-site",
         startDate: "January 2012",
         endDate: "October 2014",
-        description:
-            "Planning, execution and delivery of several projects (both agile and non-agile) managing its people, resources and scope.",
-        tags: ["Conflict resolution", "burnout management", "delivery management"]
+        description: "Planned, executed, and delivered several agile and non-agile projects.",
+        highlights: [
+            "Managed people, resources, delivery, and scope.",
+            "Worked across projects with different delivery methodologies."
+        ],
+        tags: ["Conflict resolution", "Burnout management", "Delivery management"],
+        perspectives: ["leadership"],
+        roleTypes: ["team-lead"]
     },
     {
+        id: "altran-software-engineer",
         title: "Software Engineer",
         company: "Altran",
+        companyType: "Technology consultancy",
         location: "Barcelona, Spain",
+        workArrangement: "On-site",
         startDate: "May 2007",
         endDate: "December 2013",
-        description: "Software development of several projects, both in the backend and the frontend.",
-        tags: ["Java", "EJB", "Oracle 10g", "Weblogic 8.1", "JSP", "Javascript", "HTML", "CSS"]
+        description: "Developed several backend and frontend software projects.",
+        highlights: [
+            "Built backend systems with Java, EJB, Oracle, and WebLogic.",
+            "Built web interfaces with JSP, JavaScript, HTML, and CSS."
+        ],
+        tags: ["Java", "EJB", "Oracle 10g", "WebLogic 8.1", "JSP", "JavaScript", "HTML", "CSS"],
+        perspectives: ["product-engineering"],
+        roleTypes: ["software-engineer"]
     },
     {
+        id: "spoc-software-engineer",
         title: "Software Engineer",
         company: "SPOC",
+        companyType: "Payment technology",
         location: "Barcelona, Spain",
+        workArrangement: "On-site",
         startDate: "January 2007",
         endDate: "December 2007",
-        description:
-            "Firmware development for Point Of Sale (POS) terminals of Ingénico, under a C / Ingedev platform.",
-        tags: ["C", "Firmware", "Ingedev", "POS"]
+        description: "Developed firmware for Ingénico Point of Sale terminals using C and the Ingedev platform.",
+        highlights: ["Built embedded software for payment terminals.", "Worked with C in the Ingedev environment."],
+        tags: ["C", "Firmware", "Ingedev", "POS"],
+        perspectives: ["product-engineering"],
+        roleTypes: ["software-engineer"]
     },
     {
+        id: "spoc-software-engineering-intern",
         title: "Software Engineering Intern",
         company: "SPOC",
+        companyType: "Payment technology",
         location: "Barcelona, Spain",
+        workArrangement: "On-site",
         startDate: "September 2005",
         endDate: "December 2006",
-        description: "Web development with HTML, CSS and XML. Maintenance of CMS systems and web applications.",
-        tags: ["HTML", "CSS", "XML", "CMS"]
+        description: "Developed web experiences and maintained CMS systems and web applications.",
+        highlights: ["Built web interfaces with HTML, CSS, and XML.", "Maintained content-management systems."],
+        tags: ["HTML", "CSS", "XML", "CMS"],
+        perspectives: ["product-engineering"],
+        roleTypes: ["software-engineer"]
     }
 ]

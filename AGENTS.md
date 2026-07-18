@@ -13,6 +13,10 @@ This portfolio is evolving from a static personal site into an interactive CV. T
 Sophistication must improve comprehension. Avoid interactions that hide essential information, create navigation dead ends,
 or exist only as visual novelty.
 
+Use the deployed Lovable concept as the primary visual and interaction reference. Match its typography, spacing, card
+treatments, motion, and small playful details closely unless doing so would compromise Paty's factual content,
+accessibility, responsive behavior, or the agreed Astro/React architecture.
+
 ## Commands
 
 ```bash

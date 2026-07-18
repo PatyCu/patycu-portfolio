@@ -1,10 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro"
 import Hero from "../components/hero/Hero.astro"
-import PerspectiveExplorer from "../features/interactive-cv/PerspectiveExplorer"
-import Experience from "../icons/Experience.astro"
+import InteractiveCv from "../features/interactive-cv/InteractiveCv"
 import ProjectsIcon from "../icons/ProjectsIcon.astro"
-import Timeline from "../components/experience/Experience.astro"
 import Projects from "../components/projects/Projects.astro"
 import About from "../icons/About.astro"
 import Search from "../icons/Search.astro"
@@ -20,7 +18,7 @@ import SectionHeader from "../components/ui/SectionHeader.astro"
 >
     <main class="mx-auto w-full" id="top">
         <Hero />
-        <PerspectiveExplorer client:load />
+        <InteractiveCv client:load />
         <div class="rounded-[2rem] bg-dark-turquoise p-6 text-[#d8f2f6] shadow-soft md:p-10 lg:p-14">
             <section class="mt-8" id="looking" hidden>
                 <SectionHeader title="What am I looking for" icon={Search} />
@@ -84,12 +82,6 @@ import SectionHeader from "../components/ui/SectionHeader.astro"
                     professional. I thrive on bringing order to chaos, solving problems, and helping others reach their
                     full potential.
                 </p>
-            </section>
-            <section class="mt-12 scroll-mt-24" id="experience">
-                <SectionHeader title="Experience" icon={Experience} iconSize="size-12" />
-                <div class="mt-4">
-                    <Timeline />
-                </div>
             </section>
             <section class="mt-12 scroll-mt-24" id="projects">
                 <SectionHeader title="Projects" icon={ProjectsIcon} iconSize="size-9 mt-1" />

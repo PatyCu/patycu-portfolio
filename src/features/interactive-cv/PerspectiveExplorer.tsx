@@ -1,40 +1,13 @@
-import { useEffect, useState } from "react"
-
 import { CV_PERSPECTIVES, type CvPerspectiveId } from "../../data/CV_PERSPECTIVES"
-import {
-    DEFAULT_CV_PERSPECTIVE_ID,
-    getCvPerspective,
-    getCvPerspectiveIdFromSearch,
-    getSearchForCvPerspective
-} from "./perspectives"
+import { getCvPerspective } from "./perspectives"
 
-export default function PerspectiveExplorer() {
-    const [activePerspectiveId, setActivePerspectiveId] = useState<CvPerspectiveId>(DEFAULT_CV_PERSPECTIVE_ID)
+interface PerspectiveExplorerProps {
+    activePerspectiveId: CvPerspectiveId
+    onSelectPerspective: (perspectiveId: CvPerspectiveId) => void
+}
+
+export default function PerspectiveExplorer({ activePerspectiveId, onSelectPerspective }: PerspectiveExplorerProps) {
     const activePerspective = getCvPerspective(activePerspectiveId)
-
-    useEffect(() => {
-        const syncPerspectiveWithUrl = () => {
-            setActivePerspectiveId(getCvPerspectiveIdFromSearch(window.location.search))
-        }
-
-        syncPerspectiveWithUrl()
-        window.addEventListener("popstate", syncPerspectiveWithUrl)
-
-        return () => window.removeEventListener("popstate", syncPerspectiveWithUrl)
-    }, [])
-
-    const selectPerspective = (perspectiveId: CvPerspectiveId) => {
-        if (perspectiveId === activePerspectiveId) {
-            return
-        }
-
-        setActivePerspectiveId(perspectiveId)
-
-        const nextSearch = getSearchForCvPerspective(window.location.search, perspectiveId)
-        const nextUrl = `${window.location.pathname}${nextSearch}${window.location.hash}`
-
-        window.history.pushState(null, "", nextUrl)
-    }
 
     return (
         <section className="pb-24 md:pb-32" aria-labelledby="perspective-heading">
@@ -66,7 +39,7 @@ export default function PerspectiveExplorer() {
                                 key={perspective.id}
                                 type="button"
                                 aria-pressed={isActive}
-                                onClick={() => selectPerspective(perspective.id)}
+                                onClick={() => onSelectPerspective(perspective.id)}
                                 className={`group flex items-center justify-between gap-4 rounded-2xl border px-5 py-4 text-left transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-coral ${
                                     isActive
                                         ? "border-ink bg-ink text-cream"

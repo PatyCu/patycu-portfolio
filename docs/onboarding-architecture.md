@@ -84,12 +84,13 @@ public/                       Static assets served as-is
 src/
   components/                 Reusable Astro components
     blog/                     Blog presentation
-    experience/               Career presentation
     layout/                   Header and footer
     projects/                 Work and side-project presentation
     recommendations/          Testimonials
     ui/                       Small reusable primitives
   data/                       Typed portfolio content
+  features/                   Coordinated interactive features and domain rules
+    interactive-cv/           Shared CV state, filtering, and presentation
   icons/                      Astro SVG components
   img/                        Source-managed images
   layouts/                    Page document shells
