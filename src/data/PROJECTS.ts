@@ -1,7 +1,7 @@
 export const PROJECT_CATEGORY_IDS = [
-    "product-and-ux",
-    "platforms-and-data",
-    "delivery-systems",
+    "platform-engineering",
+    "product-engineering",
+    "client-delivery",
     "side-projects"
 ] as const
 
@@ -30,11 +30,25 @@ export interface PortfolioProject {
 
 export const PROJECTS: PortfolioProject[] = [
     {
+        id: "glovo-product-engineering",
+        title: "Glovo delivery experience",
+        organisation: "Glovo",
+        description:
+            "Product engineering leadership for a delivery marketplace, spanning backend, iOS, and Android while balancing product needs, engineering quality, and operational excellence.",
+        categoryIds: ["product-engineering"],
+        kind: "work",
+        link: null,
+        github: null,
+        image: null,
+        tags: ["Backend", "iOS", "Android", "Product engineering", "Operational excellence"],
+        artifacts: []
+    },
+    {
         id: "mural-core-experiences",
         title: "Mural core experiences",
         organisation: "Mural",
         description: "Core visual-collaboration experiences spanning the canvas and native device apps.",
-        categoryIds: ["product-and-ux"],
+        categoryIds: ["product-engineering"],
         kind: "work",
         link: "https://mural.co",
         github: null,
@@ -57,8 +71,9 @@ export const PROJECTS: PortfolioProject[] = [
         id: "new-relic-product-ecosystem",
         title: "New Relic product ecosystem",
         organisation: "New Relic",
-        description: "Customer-facing data products and shared visualisation foundations across New Relic.",
-        categoryIds: ["product-and-ux", "platforms-and-data"],
+        description:
+            "A hybrid product-and-platform team building customer-facing data products alongside shared visualisation foundations used across New Relic.",
+        categoryIds: ["platform-engineering", "product-engineering"],
         kind: "work",
         link: "https://newrelic.com/platform/dashboards",
         github: null,
@@ -66,14 +81,9 @@ export const PROJECTS: PortfolioProject[] = [
         tags: ["React", "Node.js", "TypeScript", "AWS", "D3"],
         artifacts: [
             {
-                title: "Dashboards",
+                title: "Dashboards, Data Explorer & Query Builder",
                 description: "Meaningful, custom visualisations of customer data.",
-                link: "https://newrelic.com/platform/dashboards"
-            },
-            {
-                title: "Data Explorer & Query Builder",
-                description: "Flexible and visual ways for customers to explore and query their data.",
-                link: "https://newrelic.com/platform/dashboards"
+                link: null
             },
             {
                 title: "Vizco",
@@ -87,7 +97,7 @@ export const PROJECTS: PortfolioProject[] = [
         title: "The Rendering Engine",
         organisation: "Typeform",
         description: "The core product software responsible for rendering the forms customers create.",
-        categoryIds: ["product-and-ux"],
+        categoryIds: ["product-engineering"],
         kind: "work",
         link: "https://www.typeform.com/",
         github: null,
@@ -99,26 +109,38 @@ export const PROJECTS: PortfolioProject[] = [
         id: "scytl-election-night-reporting",
         title: "Election Night Reporting",
         organisation: "Scytl",
-        description: "A product that enables customers to report election results.",
-        categoryIds: ["delivery-systems"],
+        description:
+            "Bespoke election software commissioned for a specific electoral event, supporting the operational journey from voting through counting and reporting results on a fixed election date.",
+        categoryIds: ["client-delivery"],
         kind: "work",
         link: "https://www.scytl.com/en/products/election-night-reporting/",
         github: null,
         image: null,
-        tags: ["JavaScript", "RFC", "Java"],
+        tags: ["JavaScript", "RFC", "Java", "Election systems"],
         artifacts: []
     },
     {
-        id: "altran-sicas",
-        title: "SICAS",
+        id: "altran-client-product-engineering",
+        title: "Altran client projects",
         organisation: "Altran",
-        description: "Sistema d'Intermediació de les Comunitats Autònomes.",
-        categoryIds: ["delivery-systems"],
+        description: "Two consultancy projects: a public-sector J2EE application and custom POS firmware.",
+        categoryIds: ["client-delivery"],
         kind: "work",
         link: null,
         github: null,
         image: "/projects/soc.png",
-        tags: ["Java", "Oracle 10", "BEA WebLogic 8.1"],
-        artifacts: []
+        tags: ["Java", "J2EE", "C", "Firmware", "Oracle 10", "BEA WebLogic 8.1"],
+        artifacts: [
+            {
+                title: "SICAS",
+                description: "The J2EE application used to manage unemployment for the local government of Catalonia.",
+                link: null
+            },
+            {
+                title: "POS terminal firmware",
+                description: "Custom firmware in C for Ingenico POS terminals.",
+                link: null
+            }
+        ]
     }
 ]

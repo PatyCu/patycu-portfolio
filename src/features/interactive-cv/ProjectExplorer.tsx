@@ -2,7 +2,7 @@ import { useState } from "react"
 
 import { PROJECTS, type PortfolioProject } from "../../data/PROJECTS"
 import { SIDE_PROJECTS } from "../../data/SIDE_PROJECTS"
-import { PROJECT_FILTERS, getProjectCategory, getProjectsForFilter, type ProjectFilterId } from "./projects"
+import { PROJECT_FILTERS, getProjectFilter, getProjectsForFilter, type ProjectFilterId } from "./projects"
 
 const placeholderThemes = [
     "bg-dark-turquoise text-cream",
@@ -28,7 +28,7 @@ interface ProjectCardProps {
 }
 
 function ProjectCard({ project, placeholderIndex }: ProjectCardProps) {
-    const categories = project.categoryIds.map((categoryId) => getProjectCategory(categoryId).label).join(" · ")
+    const categories = project.categoryIds.map((categoryId) => getProjectFilter(categoryId).label).join(" · ")
     const placeholderTheme = placeholderThemes[placeholderIndex % placeholderThemes.length]
 
     return (
@@ -119,88 +119,58 @@ function ProjectCard({ project, placeholderIndex }: ProjectCardProps) {
 
 export default function ProjectExplorer() {
     const [activeFilterId, setActiveFilterId] = useState<ProjectFilterId>("all")
-    const visibleProjects = getProjectsForFilter(PROJECTS, activeFilterId)
+    const visibleProjects = getProjectsForFilter(portfolioProjects, activeFilterId)
 
     return (
-        <>
-            <section id="projects" className="scroll-mt-24 pb-24 md:pb-32" aria-labelledby="projects-heading">
-                <div className="mb-8 grid gap-5 md:grid-cols-12 md:items-end">
-                    <div className="md:col-span-7">
-                        <p className="mb-3 font-mono text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-coral">
-                            Selected evidence
-                        </p>
-                        <h2
-                            id="projects-heading"
-                            className="max-w-2xl text-3xl font-black leading-tight tracking-[-0.035em] text-ink md:text-5xl"
-                        >
-                            Artifacts <span className="font-serif italic">& outcomes</span>
-                        </h2>
-                        <p className="mt-4 font-mono text-xs text-ink-muted">
-                            find ~/work -type f · sorted by evidence
-                        </p>
-                    </div>
-
-                    <div className="print-hidden md:col-span-5 md:justify-self-end">
-                        <div className="flex flex-wrap gap-2" aria-label="Filter projects by evidence type">
-                            {PROJECT_FILTERS.map((filter) => {
-                                const isActive = filter.id === activeFilterId
-
-                                return (
-                                    <button
-                                        key={filter.id}
-                                        type="button"
-                                        aria-pressed={isActive}
-                                        onClick={() => setActiveFilterId(filter.id)}
-                                        className={`rounded-full border px-4 py-2.5 text-xs font-bold transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-coral ${
-                                            isActive
-                                                ? "border-ink bg-ink text-cream"
-                                                : "border-ink/20 bg-white text-ink hover:border-sea hover:text-sea"
-                                        }`}
-                                    >
-                                        {filter.label}
-                                    </button>
-                                )
-                            })}
-                        </div>
-                        <p className="mt-3 text-xs text-ink-muted" aria-live="polite">
-                            Showing {visibleProjects.length} of {PROJECTS.length} work artifacts
-                        </p>
-                    </div>
-                </div>
-
-                <ol className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                    {visibleProjects.map((project) => (
-                        <li key={project.id}>
-                            <ProjectCard project={project} placeholderIndex={getPlaceholderIndex(project.id)} />
-                        </li>
-                    ))}
-                </ol>
-            </section>
-
-            <section id="pet-projects" className="scroll-mt-24 pb-24 md:pb-32" aria-labelledby="side-projects-heading">
-                <div className="mb-8">
+        <section id="projects" className="scroll-mt-24 pb-24 md:pb-32" aria-labelledby="projects-heading">
+            <div className="mb-8 grid gap-5 md:grid-cols-12 md:items-end">
+                <div className="md:col-span-6">
                     <p className="mb-3 font-mono text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-coral">
-                        Built for curiosity
+                        Selected evidence
                     </p>
                     <h2
-                        id="side-projects-heading"
+                        id="projects-heading"
                         className="max-w-2xl text-3xl font-black leading-tight tracking-[-0.035em] text-ink md:text-5xl"
                     >
-                        Side <span className="font-serif italic">projects</span>
+                        Artifacts <span className="font-serif italic">& Labs</span>
                     </h2>
-                    <p className="mt-4 font-mono text-xs text-ink-muted">
-                        ls ~/side-projects · experiments & personal builds
+                    <p className="mt-4 font-mono text-xs text-ink-muted">find ~/work -type f · sorted by evidence</p>
+                </div>
+                <div className="print-hidden md:col-span-6 md:justify-self-end">
+                    <div className="flex flex-wrap gap-2" aria-label="Filter artifacts by type">
+                        {PROJECT_FILTERS.map((filter) => {
+                            const isActive = filter.id === activeFilterId
+
+                            return (
+                                <button
+                                    key={filter.id}
+                                    type="button"
+                                    aria-pressed={isActive}
+                                    onClick={() => setActiveFilterId(filter.id)}
+                                    className={`rounded-full border px-4 py-2.5 text-xs font-bold transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-coral ${
+                                        isActive
+                                            ? "border-ink bg-ink text-cream"
+                                            : "border-ink/20 bg-white text-ink hover:border-sea hover:text-sea"
+                                    }`}
+                                >
+                                    {filter.label}
+                                </button>
+                            )
+                        })}
+                    </div>
+                    <p className="mt-3 text-xs text-ink-muted" aria-live="polite">
+                        Showing {visibleProjects.length} of {portfolioProjects.length} artifacts
                     </p>
                 </div>
+            </div>
 
-                <ol className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                    {SIDE_PROJECTS.map((project) => (
-                        <li key={project.id}>
-                            <ProjectCard project={project} placeholderIndex={getPlaceholderIndex(project.id)} />
-                        </li>
-                    ))}
-                </ol>
-            </section>
-        </>
+            <ol className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                {visibleProjects.map((project) => (
+                    <li key={project.id}>
+                        <ProjectCard project={project} placeholderIndex={getPlaceholderIndex(project.id)} />
+                    </li>
+                ))}
+            </ol>
+        </section>
     )
 }

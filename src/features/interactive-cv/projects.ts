@@ -1,29 +1,18 @@
 import type { PortfolioProject, ProjectCategoryId } from "../../data/PROJECTS"
 
-export type ProjectFilterId = "all" | Exclude<ProjectCategoryId, "side-projects">
-
-export interface ProjectCategory {
-    id: ProjectCategoryId
-    label: string
-}
+export type ProjectFilterId = "all" | ProjectCategoryId
 
 export interface ProjectFilter {
     id: ProjectFilterId
     label: string
 }
 
-export const PROJECT_CATEGORIES: ProjectCategory[] = [
-    { id: "product-and-ux", label: "Product & UX" },
-    { id: "platforms-and-data", label: "Platforms & data" },
-    { id: "delivery-systems", label: "Delivery systems" },
-    { id: "side-projects", label: "Side projects" }
-]
-
 export const PROJECT_FILTERS: ProjectFilter[] = [
     { id: "all", label: "All" },
-    ...PROJECT_CATEGORIES.filter(
-        (category): category is ProjectCategory & { id: ProjectFilterId } => category.id !== "side-projects"
-    )
+    { id: "platform-engineering", label: "Platform engineering" },
+    { id: "product-engineering", label: "Product engineering" },
+    { id: "client-delivery", label: "Client delivery" },
+    { id: "side-projects", label: "Side projects" }
 ]
 
 export function getProjectsForFilter(projects: PortfolioProject[], filterId: ProjectFilterId): PortfolioProject[] {
@@ -34,12 +23,12 @@ export function getProjectsForFilter(projects: PortfolioProject[], filterId: Pro
     return projects.filter((project) => project.categoryIds.includes(filterId))
 }
 
-export function getProjectCategory(categoryId: ProjectCategoryId): ProjectCategory {
-    const category = PROJECT_CATEGORIES.find((candidate) => candidate.id === categoryId)
+export function getProjectFilter(filterId: ProjectFilterId): ProjectFilter {
+    const filter = PROJECT_FILTERS.find((candidate) => candidate.id === filterId)
 
-    if (!category) {
-        throw new Error(`Unknown project category: ${categoryId}`)
+    if (!filter) {
+        throw new Error(`Unknown project filter: ${filterId}`)
     }
 
-    return category
+    return filter
 }
