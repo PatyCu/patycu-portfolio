@@ -21,13 +21,14 @@ pnpm build         # Astro type-check followed by a production build
 pnpm preview       # Preview the production build locally
 pnpm typecheck     # Astro and TypeScript checks only
 pnpm lint          # ESLint for maintained source and configuration files
+pnpm test          # Focused unit tests for interactive CV domain behavior
 pnpm format        # Format maintained files with Prettier
 pnpm format:check  # Check formatting without modifying files
-pnpm validate      # Formatting, lint, type-check, and production build
+pnpm validate      # Formatting, lint, tests, type-check, and production build
 ```
 
-There is currently no test suite. Add focused tests when behavior contains meaningful filtering, state transitions, data
-mapping, or other logic that is valuable to protect. Do not claim tests passed when no relevant test exists.
+Vitest protects interactive CV domain behavior such as filtering, state transitions, and URL mapping. Keep tests focused on
+logic that is valuable to protect; do not test framework implementation details for coverage alone.
 
 Deploy to production with `pnpm build && ntl deploy --prod`.
 

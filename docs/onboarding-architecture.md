@@ -13,15 +13,16 @@ architecture, accessibility requirements, and deployment model.
 | Concern         | Technology                                    |
 | --------------- | --------------------------------------------- |
 | Framework       | Astro 5                                       |
+| Interactive UI  | React 19 through Astro's React 4 integration  |
 | Styling         | Tailwind CSS 4                                |
 | Language        | TypeScript with Astro's strict configuration  |
 | Content         | Typed TypeScript data and Markdown blog posts |
 | Font            | Barlow through Fontsource                     |
 | Deployment      | Netlify adapter and CLI                       |
 | Package manager | pnpm 10                                       |
-| Quality         | Astro Check, ESLint, and Prettier             |
+| Quality         | Astro Check, ESLint, Prettier, and Vitest     |
 
-There is no database, runtime API, authentication, or test suite.
+There is no database, runtime API, or authentication.
 
 ## Current Runtime Model
 
@@ -36,13 +37,12 @@ src/data/*.ts
     -> Netlify output
 ```
 
-The current homepage ships no intentionally hydrated framework components. Blog routes are rendered from files under
-`src/pages/` and `src/pages/posts/`.
+The homepage server-renders the interactive CV's default perspective and hydrates that feature for URL-backed perspective
+selection. Blog routes remain framework-free and are rendered from files under `src/pages/` and `src/pages/posts/`.
 
 ## Target Interactive-CV Architecture
 
-Astro will remain the application shell. React will be introduced only for the coordinated interactive CV experience,
-after explicit approval of the new production dependencies.
+Astro remains the application shell. React is limited to the coordinated interactive CV experience.
 
 ```text
 Typed portfolio content
@@ -129,11 +129,12 @@ pnpm validate
 pnpm preview
 ```
 
-`pnpm validate` checks formatting, maintained-source lint rules, Astro/TypeScript diagnostics, and the production build.
-Generated output such as `.astro/`, `.netlify/`, and `dist/` is excluded from source linting and formatting.
+`pnpm validate` checks formatting, maintained-source lint rules, focused unit tests, Astro/TypeScript diagnostics, and the
+production build. Generated output such as `.astro/`, `.netlify/`, and `dist/` is excluded from source linting and
+formatting.
 
-The repository currently has no automated test suite. Introduce focused tests alongside non-trivial domain behavior rather
-than adding a framework before there is logic worth protecting.
+Vitest tests non-trivial CV domain behavior independently from presentation components. Add tests alongside meaningful
+filtering, state transitions, and URL mapping rather than testing framework implementation details for coverage alone.
 
 ## Deployment
 

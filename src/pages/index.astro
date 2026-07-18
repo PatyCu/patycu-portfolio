@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro"
 import Hero from "../components/hero/Hero.astro"
+import PerspectiveExplorer from "../features/interactive-cv/PerspectiveExplorer"
 import Experience from "../icons/Experience.astro"
 import ProjectsIcon from "../icons/ProjectsIcon.astro"
 import Timeline from "../components/experience/Experience.astro"
@@ -19,6 +20,7 @@ import SectionHeader from "../components/ui/SectionHeader.astro"
 >
     <main class="mx-auto w-full" id="top">
         <Hero />
+        <PerspectiveExplorer client:load />
         <div class="rounded-[2rem] bg-dark-turquoise p-6 text-[#d8f2f6] shadow-soft md:p-10 lg:p-14">
             <section class="mt-8" id="looking" hidden>
                 <SectionHeader title="What am I looking for" icon={Search} />
