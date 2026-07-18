@@ -1,12 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro"
 import Hero from "../components/hero/Hero.astro"
+import ProfileSummary from "../components/profile/ProfileSummary.astro"
 import InteractiveCv from "../features/interactive-cv/InteractiveCv"
-import About from "../icons/About.astro"
-import Search from "../icons/Search.astro"
-import RecommendationsIcon from "../icons/RecommendationsIcon.astro"
 import Recommendations from "../components/recommendations/Recommendations.astro"
-import SectionHeader from "../components/ui/SectionHeader.astro"
 ---
 
 <Layout
@@ -16,75 +13,22 @@ import SectionHeader from "../components/ui/SectionHeader.astro"
 >
     <main class="mx-auto w-full" id="top">
         <Hero />
+        <ProfileSummary />
         <InteractiveCv client:load />
-        <div class="rounded-[2rem] bg-dark-turquoise p-6 text-[#d8f2f6] shadow-soft md:p-10 lg:p-14">
-            <section class="mt-8" id="looking" hidden>
-                <SectionHeader title="What am I looking for" icon={Search} />
-                <p>
-                    I am looking for <span class="text-cyan-500">Senior Engineering Manager</span> positions either <span
-                        class="text-cyan-500">hybrid in Barcelona</span
-                    >
-                    or <span class="text-cyan-500">remote</span>. I would also consider Engineering Manager positions if
-                    the project and the company are compelling enough.
+        <section class="scroll-mt-24 pb-24 md:pb-32" id="recommendations" aria-labelledby="recommendations-heading">
+            <div class="mb-8">
+                <p class="mb-3 font-mono text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-coral">
+                    /* what the humans say */
                 </p>
-                <p>
-                    I have more than 10 years of experience leading mostly Frontend teams (React stack), but I am more
-                    than open to manage backend teams too!
-                </p>
-                <p>
-                    The perfect job would be leading a group of teams and being the people manager for both ICs and
-                    other Engineering Managers.
-                </p>
-                <p>
-                    I would also be happy leading a team of high-performing ICs, bonus points if the team has potential
-                    for growth and I can help them do it in an efficient and orderly manner!
-                </p>
-            </section>
-            <section class="scroll-mt-24" id="about">
-                <SectionHeader title="About me" icon={About} />
-                <p>
-                    I am a Senior Engineering Manager with almost 15 years of experience leading software engineering
-                    teams in agile environments, and leading and mentoring other Engineering Managers.
-                </p>
-                <p class="pt-4">
-                    Before that I was a software <span class="text-cyan-500">developer for 8 years</span>.
-                </p>
-                <p class="pt-4">
-                    While already being a manager, I discovered a passion for frontend development and that's what I've
-                    been learning since then: <span class="text-cyan-500">Javascript</span>, <span class="text-cyan-500"
-                        >React</span
-                    > and other JS frameworks, and more recently <span class="text-cyan-500">Typescript</span>.
-                </p>
-                <p class="pt-4">
-                    Now my main focus is on AI-assisted development, learning how to effectively collaborate with AI
-                    tools to boost my productivity and upskill for the incoming Skynet-dominated era 🤖. Foreseeing the
-                    seismic shift currently happening in Tech, I also want to stay ahead of the curve and acquire
-                    hands-on experience with the tools that are going to be essential in the near future, and that will
-                    likely become a standard part of the software development workflow. Both for me, and for my team who
-                    I want to be able to support and guide through this transition.
-                </p>
-                <p class="pt-4">
-                    I have a track record of building and growing high-performing teams, which in my book means teams
-                    that are autonomous, accountable, deliver quality software incrementally, and learn from their own
-                    mistakes.
-                </p>
-                <p class="pt-4">
-                    My values are <span class="text-cyan-500">respect</span> (both for others and myself), <span
-                        class="text-cyan-500">honesty</span
-                    >, <span class="text-cyan-500">transparency</span>, and <span class="text-cyan-500"
-                        >responsibility</span
-                    >.
-                </p>
-                <p class="pt-4">
-                    Above all else, I am a flawed human being who tries her best to be a good person and a good
-                    professional. I thrive on bringing order to chaos, solving problems, and helping others reach their
-                    full potential.
-                </p>
-            </section>
-            <section class="mt-12 scroll-mt-24" id="recommendations">
-                <SectionHeader title="Recommendations" icon={RecommendationsIcon} />
-                <Recommendations />
-            </section>
-        </div>
+                <h2
+                    id="recommendations-heading"
+                    class="max-w-3xl text-3xl font-black leading-tight tracking-[-0.035em] text-ink md:text-5xl"
+                >
+                    Kind words from people <span class="font-display font-normal italic">I've worked with</span>
+                </h2>
+                <p class="mt-4 font-mono text-xs text-ink-muted">cat ~/feedback/peer-reviews.md</p>
+            </div>
+            <Recommendations />
+        </section>
     </main>
 </Layout>

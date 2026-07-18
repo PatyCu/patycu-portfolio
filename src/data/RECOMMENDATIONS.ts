@@ -1,4 +1,13 @@
-export const RECOMMENDATIONS = [
+export interface Recommendation {
+    name: string
+    position: string
+    experience: string
+    location: string
+    date: string
+    recommendation: string[]
+}
+
+export const RECOMMENDATIONS: Recommendation[] = [
     {
         name: "Nina Repetto",
         position: "Senior Software Engineer",
@@ -58,7 +67,7 @@ export const RECOMMENDATIONS = [
     },
     {
         name: "Jordi Martínez Llamas",
-        position: "Software Enineer",
+        position: "Software Engineer",
         experience: "Engineering Manager @ Altran",
         location: "Barcelona, Spain",
         date: "October 2014",

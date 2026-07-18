@@ -60,16 +60,6 @@ import SocialPill from "../ui/SocialPill.astro"
         <div class="rounded-3xl border border-ink/10 bg-white p-5 shadow-soft">
             <p class="mb-4 font-mono text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-coral">$ whoami</p>
             <p class="text-base font-semibold text-ink">{PROFILE.role} · {PROFILE.location}</p>
-            <dl class="mt-4 grid grid-cols-3 gap-3 border-t border-ink/10 pt-4">
-                {
-                    PROFILE.facts.map((fact) => (
-                        <div>
-                            <dt class="text-sm font-black leading-tight text-ink">{fact.value}</dt>
-                            <dd class="mt-1 text-[0.68rem] leading-snug text-ink-muted">{fact.label}</dd>
-                        </div>
-                    ))
-                }
-            </dl>
         </div>
     </aside>
 </section>
