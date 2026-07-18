@@ -10,7 +10,7 @@ export default function PerspectiveExplorer({ activePerspectiveId, onSelectPersp
     const activePerspective = getCvPerspective(activePerspectiveId)
 
     return (
-        <section className="pb-24 md:pb-32" aria-labelledby="perspective-heading">
+        <section className="print-hidden pb-24 md:pb-32" aria-labelledby="perspective-heading">
             <div className="mb-8 grid gap-4 md:grid-cols-12 md:items-end">
                 <div className="md:col-span-7">
                     <p className="mb-3 font-mono text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-coral">

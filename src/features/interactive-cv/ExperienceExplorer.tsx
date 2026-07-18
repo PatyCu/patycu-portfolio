@@ -29,7 +29,7 @@ export default function ExperienceExplorer() {
                     <p className="mt-4 font-mono text-xs text-ink-muted">cat ~/history/career.md · click to expand</p>
                 </div>
 
-                <div className="md:col-span-5 md:justify-self-end">
+                <div className="print-hidden md:col-span-5 md:justify-self-end">
                     <div className="flex flex-wrap gap-2" aria-label="Filter experience by role type">
                         {EXPERIENCE_FILTERS.map((filter) => {
                             const isActive = filter.id === activeFilterId

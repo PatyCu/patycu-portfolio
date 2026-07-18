@@ -1,6 +1,7 @@
 ---
 import Header from "../components/layout/Header.astro"
 import Footer from "../components/layout/Footer.astro"
+import patycuAvatar from "../img/patycu_avatar.png"
 import "@fontsource/barlow"
 import "@fontsource/jetbrains-mono"
 import "../styles/global.css"
@@ -13,6 +14,8 @@ interface Props {
 
 const { title, description, theme = "legacy" } = Astro.props
 const isLight = theme === "light"
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site ?? Astro.url)
+const socialImageUrl = new URL(patycuAvatar.src, Astro.site ?? Astro.url)
 ---
 
 <!doctype html>
@@ -21,8 +24,18 @@ const isLight = theme === "light"
         <meta charset="UTF-8" />
         <meta name="description" content={description} />
         <meta name="viewport" content="width=device-width" />
+        <link rel="canonical" href={canonicalUrl} />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="generator" content={Astro.generator} />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:image" content={socialImageUrl} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={socialImageUrl} />
         <title>{title}</title>
     </head>
     <body class:list={[isLight ? "bg-cream text-ink" : "theme-legacy bg-dark-turquoise text-[#d8f2f6]"]}>

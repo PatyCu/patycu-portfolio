@@ -6,7 +6,10 @@ import { PROFILE } from "../../data/PROFILE"
 import SocialPill from "../ui/SocialPill.astro"
 ---
 
-<section class="grid items-end gap-12 pb-24 pt-16 md:grid-cols-12 md:pb-32 md:pt-24" aria-labelledby="hero-title">
+<section
+    class="profile-hero grid items-end gap-12 pb-24 pt-16 md:grid-cols-12 md:pb-32 md:pt-24"
+    aria-labelledby="hero-title"
+>
     <div class="md:col-span-7 lg:col-span-8">
         <p class="mb-6 font-mono text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-ink-muted">
             {PROFILE.eyebrow.join(" · ")}
@@ -39,7 +42,10 @@ import SocialPill from "../ui/SocialPill.astro"
         </ul>
     </div>
 
-    <aside class="flex flex-col gap-4 md:col-span-5 lg:col-span-4" aria-label={`${PROFILE.name} profile summary`}>
+    <aside
+        class="profile-visual flex flex-col gap-4 md:col-span-5 lg:col-span-4"
+        aria-label={`${PROFILE.name} profile summary`}
+    >
         <figure class="relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-sand shadow-soft">
             <img
                 src={patycuAvatar.src}

@@ -108,3 +108,80 @@
         animation-iteration-count: 1 !important;
     }
 }
+
+@media print {
+    @page {
+        margin: 12mm;
+    }
+
+    :root {
+        color-scheme: light;
+    }
+
+    html,
+    body {
+        background: white !important;
+        color: var(--color-ink) !important;
+        font-size: 10pt;
+    }
+
+    body {
+        min-width: 0;
+    }
+
+    .print-hidden,
+    .project-visual,
+    summary,
+    [aria-live="polite"] {
+        display: none !important;
+    }
+
+    .profile-hero {
+        display: block;
+        padding-block: 0 12mm;
+    }
+
+    .profile-hero h1 {
+        max-width: none;
+        font-size: 34pt;
+    }
+
+    .profile-visual {
+        display: none;
+    }
+
+    main > section,
+    main astro-island > section {
+        padding-bottom: 12mm !important;
+    }
+
+    article,
+    li,
+    blockquote {
+        break-inside: avoid;
+    }
+
+    .experience-card,
+    .experience-card[open] {
+        border-color: rgb(11 19 36 / 0.15) !important;
+        background: white !important;
+        color: var(--color-ink) !important;
+        box-shadow: none !important;
+    }
+
+    .experience-card::details-content {
+        block-size: auto !important;
+        content-visibility: visible !important;
+        opacity: 1 !important;
+        overflow: visible !important;
+    }
+
+    details > :not(summary) {
+        display: block !important;
+    }
+
+    a {
+        color: var(--color-ink) !important;
+        text-decoration: none !important;
+    }
+}

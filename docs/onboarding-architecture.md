@@ -66,6 +66,10 @@ The expected responsibility boundaries are:
 React components will still be server-rendered so the initial HTML contains the important CV content. Hydration must enhance
 rather than unlock the core information.
 
+The shared layout emits canonical and social metadata using the production site URL configured in `astro.config.mjs`.
+Print styles in `src/styles/global.css` remove interactive controls and decorative imagery, expose CV evidence, and produce a
+readable document independently of the active interactive state.
+
 ## Interaction Principles
 
 - The default view communicates the complete professional profile without requiring interaction.

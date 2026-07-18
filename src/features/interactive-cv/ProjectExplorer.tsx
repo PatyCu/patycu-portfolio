@@ -34,7 +34,7 @@ function ProjectCard({ project, placeholderIndex }: ProjectCardProps) {
     return (
         <article className="group flex h-full flex-col overflow-hidden rounded-3xl border border-ink/5 bg-white transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-soft">
             {project.image ? (
-                <div className="aspect-[16/10] overflow-hidden border-b border-ink/5 bg-sand">
+                <div className="project-visual aspect-[16/10] overflow-hidden border-b border-ink/5 bg-sand">
                     <img
                         src={project.image}
                         alt={`${project.title} screenshot`}
@@ -44,7 +44,7 @@ function ProjectCard({ project, placeholderIndex }: ProjectCardProps) {
                 </div>
             ) : (
                 <div
-                    className={`flex aspect-[16/10] flex-col justify-between border-b border-ink/5 p-6 ${placeholderTheme}`}
+                    className={`project-visual flex aspect-[16/10] flex-col justify-between border-b border-ink/5 p-6 ${placeholderTheme}`}
                     aria-hidden="true"
                 >
                     <p className="font-mono text-[0.62rem] font-semibold uppercase tracking-[0.16em] opacity-70">
@@ -140,7 +140,7 @@ export default function ProjectExplorer() {
                         </p>
                     </div>
 
-                    <div className="md:col-span-5 md:justify-self-end">
+                    <div className="print-hidden md:col-span-5 md:justify-self-end">
                         <div className="flex flex-wrap gap-2" aria-label="Filter projects by evidence type">
                             {PROJECT_FILTERS.map((filter) => {
                                 const isActive = filter.id === activeFilterId
