@@ -85,7 +85,6 @@ src/
   components/                 Reusable Astro components
     blog/                     Blog presentation
     layout/                   Header and footer
-    projects/                 Work and side-project presentation
     recommendations/          Testimonials
     ui/                       Small reusable primitives
   data/                       Typed portfolio content

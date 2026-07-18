@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import type { CvPerspectiveId } from "../../data/CV_PERSPECTIVES"
 import ExperienceExplorer from "./ExperienceExplorer"
 import PerspectiveExplorer from "./PerspectiveExplorer"
+import ProjectExplorer from "./ProjectExplorer"
 import { DEFAULT_CV_PERSPECTIVE_ID, getCvPerspectiveIdFromSearch, getSearchForCvPerspective } from "./perspectives"
 
 export default function InteractiveCv() {
@@ -36,6 +37,7 @@ export default function InteractiveCv() {
         <>
             <PerspectiveExplorer activePerspectiveId={activePerspectiveId} onSelectPerspective={selectPerspective} />
             <ExperienceExplorer />
+            <ProjectExplorer />
         </>
     )
 }

@@ -2,8 +2,6 @@
 import Layout from "../layouts/Layout.astro"
 import Hero from "../components/hero/Hero.astro"
 import InteractiveCv from "../features/interactive-cv/InteractiveCv"
-import ProjectsIcon from "../icons/ProjectsIcon.astro"
-import Projects from "../components/projects/Projects.astro"
 import About from "../icons/About.astro"
 import Search from "../icons/Search.astro"
 import RecommendationsIcon from "../icons/RecommendationsIcon.astro"
@@ -82,14 +80,6 @@ import SectionHeader from "../components/ui/SectionHeader.astro"
                     professional. I thrive on bringing order to chaos, solving problems, and helping others reach their
                     full potential.
                 </p>
-            </section>
-            <section class="mt-12 scroll-mt-24" id="projects">
-                <SectionHeader title="Projects" icon={ProjectsIcon} iconSize="size-9 mt-1" />
-                <div class="mt-4"><Projects type="work" /></div>
-            </section>
-            <section class="mt-12 scroll-mt-24" id="pet-projects">
-                <SectionHeader title="Side projects" icon={ProjectsIcon} iconSize="size-9 mt-1" />
-                <div class="mt-4"><Projects type="side" /></div>
             </section>
             <section class="mt-12 scroll-mt-24" id="recommendations">
                 <SectionHeader title="Recommendations" icon={RecommendationsIcon} />
