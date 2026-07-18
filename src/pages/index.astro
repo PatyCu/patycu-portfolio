@@ -3,7 +3,9 @@ import Layout from "../layouts/Layout.astro"
 import Hero from "../components/hero/Hero.astro"
 import ProfileSummary from "../components/profile/ProfileSummary.astro"
 import InteractiveCv from "../features/interactive-cv/InteractiveCv"
+import Education from "../components/education/Education.astro"
 import Recommendations from "../components/recommendations/Recommendations.astro"
+import OffHours from "../components/off-hours/OffHours.astro"
 ---
 
 <Layout
@@ -15,20 +17,32 @@ import Recommendations from "../components/recommendations/Recommendations.astro
         <Hero />
         <ProfileSummary />
         <InteractiveCv client:load />
-        <section class="scroll-mt-24 pb-24 md:pb-32" id="recommendations" aria-labelledby="recommendations-heading">
-            <div class="mb-8">
-                <p class="mb-3 font-mono text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-coral">
-                    /* what the humans say */
-                </p>
+        <Education />
+        <section
+            class="relative mb-24 scroll-mt-24 rounded-3xl border-2 border-dashed border-sea/25 bg-sea/10 p-6 sm:p-8 md:mb-32 md:p-14"
+            id="recommendations"
+            aria-labelledby="recommendations-heading"
+        >
+            <div
+                class="absolute -top-4 left-6 rounded-full bg-sea px-3 py-1 font-mono text-[0.62rem] font-semibold uppercase tracking-[0.16em] text-cream sm:left-8"
+            >
+                /* what the humans say */
+            </div>
+            <div class="mb-10 mt-2 text-center md:mb-14">
                 <h2
                     id="recommendations-heading"
-                    class="max-w-3xl text-3xl font-black leading-tight tracking-[-0.035em] text-ink md:text-5xl"
+                    class="mx-auto max-w-4xl text-3xl font-black leading-tight tracking-[-0.035em] text-ink md:text-5xl"
                 >
-                    Kind words from people <span class="font-display font-normal italic">I've worked with</span>
+                    Kind words from
+                    <span
+                        class="font-display font-normal italic text-sea underline decoration-sea decoration-2 decoration-wavy underline-offset-8"
+                    >
+                        people I've worked with
+                    </span>
                 </h2>
-                <p class="mt-4 font-mono text-xs text-ink-muted">cat ~/feedback/peer-reviews.md</p>
             </div>
             <Recommendations />
         </section>
+        <OffHours />
     </main>
 </Layout>
