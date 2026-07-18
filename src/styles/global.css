@@ -2,6 +2,89 @@
 
 @theme {
     --color-dark-turquoise: #323949;
+    --color-cream: #fbf8f1;
+    --color-ink: #0b1324;
+    --color-ink-muted: #59606d;
+    --color-coral: #f56f68;
+    --color-sea: #238c96;
+    --color-sand: #eadfcd;
+    --font-display: Georgia, "Times New Roman", serif;
+    --shadow-soft: 0 18px 60px rgb(11 19 36 / 0.12);
 }
 
 @variant dark (&:where(.dark, .dark *));
+
+@layer base {
+    :root {
+        color-scheme: light;
+    }
+
+    html {
+        scroll-behavior: smooth;
+        text-rendering: optimizeLegibility;
+    }
+
+    body {
+        min-width: 20rem;
+        font-family: "Barlow", sans-serif;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection {
+        background: var(--color-coral);
+        color: white;
+    }
+
+    a,
+    button {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .theme-legacy {
+        color-scheme: dark;
+        line-height: 2;
+    }
+
+    .theme-legacy h1 {
+        font-size: 2rem;
+    }
+
+    .theme-legacy h2 {
+        font-size: 1.5rem;
+    }
+
+    .theme-legacy h3 {
+        font-size: 1.25rem;
+    }
+}
+
+@layer components {
+    .nav-link {
+        border-radius: 0.25rem;
+        transition: color 150ms ease;
+    }
+
+    .nav-link:hover {
+        color: var(--color-coral);
+    }
+
+    .nav-link:focus-visible {
+        outline: 2px solid var(--color-coral);
+        outline-offset: 0.35rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}

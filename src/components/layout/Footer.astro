@@ -1,3 +1,19 @@
-<footer class="py-20 flex flex-wrap basis-full opacity-60">
-    <p class="lg:w-full md:max-w-md sd:max-w-sd mx-auto">All rights reserved © Paty Cuenca - 2024</p>
+---
+interface Props {
+    theme?: "legacy" | "light"
+}
+
+const { theme = "legacy" } = Astro.props
+---
+
+<footer
+    class:list={[
+        "flex basis-full flex-wrap py-16 text-sm",
+        theme === "light" ? "justify-between gap-4 border-t border-ink/10 text-ink-muted" : "opacity-60"
+    ]}
+>
+    <p class:list={[theme === "legacy" && "mx-auto md:max-w-md lg:w-full"]}>
+        All rights reserved © Paty Cuenca - {new Date().getFullYear()}
+    </p>
+    {theme === "light" && <p class="font-mono text-xs">Built with Astro · Evolving with AI</p>}
 </footer>

@@ -7,9 +7,11 @@ import "../styles/global.css"
 interface Props {
     title: string
     description: string
+    theme?: "legacy" | "light"
 }
 
-const { title, description } = Astro.props
+const { title, description, theme = "legacy" } = Astro.props
+const isLight = theme === "light"
 ---
 
 <!doctype html>
@@ -22,74 +24,21 @@ const { title, description } = Astro.props
         <meta name="generator" content={Astro.generator} />
         <title>{title}</title>
     </head>
-    <body>
-        <div class="absolute h-full w-full border border-transparent">
-            <div
-                class="absolute bottom-0 left-[-20%] right-0 top-[-10%] h-[500px]
-          w-[500px] xl:h-[1000px] xl:w-[1500px] 2xl:h-[1000px] 2xl:w-[1500px]
-          rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]"
-            >
-            </div>
-            <div
-                class="absolute bottom-0 right-[-20%] top-[-10%] h-[500px] w-[500px]
-          xl:h-[1100px] xl:w-[1100px] 2xl:h-[1000px] 2xl:w-[1500px] rounded-full
-          bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]"
-            >
-            </div>
-        </div>
-        <div class="relative">
-            <div class="relative mx-auto p-8 md:p-12 max-w-7xl">
-                <Header />
+    <body class:list={[isLight ? "bg-cream text-ink" : "theme-legacy bg-dark-turquoise text-[#d8f2f6]"]}>
+        {
+            !isLight && (
+                <div class="absolute h-full w-full overflow-hidden border border-transparent" aria-hidden="true">
+                    <div class="absolute bottom-0 left-[-20%] right-0 top-[-10%] size-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))] xl:h-[1000px] xl:w-[1500px]" />
+                    <div class="absolute bottom-0 right-[-20%] top-[-10%] size-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))] xl:size-[1100px]" />
+                </div>
+            )
+        }
+        <div class="relative min-h-screen">
+            <div class:list={["relative mx-auto max-w-7xl", isLight ? "px-5 sm:px-8" : "p-8 md:p-12"]}>
+                <Header theme={theme} />
                 <slot />
-                <Footer />
+                <Footer theme={theme} />
             </div>
         </div>
     </body>
 </html>
-<style is:global>
-    :root {
-        color-scheme: light dark;
-    }
-    html {
-        font-family: "Barlow", sans-serif;
-        scroll-behavior: smooth;
-        text-rendering: optimizeLegibility;
-    }
-
-    body {
-        display: flex;
-        justify-content: center;
-        background-color: #323949;
-        color: #d8f2f6;
-        line-height: 2;
-        /*min-height: 100vh;*/
-    }
-    /*
-    code {
-        font-family:
-            Menlo,
-            Monaco,
-            Lucida Console,
-            Liberation Mono,
-            DejaVu Sans Mono,
-            Bitstream Vera Sans Mono,
-            Courier New,
-            monospace;
-    }
-    */
-
-    @media (prefers-reduced-motion: reduce) {
-        html {
-            scroll-behavior: auto;
-        }
-    }
-    h1 {
-        font-size: 2rem;
-    }
-    h2 {
-        font-size: 1.5rem;
-    }
-    h3 {
-        font-size: 1.25rem;
-    }
-</style>
