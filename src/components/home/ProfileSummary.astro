@@ -1,0 +1,66 @@
+---
+import { PROFILE } from "../../data/PROFILE"
+
+const cardThemes = [
+    "bg-dark-turquoise text-cream",
+    "border border-ink/5 bg-white text-ink",
+    "bg-sea text-cream",
+    "bg-coral text-ink"
+]
+
+const accentToneClasses = {
+    coral: "text-coral",
+    sea: "text-sea",
+    ink: "text-ink",
+    white: "text-white"
+}
+---
+
+<section class="pb-24 md:pb-32" aria-label="Profile highlights">
+    <dl class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {
+            PROFILE.highlights.map((highlight, index) => (
+                <div class:list={["flex min-h-64 flex-col rounded-[1.75rem] p-7", cardThemes[index]]}>
+                    <dt class="font-mono text-[0.62rem] font-semibold uppercase tracking-[0.16em] opacity-65">
+                        {String(index + 1).padStart(2, "0")} / {highlight.label}
+                    </dt>
+                    <dd class="mt-8 text-6xl font-black leading-none tracking-[-0.055em]">
+                        {highlight.value}
+                        {highlight.valueAccent && (
+                            <span class={accentToneClasses[highlight.valueAccent.tone]}>
+                                {highlight.valueAccent.text}
+                            </span>
+                        )}
+                    </dd>
+                    <dd class="mt-auto pt-8 text-sm leading-relaxed opacity-85">{highlight.description}</dd>
+                </div>
+            ))
+        }
+    </dl>
+</section>
+
+<section id="about" class="scroll-mt-24 pb-24 md:pb-32" aria-labelledby="about-heading">
+    <div class="grid gap-8 md:grid-cols-12 md:gap-10">
+        <div class="md:col-span-4">
+            <h2 id="about-heading" class="text-3xl font-black leading-tight tracking-[-0.035em] text-ink md:text-5xl">
+                The short <span class="font-display font-normal italic">version.</span>
+            </h2>
+            <p class="mt-4 font-mono text-xs text-ink-muted">cat ~/about/summary.md</p>
+        </div>
+
+        <div class="space-y-6 md:col-span-8">
+            {
+                PROFILE.summary.map((paragraph, index) => (
+                    <p
+                        class:list={[
+                            "leading-relaxed text-ink-muted",
+                            index === 0 ? "text-xl font-semibold text-ink md:text-2xl" : "text-base md:text-lg"
+                        ]}
+                    >
+                        {paragraph}
+                    </p>
+                ))
+            }
+        </div>
+    </div>
+</section>

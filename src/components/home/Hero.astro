@@ -1,0 +1,71 @@
+---
+import GitHub from "../../icons/GitHub.astro"
+import LinkedIn from "../../icons/LinkedIn.astro"
+import patycuAvatar from "../../assets/patycu-avatar.png"
+import { PROFILE } from "../../data/PROFILE"
+import SocialPill from "../ui/SocialPill.astro"
+---
+
+<section
+    class="profile-hero grid items-end gap-12 pb-24 pt-16 md:grid-cols-12 md:pb-32 md:pt-24"
+    aria-labelledby="hero-title"
+>
+    <div class="md:col-span-7 lg:col-span-8">
+        <p class="mb-6 font-mono text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-ink-muted">
+            {PROFILE.eyebrow.join(" · ")}
+        </p>
+        <h1
+            id="hero-title"
+            class="max-w-4xl text-balance text-[clamp(3.25rem,8vw,6.5rem)] font-black leading-[0.9] tracking-[-0.055em] text-ink"
+        >
+            {PROFILE.headline.lead}
+            <span class="mt-2 block font-display text-[0.82em] font-normal italic tracking-[-0.04em] text-sea">
+                {PROFILE.headline.accent}
+            </span>
+        </h1>
+        <p class="mt-8 max-w-2xl text-lg leading-relaxed text-ink-muted md:text-xl">
+            {PROFILE.introduction}
+        </p>
+        <ul class="mt-8 flex flex-wrap gap-3" aria-label="Professional profiles">
+            <li>
+                <SocialPill href={PROFILE.links.linkedin.href} variant="light">
+                    <LinkedIn class="size-4" />
+                    {PROFILE.links.linkedin.label}
+                </SocialPill>
+            </li>
+            <li>
+                <SocialPill href={PROFILE.links.github.href} variant="light">
+                    <GitHub class="size-4" />
+                    {PROFILE.links.github.label}
+                </SocialPill>
+            </li>
+        </ul>
+    </div>
+
+    <aside
+        class="profile-visual flex flex-col gap-4 md:col-span-5 lg:col-span-4"
+        aria-label={`${PROFILE.name} profile summary`}
+    >
+        <figure class="relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-sand shadow-soft">
+            <img
+                src={patycuAvatar.src}
+                alt={`Portrait of ${PROFILE.name}`}
+                class="size-full object-cover"
+                width={patycuAvatar.width}
+                height={patycuAvatar.height}
+                fetchpriority="high"
+            />
+            <figcaption
+                class="absolute inset-x-3 bottom-3 flex items-center gap-2 rounded-full bg-cream/90 px-4 py-2 font-mono text-[0.65rem] font-semibold tracking-wide text-ink shadow-sm backdrop-blur-sm"
+            >
+                <span class="size-2 shrink-0 rounded-full bg-sea" aria-hidden="true"></span>
+                {PROFILE.currentFocus}
+            </figcaption>
+        </figure>
+
+        <div class="rounded-3xl border border-ink/10 bg-white p-5 shadow-soft">
+            <p class="mb-4 font-mono text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-coral">$ whoami</p>
+            <p class="text-base font-semibold text-ink">{PROFILE.role} · {PROFILE.location}</p>
+        </div>
+    </aside>
+</section>

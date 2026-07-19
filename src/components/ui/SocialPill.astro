@@ -1,12 +1,17 @@
 ---
-const { href } = Astro.props
+interface Props {
+    href: string
+    variant?: "legacy" | "light"
+}
+
+const { href, variant = "legacy" } = Astro.props
+
+const className =
+    variant === "light"
+        ? "flex items-center justify-center gap-2 rounded-full border border-ink/15 bg-white px-4 py-2 text-xs font-bold uppercase tracking-widest text-ink transition-colors hover:border-ink hover:bg-ink hover:text-cream focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-coral"
+        : "flex items-center justify-center gap-x-2 rounded-full border border-white/10 px-3 py-1 text-xs transition-colors hover:bg-purple-500 hover:bg-opacity-20"
 ---
 
-<a
-    class="rounded-full border border-white/10 flex justify-center items-center gap-x-2 px-3 py-1 text-xs hover:bg-purple-500 hover:bg-opacity-20 transition-colors"
-    href={href}
-    target="_blank"
-    rel="noopener noreferrer"
->
+<a class={className} href={href} target="_blank" rel="noopener noreferrer">
     <slot />
 </a>

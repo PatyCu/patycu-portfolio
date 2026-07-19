@@ -1,0 +1,66 @@
+---
+import type { Recommendation } from "../../data/RECOMMENDATIONS"
+
+interface Props {
+    recommendation: Recommendation
+}
+
+const { recommendation } = Astro.props
+const initials = recommendation.name
+    .split(" ")
+    .map((part) => part[0])
+    .join("")
+    .slice(0, 2)
+const preview = recommendation.recommendation.join(" ")
+---
+
+<article class="h-full">
+    <blockquote class="grid h-full grid-rows-[1fr_auto]">
+        <div class="relative self-end">
+            <span
+                class="pointer-events-none absolute -left-2 -top-10 select-none font-display text-7xl leading-none text-sea opacity-20"
+                aria-hidden="true"
+            >
+                “
+            </span>
+            <details class="group">
+                <summary
+                    class="cursor-pointer list-none rounded marker:hidden focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sea [&::-webkit-details-marker]:hidden"
+                >
+                    <p
+                        class="line-clamp-3 text-base font-medium leading-relaxed text-ink/90 group-open:hidden md:text-lg"
+                    >
+                        {preview}
+                    </p>
+                    <span
+                        class="mt-4 inline-flex font-mono text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-sea hover:underline"
+                    >
+                        <span class="group-open:hidden">Read full recommendation ↓</span>
+                        <span class="hidden group-open:inline">Show less ↑</span>
+                    </span>
+                </summary>
+                <div class="mt-4 space-y-4 text-base font-medium leading-relaxed text-ink/90 md:text-lg">
+                    {recommendation.recommendation.map((paragraph) => <p>{paragraph}</p>)}
+                </div>
+            </details>
+        </div>
+
+        <footer class="mt-5 flex items-center gap-3">
+            <span
+                class="grid size-9 shrink-0 place-items-center rounded-full bg-ink/10 font-display text-sm font-semibold italic text-ink/70"
+                aria-hidden="true"
+            >
+                {initials}
+            </span>
+            <div class="min-w-0">
+                <cite class="block text-sm font-black not-italic leading-tight text-ink">{recommendation.name}</cite>
+                <p class="mt-1 text-xs leading-relaxed text-ink-muted">
+                    {recommendation.position} · {recommendation.experience} · {recommendation.location}
+                </p>
+                <p class="mt-1 font-mono text-[0.6rem] uppercase tracking-[0.1em] text-ink-muted">
+                    {recommendation.date}
+                </p>
+            </div>
+        </footer>
+    </blockquote>
+</article>

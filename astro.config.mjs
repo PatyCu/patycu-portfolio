@@ -1,12 +1,16 @@
 import { defineConfig } from "astro/config"
+import react from "@astrojs/react"
 import tailwindcss from "@tailwindcss/vite"
 
-import netlify from "@astrojs/netlify";
+import netlify from "@astrojs/netlify"
 
 export default defineConfig({
-  vite: {
-      plugins: [tailwindcss()]
-  },
+    site: "https://patycuenca.com",
+    integrations: [react()],
 
-  adapter: netlify()
+    vite: {
+        plugins: [tailwindcss()]
+    },
+
+    adapter: netlify()
 })

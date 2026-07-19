@@ -1,30 +1,128 @@
 ---
-import patycu_avatar from "../../img/patycu_avatar.png"
+import { PROFILE } from "../../data/PROFILE"
+import patycuAvatar from "../../assets/patycu-avatar.png"
+
+interface Props {
+    theme?: "legacy" | "light"
+}
+
+const { theme = "legacy" } = Astro.props
 ---
 
-<header class="mt-10 justify-between flex flex-row">
-    <div class="basis-1/12 my-auto">
-        <img src={patycu_avatar.src} alt="Paty avatar photo" class="rounded-full size-6 md:size-24 object-contain" />
-    </div>
+{
+    theme === "light" ? (
+        <header class="print-hidden sticky top-0 z-50 flex items-center justify-between gap-4 border-b border-ink/10 bg-cream/90 py-4 backdrop-blur-md">
+            <a
+                href="/#top"
+                class="flex min-w-0 items-center gap-3 rounded-full focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-coral"
+                aria-label={`${PROFILE.name}, back to the top`}
+            >
+                <img
+                    src={patycuAvatar.src}
+                    alt=""
+                    class="size-9 rounded-full object-cover ring-2 ring-coral"
+                    width="36"
+                    height="36"
+                />
+                <span class="hidden truncate text-sm font-black tracking-tight min-[360px]:inline sm:text-base">
+                    {PROFILE.shortName}
+                </span>
+            </a>
 
-    <nav class="basis-10/12">
-        <ul class="flex flex-wrap opacity-90 justify-around items-center">
-            <li class="basis-auto">
-                <a href="/" class="hover:text-fuchsia-300  active:text-cyan-500">Home</a>
-            </li>
-            <li class="basis-auto">
-                <a href="/#about" class="hover:text-fuchsia-300 active:text-cyan-500">About</a>
-            </li>
-            <li class="basis-auto">
-                <a href="/#experience" class="hover:text-fuchsia-300 active:text-cyan-500">Experience</a>
-            </li>
-            <li class="basis-auto"><a href="/#projects" class="hover:text-fuchsia-300 active:text-cyan-500">Projects</a></li>
-            <li class="basis-auto">
-                <a href="/#recommendations" class="hover:text-fuchsia-300 active:text-cyan-500">Recommendations</a>
-            </li>
-            <li class="basis-auto">
-                <a href="/blog" class="hover:text-fuchsia-300 active:text-cyan-500">Blog</a>
-            </li>
-        </ul>
-    </nav>
-</header>
+            <nav aria-label="Primary navigation" class="hidden lg:block">
+                <ul class="flex items-center gap-7 text-[0.68rem] font-bold uppercase tracking-[0.16em]">
+                    <li>
+                        <a href="/#about" class="nav-link">
+                            Summary
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/#experience" class="nav-link">
+                            Experience
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/#projects" class="nav-link">
+                            Projects
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/#education" class="nav-link">
+                            Education
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/#recommendations" class="nav-link">
+                            Kind words
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/#off-hours" class="nav-link">
+                            Off-hours
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <a
+                href={PROFILE.links.linkedin.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="rounded-full border border-ink px-4 py-2 text-[0.65rem] font-black uppercase tracking-[0.14em] text-ink transition-colors hover:bg-ink hover:text-cream focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-coral"
+            >
+                <span class="sm:hidden">Connect</span>
+                <span class="hidden sm:inline">Let's connect</span>
+            </a>
+        </header>
+    ) : (
+        <header class="mt-10 flex flex-row justify-between">
+            <div class="my-auto basis-1/12">
+                <img
+                    src={patycuAvatar.src}
+                    alt="Paty avatar photo"
+                    class="size-6 rounded-full object-contain md:size-24"
+                />
+            </div>
+
+            <nav class="basis-10/12" aria-label="Primary navigation">
+                <ul class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 opacity-90">
+                    <li class="basis-auto">
+                        <a href="/" class="hover:text-fuchsia-300 active:text-cyan-500">
+                            Home
+                        </a>
+                    </li>
+                    <li class="basis-auto">
+                        <a href="/#about" class="hover:text-fuchsia-300 active:text-cyan-500">
+                            Summary
+                        </a>
+                    </li>
+                    <li class="basis-auto">
+                        <a href="/#experience" class="hover:text-fuchsia-300 active:text-cyan-500">
+                            Experience
+                        </a>
+                    </li>
+                    <li class="basis-auto">
+                        <a href="/#projects" class="hover:text-fuchsia-300 active:text-cyan-500">
+                            Projects
+                        </a>
+                    </li>
+                    <li class="basis-auto">
+                        <a href="/#education" class="hover:text-fuchsia-300 active:text-cyan-500">
+                            Education
+                        </a>
+                    </li>
+                    <li class="basis-auto">
+                        <a href="/#recommendations" class="hover:text-fuchsia-300 active:text-cyan-500">
+                            Recommendations
+                        </a>
+                    </li>
+                    <li class="basis-auto">
+                        <a href="/#off-hours" class="hover:text-fuchsia-300 active:text-cyan-500">
+                            Off-hours
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+    )
+}

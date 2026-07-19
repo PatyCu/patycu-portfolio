@@ -6,48 +6,100 @@ import TagList from "../components/blog/TagList.astro"
 import Layout from "../layouts/Layout.astro"
 
 const pageTitle = "An Engineering Manager in the wild appears!"
-const allPosts = Object.values(import.meta.glob("./posts/*.md", { eager: true }))
+
+interface BlogPostModule {
+    url: string
+    frontmatter: {
+        title: string
+        pubDate: string
+        description: string
+        author: string
+        tags?: string[]
+    }
+}
+
+const allPosts = Object.values(import.meta.glob<BlogPostModule>("./posts/*.md", { eager: true }))
 
 const activeTag = Astro.url.searchParams.get("tag") ?? undefined
 
-// Collect unique tags across all posts
-const allTags = [...new Set(allPosts.flatMap((post: any) => post.frontmatter?.tags ?? []))]
+const allTags = [...new Set(allPosts.flatMap((post) => post.frontmatter.tags ?? []))].sort((a, b) => a.localeCompare(b))
 
-const visiblePosts = activeTag
-    ? allPosts.filter((post: any) => post.frontmatter?.tags?.includes(activeTag))
-    : allPosts
+const visiblePosts = (
+    activeTag ? allPosts.filter((post) => post.frontmatter.tags?.includes(activeTag)) : allPosts
+).sort((a, b) => b.frontmatter.pubDate.localeCompare(a.frontmatter.pubDate))
 ---
 
 <Layout
     title={pageTitle}
     description="Blog about Engineering Management, leadership, and in general navigating the difficult but rewarding tech industry"
+    theme="light"
 >
-    <div class="flex flex-row items-baseline">
-        <div class="basis-5/6">
-            <section class="mt-12">
-                <h1>{pageTitle}</h1>
-                {
-                    visiblePosts.reverse().map((post) => (
-                        <article>
-                            <BlogPost post={post} />
-                        </article>
-                    ))
-                }
-            </section>
-        </div>
-        <nav class="basis-1/6">
-            <h3 class="text-white text-sm font-semibold uppercase tracking-wider mb-3">Tags</h3>
+    <main class="mx-auto w-full pb-24" id="top">
+        <header class="grid gap-8 pb-12 pt-16 md:grid-cols-12 md:pb-16 md:pt-24">
+            <div class="md:col-span-9">
+                <p class="mb-5 font-mono text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-coral">
+                    Notes from the field
+                </p>
+                <h1
+                    class="max-w-4xl text-balance text-4xl font-black leading-[0.95] tracking-[-0.05em] text-ink sm:text-6xl md:text-7xl"
+                >
+                    An Engineering Manager
+                    <span class="font-display font-normal italic text-sea">in the wild</span>
+                </h1>
+                <p class="mt-7 max-w-2xl text-lg leading-relaxed text-ink-muted md:text-xl">
+                    Thoughts on engineering management, leadership, and navigating the difficult but rewarding tech
+                    industry.
+                </p>
+            </div>
+        </header>
+
+        <nav class="mb-10 border-y border-ink/10 py-5" aria-label="Filter posts by topic">
+            <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
+                <p class="shrink-0 font-mono text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-ink-muted">
+                    Browse by topic
+                </p>
+                <TagList tags={allTags} activeTag={activeTag} />
+            </div>
             {
                 activeTag && (
                     <a
                         href="/blog"
-                        class="block mb-3 text-sm text-slate-300/70 hover:text-cyan-500 transition-colors"
+                        class="mt-4 inline-flex rounded-sm text-sm font-bold text-sea transition-colors hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-coral"
                     >
-                        &larr; All posts
+                        &larr; Show all posts
                     </a>
                 )
             }
-            <TagList tags={allTags} activeTag={activeTag} />
         </nav>
-    </div>
+
+        <section aria-labelledby="post-list-heading">
+            <div class="mb-7 flex items-baseline justify-between gap-4">
+                <h2 id="post-list-heading" class="text-2xl font-black tracking-[-0.03em] text-ink">
+                    {activeTag ? `Posts about ${activeTag}` : "Latest writing"}
+                </h2>
+                <p class="font-mono text-xs text-ink-muted">
+                    {visiblePosts.length}
+                    {visiblePosts.length === 1 ? "article" : "articles"}
+                </p>
+            </div>
+
+            {
+                visiblePosts.length > 0 ? (
+                    <div class="grid gap-6 md:grid-cols-2">
+                        {visiblePosts.map((post) => (
+                            <BlogPost post={post} />
+                        ))}
+                    </div>
+                ) : (
+                    <div class="rounded-3xl border border-dashed border-sea/30 bg-sea/10 p-8 text-ink-muted">
+                        No posts found for this topic.{" "}
+                        <a href="/blog" class="font-bold text-sea underline">
+                            See all posts
+                        </a>
+                        .
+                    </div>
+                )
+            }
+        </section>
+    </main>
 </Layout>

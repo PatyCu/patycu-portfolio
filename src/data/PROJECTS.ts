@@ -1,78 +1,146 @@
-export const PROJECTS = [
+export const PROJECT_CATEGORY_IDS = [
+    "platform-engineering",
+    "product-engineering",
+    "client-delivery",
+    "side-projects"
+] as const
+
+export type ProjectCategoryId = (typeof PROJECT_CATEGORY_IDS)[number]
+export type ProjectKind = "work" | "side"
+
+export interface ProjectArtifact {
+    title: string
+    description: string
+    link: string | null
+}
+
+export interface PortfolioProject {
+    id: string
+    title: string
+    organisation: string
+    description: string
+    categoryIds: ProjectCategoryId[]
+    kind: ProjectKind
+    link: string | null
+    github: string | null
+    image: string | null
+    tags: string[]
+    artifacts: ProjectArtifact[]
+}
+
+export const PROJECTS: PortfolioProject[] = [
     {
-        title: "Mural: Canvas Core",
-        description: "Mural is a digital workspace for visual collaboration.",
-        link: "https://mural.co",
-        github: null,
-        image: "https://via.placeholder.com/300x200",
-        tags: ["React", "TypeScript", "Cypress"]
-    },
-    {
-        title: "Mural: Devices",
-        description: "Mural apps for iOS, Android, Windows and Mac.",
-        link: "https://mural.co",
-        github: null,
-        image: "https://via.placeholder.com/300x200",
-        tags: ["React Native", "Typescript", "Cypress"]
-    },
-    {
-        title: "New Relic: Dashboards",
+        id: "glovo-product-engineering",
+        title: "App for iOS and Android",
+        organisation: "Glovo",
         description:
-            "Dashboards product is a key part of New Relic's offering,  it allows our customers to visualize their data in a way that is meaningful to them.",
-        link: "https://newrelic.com/products/dashboards",
-        github: null,
-        image: "https://via.placeholder.com/300x200",
-        tags: ["React", "NodeJS", "TypeScript", "AWS"]
-    },
-    {
-        title: "New Relic: Data Explorer",
-        description: "Data Explorer is a product that allows our customers to query their data in a flexible way.",
-        link: "https://newrelic.com/products/data-explorer",
-        github: null,
-        image: "https://via.placeholder.com/300x200",
-        tags: ["React", "NodeJS", "TypeScript", "AWS"]
-    },
-    {
-        title: "New Relic: Query Builder",
-        description: "Query Builder is a product that allows our customers to build queries in a visual way.",
-        link: "https://newrelic.com/products/query-builder",
-        github: null,
-        image: "https://via.placeholder.com/300x200",
-        tags: ["React", "NodeJS", "TypeScript", "AWS"]
-    },
-    {
-        title: "New Relic: Vizco",
-        description:
-            "Vizco is a library that allows our customers to build visualizations in a declarative way. It extends D3, and it's used by all the product teams within New Relic.",
+            "Product engineering leadership for a delivery marketplace, spanning backend, iOS, and Android while balancing product needs, engineering quality, and operational excellence.",
+        categoryIds: ["product-engineering"],
+        kind: "work",
         link: null,
         github: null,
-        image: "https://via.placeholder.com/300x200",
-        tags: ["javascript", "d3"]
+        image: "/projects/glovo.png",
+        tags: ["Backend", "iOS", "Android", "Product engineering", "Operational excellence"],
+        artifacts: []
     },
     {
-        title: "Typeform: the Rendering Engine",
+        id: "mural-core-experiences",
+        title: "Visual collaboration tool",
+        organisation: "Mural",
+        description: "Core visual-collaboration experiences spanning the canvas and native device apps.",
+        categoryIds: ["product-engineering"],
+        kind: "work",
+        link: "https://mural.co",
+        github: null,
+        image: "/projects/mural.png",
+        tags: ["React", "React Native", "TypeScript", "Cypress"],
+        artifacts: [
+            {
+                title: "Canvas Core",
+                description: "The product's core visual-collaboration experience.",
+                link: "https://mural.co"
+            },
+            {
+                title: "Devices",
+                description: "Mural apps for iOS, Android, Windows, and Mac.",
+                link: "https://mural.co"
+            }
+        ]
+    },
+    {
+        id: "new-relic-product-ecosystem",
+        title: "Dashboard Ecosystem",
+        organisation: "New Relic",
         description:
-            "The Rendering Engine is the core of Typeform's product. It's the piece of software that renders the forms that our customers create.",
+            "A hybrid product-and-platform team building customer-facing data products alongside shared visualisation foundations used across New Relic.",
+        categoryIds: ["platform-engineering", "product-engineering"],
+        kind: "work",
+        link: "https://newrelic.com/platform/dashboards",
+        github: null,
+        image: "/projects/new-relic.png",
+        tags: ["React", "Node.js", "TypeScript", "AWS", "D3"],
+        artifacts: [
+            {
+                title: "Dashboards, Data Explorer & Query Builder",
+                description: "Meaningful, custom visualisations of customer data.",
+                link: null
+            },
+            {
+                title: "Vizco",
+                description: "A declarative data-visualisation library extending D3 and used across product teams.",
+                link: null
+            }
+        ]
+    },
+    {
+        id: "typeform-rendering-engine",
+        title: "The Rendering Engine",
+        organisation: "Typeform",
+        description: "The core product software responsible for rendering the forms customers create.",
+        categoryIds: ["product-engineering"],
+        kind: "work",
         link: "https://www.typeform.com/",
         github: null,
-        image: "https://via.placeholder.com/300x200",
-        tags: ["javascript", "react", "vanilla js"]
+        image: "/projects/typeform.png",
+        tags: ["JavaScript", "React", "Vanilla JS"],
+        artifacts: []
     },
     {
-        title: "Scytl: Election Night Reporting",
+        id: "scytl-election-night-reporting",
+        title: "Election Night Reporting",
+        organisation: "Scytl",
         description:
-            "Election Night Reporting is a product that allows our customers to report the results of their elections.",
+            "Bespoke election software commissioned for a specific electoral event, supporting the operational journey from voting through counting and reporting results on a fixed election date.",
+        categoryIds: ["client-delivery"],
+        kind: "work",
         link: "https://www.scytl.com/en/products/election-night-reporting/",
         github: null,
-        image: "https://via.placeholder.com/300x200",
-        tags: ["javascript", "RFC", "Java"]
+        image: "/projects/scytl.png",
+        tags: ["JavaScript", "RFC", "Java", "Election systems"],
+        artifacts: []
     },
     {
-        title: "SICAS",
-        description: "Sistema d'Intermediació de les Comunitats Autònomes.",
+        id: "altran-client-product-engineering",
+        title: "Unemployment platform",
+        organisation: "Altran",
+        description: "Two consultancy projects: a public-sector J2EE application and custom POS firmware.",
+        categoryIds: ["client-delivery"],
+        kind: "work",
         link: null,
         github: null,
-        image: "/projects/soc.png",
-        tags: ["Java", "Oracle 10", "Bea Weblogic 8.1"]
+        image: "/projects/altran.jpg",
+        tags: ["Java", "J2EE", "C", "Firmware", "Oracle 10", "BEA WebLogic 8.1"],
+        artifacts: [
+            {
+                title: "SICAS",
+                description: "The J2EE application used to manage unemployment for the local government of Catalonia.",
+                link: null
+            },
+            {
+                title: "POS terminal firmware",
+                description: "Custom firmware in C for Ingenico POS terminals.",
+                link: null
+            }
+        ]
     }
 ]

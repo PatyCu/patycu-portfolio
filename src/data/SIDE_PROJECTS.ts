@@ -1,20 +1,45 @@
-export const SIDE_PROJECTS = [
+import type { PortfolioProject } from "./PROJECTS"
+
+export const SIDE_PROJECTS: PortfolioProject[] = [
     {
+        id: "oriol-and-paty-wedding",
         title: "Oriol i Paty's Wedding",
-        description:
-            "The frontend for my own wedding's website and wedding registry, built with React and deployed with Netlify.",
+        organisation: "Personal project",
+        description: "My wedding website and registry, built with React and deployed with Netlify.",
+        categoryIds: ["side-projects"],
+        kind: "side",
         link: "https://oriolipaty.com",
         github: "https://github.com/PatyCu/wedding",
         image: "/projects/oriolipaty_screenshot.jpg",
-        tags: ["React", "Netlify"]
+        tags: ["React", "Netlify"],
+        artifacts: []
     },
     {
-        title: "this.portfolio",
+        id: "portfolio-v1",
+        title: "this.portfolio · handcrafted",
+        organisation: "Personal project",
         description:
-            "This portfolio, built with Astro, some Typescript and deployed with Netlify. Now optimized with AI-assisted development tools 🪄✨",
+            "The first version of this portfolio, handcrafted with Astro and TypeScript and deployed with Netlify. The screenshot captures that original static portfolio.",
+        categoryIds: ["side-projects"],
+        kind: "side",
         link: "https://patycuenca.com",
         github: "https://github.com/PatyCu/patycu-portfolio",
         image: "/projects/patycuenca_screenshot.jpg",
-        tags: ["Astro", "Typescript", "Netlify", "AI-assisted development"]
+        tags: ["Astro", "TypeScript", "Netlify", "Handcrafted"],
+        artifacts: []
+    },
+    {
+        id: "portfolio-interactive-cv",
+        title: "this.portfolio · AI-assisted",
+        organisation: "Personal project",
+        description:
+            "The AI-driven evolution of this portfolio into an interactive CV: a more sophisticated, evidence-led way to explore my experience, projects, and product-engineering craft. Built iteratively with AI as an engineering collaborator and currently in development.",
+        categoryIds: ["side-projects"],
+        kind: "side",
+        link: null,
+        github: "https://github.com/PatyCu/patycu-portfolio",
+        image: "/projects/portfolio-interactive-cv.png",
+        tags: ["Astro", "TypeScript", "Interactive CV", "AI-assisted development"],
+        artifacts: []
     }
 ]
