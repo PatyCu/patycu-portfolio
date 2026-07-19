@@ -74,11 +74,11 @@
         outline-offset: 0.35rem;
     }
 
-    .experience-card {
+    .expandable-card {
         interpolate-size: allow-keywords;
     }
 
-    .experience-card::details-content {
+    .expandable-card::details-content {
         block-size: 0;
         opacity: 0;
         overflow: hidden;
@@ -88,7 +88,7 @@
             content-visibility 500ms allow-discrete;
     }
 
-    .experience-card[open]::details-content {
+    .expandable-card[open]::details-content {
         block-size: auto;
         opacity: 1;
     }
@@ -161,15 +161,15 @@
         break-inside: avoid;
     }
 
-    .experience-card,
-    .experience-card[open] {
+    .expandable-card,
+    .expandable-card[open] {
         border-color: rgb(11 19 36 / 0.15) !important;
         background: white !important;
         color: var(--color-ink) !important;
         box-shadow: none !important;
     }
 
-    .experience-card::details-content {
+    .expandable-card::details-content {
         block-size: auto !important;
         content-visibility: visible !important;
         opacity: 1 !important;
@@ -177,6 +177,10 @@
     }
 
     details > :not(summary) {
+        display: block !important;
+    }
+
+    .expandable-card > summary {
         display: block !important;
     }
 

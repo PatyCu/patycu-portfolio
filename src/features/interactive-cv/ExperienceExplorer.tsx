@@ -71,7 +71,7 @@ export default function ExperienceExplorer() {
 
                     return (
                         <li key={experience.id} id={anchorId} className="scroll-mt-24">
-                            <details className="experience-card group overflow-hidden rounded-3xl border border-ink/5 bg-white transition-[background-color,border-color,color,box-shadow] duration-300 open:bg-dark-turquoise open:text-cream open:shadow-soft">
+                            <details className="expandable-card group overflow-hidden rounded-3xl border border-ink/5 bg-white transition-[background-color,border-color,color,box-shadow] duration-300 open:bg-dark-turquoise open:text-cream open:shadow-soft">
                                 <summary className="cursor-pointer list-none rounded-3xl p-5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-coral md:p-7 [&::-webkit-details-marker]:hidden">
                                     <span className="min-w-0">
                                         <span className="mb-2 flex flex-wrap items-center gap-2">

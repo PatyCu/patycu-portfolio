@@ -32,41 +32,63 @@ function ProjectCard({ project, placeholderIndex }: ProjectCardProps) {
     const placeholderTheme = placeholderThemes[placeholderIndex % placeholderThemes.length]
 
     return (
-        <article className="group flex h-full flex-col overflow-hidden rounded-3xl border border-ink/5 bg-white transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-soft">
-            {project.image ? (
-                <div className="project-visual aspect-[16/10] overflow-hidden border-b border-ink/5 bg-sand">
-                    <img
-                        src={project.image}
-                        alt={`${project.title} screenshot`}
-                        className="size-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                        loading="lazy"
-                    />
-                </div>
-            ) : (
-                <div
-                    className={`project-visual flex aspect-[16/10] flex-col justify-between border-b border-ink/5 p-6 ${placeholderTheme}`}
-                    aria-hidden="true"
-                >
-                    <p className="font-mono text-[0.62rem] font-semibold uppercase tracking-[0.16em] opacity-70">
-                        {project.organisation}
-                    </p>
-                    <p className="max-w-[12rem] text-2xl font-black leading-none tracking-[-0.04em]">{project.title}</p>
-                </div>
-            )}
+        <details className="expandable-card group overflow-hidden rounded-3xl border border-ink/5 bg-white transition-[background-color,border-color,color,box-shadow] duration-300 open:bg-dark-turquoise open:text-cream open:shadow-soft">
+            <summary className="cursor-pointer list-none rounded-3xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-coral [&::-webkit-details-marker]:hidden">
+                {project.image ? (
+                    <div className="project-visual relative aspect-[16/10] overflow-hidden bg-sand">
+                        <img
+                            src={project.image}
+                            alt={`${project.title} screenshot`}
+                            className="size-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                            loading="lazy"
+                        />
+                        <div
+                            className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/95 via-ink/70 to-transparent px-6 pb-5 pt-16 text-cream"
+                            aria-hidden="true"
+                        >
+                            <p className="font-mono text-[0.62rem] font-semibold uppercase tracking-[0.16em] text-coral">
+                                {project.kind === "work" ? project.organisation : "Side project"}
+                            </p>
+                            <p className="mt-2 max-w-[17rem] text-2xl font-black leading-none tracking-[-0.04em]">
+                                {project.title}
+                            </p>
+                        </div>
+                    </div>
+                ) : (
+                    <div
+                        className={`project-visual flex aspect-[16/10] flex-col justify-between p-6 ${placeholderTheme}`}
+                        aria-hidden="true"
+                    >
+                        <p className="font-mono text-[0.62rem] font-semibold uppercase tracking-[0.16em] opacity-70">
+                            {project.organisation}
+                        </p>
+                        <p className="max-w-[12rem] text-2xl font-black leading-none tracking-[-0.04em]">
+                            {project.title}
+                        </p>
+                    </div>
+                )}
+                <span className="sr-only">View details for {project.title}</span>
+            </summary>
 
-            <div className="flex flex-1 flex-col p-6 md:p-7">
+            <div className="border-t border-ink/10 p-6 transition-colors duration-300 group-open:border-cream/15 md:p-7">
                 <p className="font-mono text-[0.62rem] font-semibold uppercase tracking-[0.14em] text-coral">
                     {project.kind === "work" ? project.organisation : "Side project"}
                 </p>
-                <h3 className="mt-3 text-2xl font-black leading-tight tracking-[-0.035em] text-ink">{project.title}</h3>
-                <p className="mt-4 text-sm leading-relaxed text-ink-muted">{project.description}</p>
-                <p className="mt-3 font-mono text-[0.62rem] uppercase tracking-[0.12em] text-ink-muted">{categories}</p>
+                <h3 className="mt-3 text-2xl font-black leading-tight tracking-[-0.035em] text-ink transition-colors duration-300 group-open:text-cream">
+                    {project.title}
+                </h3>
+                <p className="mt-4 text-sm leading-relaxed text-ink-muted transition-colors duration-300 group-open:text-cream/75">
+                    {project.description}
+                </p>
+                <p className="mt-3 font-mono text-[0.62rem] uppercase tracking-[0.12em] text-ink-muted transition-colors duration-300 group-open:text-cream/65">
+                    {categories}
+                </p>
 
                 {project.artifacts.length > 0 && (
-                    <ul className="mt-5 space-y-4 border-t border-ink/10 pt-5">
+                    <ul className="mt-5 space-y-4 border-t border-ink/10 pt-5 transition-colors duration-300 group-open:border-cream/15">
                         {project.artifacts.map((artifact) => (
                             <li key={artifact.title}>
-                                <h4 className="text-sm font-black leading-tight text-ink">
+                                <h4 className="text-sm font-black leading-tight text-ink transition-colors duration-300 group-open:text-cream">
                                     {artifact.title}
                                     {artifact.link && (
                                         <a
@@ -78,7 +100,9 @@ function ProjectCard({ project, placeholderIndex }: ProjectCardProps) {
                                         </a>
                                     )}
                                 </h4>
-                                <p className="mt-1.5 text-xs leading-relaxed text-ink-muted">{artifact.description}</p>
+                                <p className="mt-1.5 text-xs leading-relaxed text-ink-muted transition-colors duration-300 group-open:text-cream/75">
+                                    {artifact.description}
+                                </p>
                             </li>
                         ))}
                     </ul>
@@ -86,14 +110,17 @@ function ProjectCard({ project, placeholderIndex }: ProjectCardProps) {
 
                 <ul className="mt-6 flex flex-wrap gap-2" aria-label={`${project.title} skills`}>
                     {project.tags.map((tag) => (
-                        <li key={tag} className="rounded-full bg-ink/5 px-3 py-1.5 text-xs font-bold text-ink-muted">
+                        <li
+                            key={tag}
+                            className="rounded-full bg-ink/5 px-3 py-1.5 text-xs font-bold text-ink-muted transition-colors duration-300 group-open:bg-cream/10 group-open:text-cream/70"
+                        >
                             {tag}
                         </li>
                     ))}
                 </ul>
 
                 {(project.link || project.github) && (
-                    <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2 border-t border-ink/10 pt-5 font-mono text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-sea">
+                    <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2 border-t border-ink/10 pt-5 font-mono text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-sea transition-colors duration-300 group-open:border-cream/15 group-open:text-coral">
                         {project.link && (
                             <a
                                 href={project.link}
@@ -113,7 +140,7 @@ function ProjectCard({ project, placeholderIndex }: ProjectCardProps) {
                     </div>
                 )}
             </div>
-        </article>
+        </details>
     )
 }
 
@@ -134,7 +161,9 @@ export default function ProjectExplorer() {
                     >
                         Artifacts <span className="font-serif italic">& Labs</span>
                     </h2>
-                    <p className="mt-4 font-mono text-xs text-ink-muted">find ~/work -type f · sorted by evidence</p>
+                    <p className="mt-4 font-mono text-xs text-ink-muted">
+                        find ~/work -type f · sorted by evidence · click to expand
+                    </p>
                 </div>
                 <div className="print-hidden md:col-span-6 md:justify-self-end">
                     <div className="flex flex-wrap gap-2" aria-label="Filter artifacts by type">
@@ -164,7 +193,7 @@ export default function ProjectExplorer() {
                 </div>
             </div>
 
-            <ol className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            <ol className="grid items-start gap-5 sm:grid-cols-2 lg:grid-cols-3">
                 {visibleProjects.map((project) => (
                     <li key={project.id}>
                         <ProjectCard project={project} placeholderIndex={getPlaceholderIndex(project.id)} />

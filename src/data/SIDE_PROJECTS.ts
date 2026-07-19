@@ -38,7 +38,7 @@ export const SIDE_PROJECTS: PortfolioProject[] = [
         kind: "side",
         link: null,
         github: "https://github.com/PatyCu/patycu-portfolio",
-        image: null,
+        image: "/projects/portfolio-interactive-cv.png",
         tags: ["Astro", "TypeScript", "Interactive CV", "AI-assisted development"],
         artifacts: []
     }

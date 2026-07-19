@@ -39,7 +39,7 @@ export const PROJECTS: PortfolioProject[] = [
         kind: "work",
         link: null,
         github: null,
-        image: null,
+        image: "/projects/glovo.png",
         tags: ["Backend", "iOS", "Android", "Product engineering", "Operational excellence"],
         artifacts: []
     },
@@ -115,7 +115,7 @@ export const PROJECTS: PortfolioProject[] = [
         kind: "work",
         link: "https://www.scytl.com/en/products/election-night-reporting/",
         github: null,
-        image: null,
+        image: "/projects/scytl.png",
         tags: ["JavaScript", "RFC", "Java", "Election systems"],
         artifacts: []
     },
@@ -128,7 +128,7 @@ export const PROJECTS: PortfolioProject[] = [
         kind: "work",
         link: null,
         github: null,
-        image: "/projects/soc.png",
+        image: "/projects/altran.jpg",
         tags: ["Java", "J2EE", "C", "Firmware", "Oracle 10", "BEA WebLogic 8.1"],
         artifacts: [
             {
