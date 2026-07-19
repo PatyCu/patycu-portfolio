@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest"
 
-import { EXPERIENCE } from "../../data/EXPERIENCE"
-import { getExperienceAnchorId, getExperiencesForFilter } from "./experiences"
+import { EXPERIENCE } from "../data/EXPERIENCE"
+import { getExperienceAnchorId, getExperiencesForFilter } from "./experience-filtering"
 
 describe("CV experience", () => {
     it("creates a stable deep-link target from the experience ID", () => {

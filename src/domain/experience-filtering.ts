@@ -1,4 +1,4 @@
-import type { ExperienceEntry, ExperienceRoleTypeId } from "../../data/EXPERIENCE"
+import type { ExperienceEntry, ExperienceRoleTypeId } from "../data/EXPERIENCE"
 
 export type ExperienceFilterId = "all" | ExperienceRoleTypeId
 

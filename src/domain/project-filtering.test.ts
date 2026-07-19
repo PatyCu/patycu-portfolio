@@ -1,8 +1,8 @@
 import { describe, expect, it } from "vitest"
 
-import { PROJECTS } from "../../data/PROJECTS"
-import { SIDE_PROJECTS } from "../../data/SIDE_PROJECTS"
-import { getProjectFilter, getProjectsForFilter } from "./projects"
+import { PROJECTS } from "../data/PROJECTS"
+import { SIDE_PROJECTS } from "../data/SIDE_PROJECTS"
+import { getProjectFilter, getProjectsForFilter } from "./project-filtering"
 
 const portfolioProjects = [...PROJECTS, ...SIDE_PROJECTS]
 

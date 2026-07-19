@@ -37,18 +37,18 @@ src/data/*.ts
     -> Netlify output
 ```
 
-The homepage server-renders the interactive CV's default perspective and hydrates that feature for URL-backed perspective
-selection. Blog routes remain framework-free and are rendered from files under `src/pages/` and `src/pages/posts/`.
+The homepage server-renders the complete CV and selectively hydrates the independent experience and project filters. Blog
+routes remain framework-free and are rendered from files under `src/pages/` and `src/pages/posts/`.
 
-## Interactive-CV Architecture
+## Homepage Interaction Architecture
 
-Astro remains the application shell. React is limited to the coordinated interactive CV experience.
+Astro remains the application shell. React is limited to the independent experience and project filters.
 
 ```text
 Typed portfolio content
     -> CV domain types and pure selection/filtering rules
     -> Astro page and layout composition
-    -> server-rendered React CV feature
+    -> server-rendered React components
     -> selective hydration in the browser
 ```
 
@@ -57,10 +57,10 @@ The responsibility boundaries are:
 | Layer               | Responsibility                                                    |
 | ------------------- | ----------------------------------------------------------------- |
 | `src/data/`         | Factual content, stable IDs, and relationships between evidence   |
-| CV domain modules   | Types, filters, selections, and URL-state mapping                 |
+| CV domain modules   | Types, filters, and selections                                    |
 | Astro pages/layouts | Routing, metadata, page shell, blog, and composition              |
 | Astro UI components | Static or progressively enhanced presentation                     |
-| React CV feature    | Shared interactive state and coordinated CV exploration           |
+| React components    | Local interactive state for experience and project filtering      |
 | Integration modules | Future external services with typed inputs, outputs, and failures |
 
 React components will still be server-rendered so the initial HTML contains the important CV content. Hydration must enhance
@@ -73,7 +73,7 @@ readable document independently of the active interactive state.
 ## Interaction Principles
 
 - The default view communicates the complete professional profile without requiring interaction.
-- Perspective and competency filters emphasize evidence; they do not rewrite or silently remove professional history.
+- Filters emphasize evidence; they do not rewrite or silently remove professional history.
 - Roles, projects, and competencies use stable IDs for relationships rather than duplicated display strings.
 - Meaningful filter and URL-state logic stays outside presentation components and receives focused tests.
 - Shareable state uses URLs only when it improves navigation and does not create fragile links.
@@ -86,17 +86,15 @@ readable document independently of the active interactive state.
 ```text
 public/                       Static assets served as-is
 src/
-  components/                 Reusable Astro components
+  assets/                     Source-managed assets processed by Astro
+  components/                 Presentation components
     blog/                     Blog presentation
+    home/                     Homepage presentation and local React interactions
     layout/                   Header and footer
-    profile/                  Professional summary presentation
-    recommendations/          Testimonials
     ui/                       Small reusable primitives
   data/                       Typed portfolio content
-  features/                   Coordinated interactive features and domain rules
-    interactive-cv/           Shared CV state, filtering, and presentation
+  domain/                     Pure portfolio selection and filtering rules
   icons/                      Astro SVG components
-  img/                        Source-managed images
   layouts/                    Page document shells
   pages/                      File-based routes and Markdown posts
   styles/                     Global Tailwind entry point and tokens
@@ -106,8 +104,8 @@ package.json                  Commands and dependencies
 tsconfig.json                 Strict TypeScript configuration
 ```
 
-Interactive CV folders should be added only when the corresponding boundary exists in code. Do not create placeholder
-layers in anticipation of later phases.
+Create folders only when the corresponding boundary exists in code. Do not create placeholder layers in anticipation of
+later phases.
 
 ## Routes
 

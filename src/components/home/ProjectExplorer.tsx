@@ -2,7 +2,12 @@ import { useState } from "react"
 
 import { PROJECTS, type PortfolioProject } from "../../data/PROJECTS"
 import { SIDE_PROJECTS } from "../../data/SIDE_PROJECTS"
-import { PROJECT_FILTERS, getProjectFilter, getProjectsForFilter, type ProjectFilterId } from "./projects"
+import {
+    PROJECT_FILTERS,
+    getProjectFilter,
+    getProjectsForFilter,
+    type ProjectFilterId
+} from "../../domain/project-filtering"
 
 const placeholderThemes = [
     "bg-dark-turquoise text-cream",

@@ -1,4 +1,4 @@
-import type { PortfolioProject, ProjectCategoryId } from "../../data/PROJECTS"
+import type { PortfolioProject, ProjectCategoryId } from "../data/PROJECTS"
 
 export type ProjectFilterId = "all" | ProjectCategoryId
 

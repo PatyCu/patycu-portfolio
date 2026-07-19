@@ -6,7 +6,7 @@ import {
     getExperienceAnchorId,
     getExperiencesForFilter,
     type ExperienceFilterId
-} from "./experiences"
+} from "../../domain/experience-filtering"
 
 export default function ExperienceExplorer() {
     const [activeFilterId, setActiveFilterId] = useState<ExperienceFilterId>("all")
