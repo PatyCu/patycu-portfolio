@@ -16,7 +16,7 @@ export const SIDE_PROJECTS: PortfolioProject[] = [
     },
     {
         id: "portfolio-v1",
-        title: "this.portfolio · v1",
+        title: "this.portfolio · handcrafted",
         organisation: "Personal project",
         description:
             "The first version of this portfolio, handcrafted with Astro and TypeScript and deployed with Netlify. The screenshot captures that original static portfolio.",
@@ -30,7 +30,7 @@ export const SIDE_PROJECTS: PortfolioProject[] = [
     },
     {
         id: "portfolio-interactive-cv",
-        title: "this.portfolio · interactive CV",
+        title: "this.portfolio · AI-assisted",
         organisation: "Personal project",
         description:
             "The AI-driven evolution of this portfolio into an interactive CV: a more sophisticated, evidence-led way to explore my experience, projects, and product-engineering craft. Built iteratively with AI as an engineering collaborator and currently in development.",

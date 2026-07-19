@@ -90,7 +90,9 @@ For each phase, complete work in this order:
 1. State the exact scope and expected behavior.
 2. Inspect the relevant code and configuration.
 3. Implement only the agreed slice.
-4. Run `pnpm validate` and any focused tests that exist for the changed behavior.
+4. Run `pnpm validate` and any focused tests that exist for the changed behavior. For content-only changes
+   limited to copy in typed data or Markdown files, run `pnpm format:check && pnpm typecheck` instead; do not
+   rebuild the project unless the change affects rendering, behavior, or build configuration.
 5. Start the site and provide a concise manual verification checklist, changed-file list, and architectural notes.
 6. Pause for the user's UI test and code review.
 7. Address feedback and rerun validation.

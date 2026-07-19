@@ -31,7 +31,7 @@ export interface PortfolioProject {
 export const PROJECTS: PortfolioProject[] = [
     {
         id: "glovo-product-engineering",
-        title: "Glovo delivery experience",
+        title: "App for iOS and Android",
         organisation: "Glovo",
         description:
             "Product engineering leadership for a delivery marketplace, spanning backend, iOS, and Android while balancing product needs, engineering quality, and operational excellence.",
@@ -45,7 +45,7 @@ export const PROJECTS: PortfolioProject[] = [
     },
     {
         id: "mural-core-experiences",
-        title: "Mural core experiences",
+        title: "Visual collaboration tool",
         organisation: "Mural",
         description: "Core visual-collaboration experiences spanning the canvas and native device apps.",
         categoryIds: ["product-engineering"],
@@ -69,7 +69,7 @@ export const PROJECTS: PortfolioProject[] = [
     },
     {
         id: "new-relic-product-ecosystem",
-        title: "New Relic product ecosystem",
+        title: "Dashboard Ecosystem",
         organisation: "New Relic",
         description:
             "A hybrid product-and-platform team building customer-facing data products alongside shared visualisation foundations used across New Relic.",
@@ -121,7 +121,7 @@ export const PROJECTS: PortfolioProject[] = [
     },
     {
         id: "altran-client-product-engineering",
-        title: "Altran client projects",
+        title: "Unemployment platform",
         organisation: "Altran",
         description: "Two consultancy projects: a public-sector J2EE application and custom POS firmware.",
         categoryIds: ["client-delivery"],

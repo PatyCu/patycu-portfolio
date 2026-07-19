@@ -159,7 +159,7 @@ export default function ProjectExplorer() {
                         id="projects-heading"
                         className="max-w-2xl text-3xl font-black leading-tight tracking-[-0.035em] text-ink md:text-5xl"
                     >
-                        Artifacts <span className="font-serif italic">& Labs</span>
+                        Projects <span className="font-serif italic">& Labs</span>
                     </h2>
                     <p className="mt-4 font-mono text-xs text-ink-muted">
                         find ~/work -type f · sorted by evidence · click to expand
