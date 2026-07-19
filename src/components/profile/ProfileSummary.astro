@@ -7,6 +7,13 @@ const cardThemes = [
     "bg-sea text-cream",
     "bg-coral text-ink"
 ]
+
+const accentToneClasses = {
+    coral: "text-coral",
+    sea: "text-sea",
+    ink: "text-ink",
+    white: "text-white"
+}
 ---
 
 <section class="pb-24 md:pb-32" aria-label="Profile highlights">
@@ -17,7 +24,14 @@ const cardThemes = [
                     <dt class="font-mono text-[0.62rem] font-semibold uppercase tracking-[0.16em] opacity-65">
                         {String(index + 1).padStart(2, "0")} / {highlight.label}
                     </dt>
-                    <dd class="mt-8 text-6xl font-black leading-none tracking-[-0.055em]">{highlight.value}</dd>
+                    <dd class="mt-8 text-6xl font-black leading-none tracking-[-0.055em]">
+                        {highlight.value}
+                        {highlight.valueAccent && (
+                            <span class={accentToneClasses[highlight.valueAccent.tone]}>
+                                {highlight.valueAccent.text}
+                            </span>
+                        )}
+                    </dd>
                     <dd class="mt-auto pt-8 text-sm leading-relaxed opacity-85">{highlight.description}</dd>
                 </div>
             ))

@@ -6,6 +6,10 @@ export interface ProfileLink {
 export interface ProfileHighlight {
     label: string
     value: string
+    valueAccent?: {
+        text: string
+        tone: "coral" | "sea" | "ink" | "white"
+    }
     description: string
 }
 
@@ -43,6 +47,8 @@ export const PROFILE: Profile = {
         "I lead autonomous, accountable engineering teams that deliver quality software incrementally. I am a product engineer at heart: I care about quality from code and architecture to product thinking, polished UI, and thoughtful UX.",
     summary: [
         "I have spent 20 years working in technology: 8 years as a software engineer and 14 years leading engineering teams, including mentoring other Engineering Managers.",
+        "I am a Senior Engineering Manager with 14+ years of experience leading software engineering teams, after 8 years as a software developer. As a leader of leaders, I have built and scaled multi-team engineering organisations, developed Engineering Managers, and led cross-functional teams across consumer products, SaaS, and engineering platforms.",
+        "I am particularly effective at bringing structure to ambiguity, restoring team health, strengthening ownership, and aligning engineering execution with product and business priorities. My leadership experience spans mobile, backend, and frontend platforms, observability, and collaborative SaaS products.",
         "I am a product engineer at heart. I care about software engineering as a craft: quality at code and architecture level, product thinking, polished UI, and thoughtful UX.",
         "I build autonomous, accountable teams that deliver quality software incrementally, learn from their mistakes, and have the support they need to grow. I am exploring AI-assisted development hands-on so I can understand the shift in our craft and help the teams I lead navigate it thoughtfully."
     ],
@@ -50,27 +56,31 @@ export const PROFILE: Profile = {
     highlights: [
         {
             label: "Experience",
-            value: "20y",
+            value: "20",
+            valueAccent: { text: "y", tone: "coral" },
             description:
-                "Working in technology, including 14 years leading engineering teams and 8 years as a software engineer."
+                "20 years in technology, building products people rely on—from early ideas to polished, scalable experiences. Product engineering is my craft, and I care about getting every layer right."
         },
         {
-            label: "Mentorship",
-            value: "10+",
+            label: "Leadership",
+            value: "14",
+            valueAccent: { text: "y", tone: "sea" },
             description:
-                "New and aspiring Engineering Managers supported, plus ICs growing their leadership towards management and Staff+ roles."
+                "Building and scaling multi-team engineering organisations, hiring and developing Engineering Managers, and aligning cross-functional teams around product and business priorities."
         },
         {
-            label: "Travel",
-            value: "24",
+            label: "Community",
+            value: "10",
+            valueAccent: { text: "+", tone: "ink" },
             description:
-                "Countries visited. I understand cultures through food and wine; sparkling by the sea is my happy place."
+                "Years spent mentoring new leaders and helping build more inclusive teams, including founding Glovo's Women in Tech Circle."
         },
         {
-            label: "Books",
-            value: "650+",
+            label: "Off-hours Book Nerd",
+            value: "650",
+            valueAccent: { text: "+", tone: "white" },
             description:
-                "A conservative estimate at around 20 books a year. Paper-book hoarder; lover of elves and fae. Sue me."
+                "A conservative estimate of books read. Retired paper-book hoarder; my Kindle became my best friend 15 years ago. Elves and fae still have my heart. Sue me."
         }
     ],
     links: {

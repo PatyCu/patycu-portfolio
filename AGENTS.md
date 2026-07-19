@@ -70,6 +70,7 @@ chat feature requires a separate architectural decision.
 - Use staff-level judgment: optimize for correctness, accessibility, maintainability, and clear trade-offs.
 - Prefer simple, explicit solutions and existing project patterns before adding abstractions.
 - Keep changes scoped to the current phase. Do not modify unrelated files.
+- When a request names a capability or component, change only that scope unless explicitly asked to broaden it.
 - Give modules one cohesive responsibility and a clear reason to change.
 - Keep factual content out of presentation components.
 - Keep filtering and mapping logic pure and independently testable.
