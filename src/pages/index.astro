@@ -2,7 +2,8 @@
 import Layout from "../layouts/Layout.astro"
 import Hero from "../components/hero/Hero.astro"
 import ProfileSummary from "../components/profile/ProfileSummary.astro"
-import InteractiveCv from "../features/interactive-cv/InteractiveCv"
+import ExperienceExplorer from "../features/interactive-cv/ExperienceExplorer"
+import ProjectExplorer from "../features/interactive-cv/ProjectExplorer"
 import Education from "../components/education/Education.astro"
 import Recommendations from "../components/recommendations/Recommendations.astro"
 import OffHours from "../components/off-hours/OffHours.astro"
@@ -16,7 +17,8 @@ import OffHours from "../components/off-hours/OffHours.astro"
     <main class="mx-auto w-full" id="top">
         <Hero />
         <ProfileSummary />
-        <InteractiveCv client:load />
+        <ExperienceExplorer client:load />
+        <ProjectExplorer client:load />
         <Education />
         <section
             class="relative mb-24 scroll-mt-24 rounded-3xl border-2 border-dashed border-sea/25 bg-sea/10 p-6 sm:p-8 md:mb-32 md:p-14"
