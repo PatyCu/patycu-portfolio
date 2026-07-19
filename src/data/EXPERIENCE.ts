@@ -1,5 +1,3 @@
-import type { CvPerspectiveId } from "./CV_PERSPECTIVES"
-
 export const EXPERIENCE_ROLE_TYPE_IDS = ["leader-of-leaders", "team-lead", "software-engineer"] as const
 
 export type ExperienceRoleTypeId = (typeof EXPERIENCE_ROLE_TYPE_IDS)[number]
@@ -18,7 +16,6 @@ export interface ExperienceEntry {
     description: string
     highlights: string[]
     tags: string[]
-    perspectives: CvPerspectiveId[]
     roleTypes: ExperienceRoleTypeId[]
 }
 
@@ -41,7 +38,6 @@ export const EXPERIENCE: ExperienceEntry[] = [
             "Maintains quality and operational excellence."
         ],
         tags: ["Hybrid", "Performance management", "Backend", "Mobile"],
-        perspectives: ["leadership", "product-engineering"],
         roleTypes: ["team-lead"]
     },
     {
@@ -61,7 +57,6 @@ export const EXPERIENCE: ExperienceEntry[] = [
             "Mentored two individual contributors through the transition to Engineering Manager roles."
         ],
         tags: ["Mentor", "Remote", "Async work", "Scale down"],
-        perspectives: ["leadership", "product-engineering"],
         roleTypes: ["leader-of-leaders"]
     },
     {
@@ -81,7 +76,6 @@ export const EXPERIENCE: ExperienceEntry[] = [
             "Led approximately 20 engineers and two Engineering Managers."
         ],
         tags: ["Observability", "Leader of leaders", "Hiring leaders", "Performance as a feature"],
-        perspectives: ["leadership", "product-engineering"],
         roleTypes: ["leader-of-leaders"]
     },
     {
@@ -101,7 +95,6 @@ export const EXPERIENCE: ExperienceEntry[] = [
             "Hired and onboarded engineers for a React-based platform team."
         ],
         tags: ["Hiring", "Onboarding", "Data visualisation", "Design system", "Platform team", "React", "D3"],
-        perspectives: ["leadership", "product-engineering"],
         roleTypes: ["team-lead"]
     },
     {
@@ -128,7 +121,6 @@ export const EXPERIENCE: ExperienceEntry[] = [
             "Vanilla JS",
             "Testing pyramid"
         ],
-        perspectives: ["leadership", "product-engineering"],
         roleTypes: ["team-lead"]
     },
     {
@@ -148,7 +140,6 @@ export const EXPERIENCE: ExperienceEntry[] = [
             "Explored NLP, machine learning, ontologies, and IBM Watson."
         ],
         tags: ["NLP", "Machine learning", "Ontologies", "IBM Watson", "Elasticsearch", "Neo4j"],
-        perspectives: ["leadership", "ai-assisted-development"],
         roleTypes: []
     },
     {
@@ -167,7 +158,6 @@ export const EXPERIENCE: ExperienceEntry[] = [
             "Identified delivery risks and managed contingencies."
         ],
         tags: ["Conflict resolution", "Burnout management", "Delivery management"],
-        perspectives: ["leadership"],
         roleTypes: ["team-lead"]
     },
     {
@@ -185,7 +175,6 @@ export const EXPERIENCE: ExperienceEntry[] = [
             "Worked across projects with different delivery methodologies."
         ],
         tags: ["Conflict resolution", "Burnout management", "Delivery management"],
-        perspectives: ["leadership"],
         roleTypes: ["team-lead"]
     },
     {
@@ -203,7 +192,6 @@ export const EXPERIENCE: ExperienceEntry[] = [
             "Built web interfaces with JSP, JavaScript, HTML, and CSS."
         ],
         tags: ["Java", "EJB", "Oracle 10g", "WebLogic 8.1", "JSP", "JavaScript", "HTML", "CSS"],
-        perspectives: ["product-engineering"],
         roleTypes: ["software-engineer"]
     },
     {
@@ -218,7 +206,6 @@ export const EXPERIENCE: ExperienceEntry[] = [
         description: "Developed firmware for Ingénico Point of Sale terminals using C and the Ingedev platform.",
         highlights: ["Built embedded software for payment terminals.", "Worked with C in the Ingedev environment."],
         tags: ["C", "Firmware", "Ingedev", "POS"],
-        perspectives: ["product-engineering"],
         roleTypes: ["software-engineer"]
     },
     {
@@ -233,7 +220,6 @@ export const EXPERIENCE: ExperienceEntry[] = [
         description: "Developed web experiences and maintained CMS systems and web applications.",
         highlights: ["Built web interfaces with HTML, CSS, and XML.", "Maintained content-management systems."],
         tags: ["HTML", "CSS", "XML", "CMS"],
-        perspectives: ["product-engineering"],
         roleTypes: ["software-engineer"]
     }
 ]

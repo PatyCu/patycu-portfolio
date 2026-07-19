@@ -1,4 +1,3 @@
-import type { CvPerspectiveId } from "../../data/CV_PERSPECTIVES"
 import type { ExperienceEntry, ExperienceRoleTypeId } from "../../data/EXPERIENCE"
 
 export type ExperienceFilterId = "all" | ExperienceRoleTypeId
@@ -14,17 +13,6 @@ export const EXPERIENCE_FILTERS: ExperienceFilter[] = [
     { id: "team-lead", label: "Team lead" },
     { id: "software-engineer", label: "Software Engineer" }
 ]
-
-export function experienceMatchesPerspective(experience: ExperienceEntry, perspectiveId: CvPerspectiveId): boolean {
-    return experience.perspectives.includes(perspectiveId)
-}
-
-export function getExperiencesForPerspective(
-    experiences: ExperienceEntry[],
-    perspectiveId: CvPerspectiveId
-): ExperienceEntry[] {
-    return experiences.filter((experience) => experienceMatchesPerspective(experience, perspectiveId))
-}
 
 export function getExperiencesForFilter(
     experiences: ExperienceEntry[],
