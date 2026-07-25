@@ -17,39 +17,23 @@ import { OFF_HOURS_CARDS } from "../../data/OFF_HOURS"
             <p class="mt-4 font-mono text-xs text-ink-muted">ls ~/life/beyond-work</p>
         </div>
         <p class="max-w-md text-sm leading-relaxed text-ink-muted md:col-span-5 md:justify-self-end md:text-base">
-            A small window into the things that keep me curious, grounded, and inspired. Stories and photos are coming
-            soon.
+            A small window into the things that keep me curious, grounded, and inspired. And off-screen.
         </p>
     </div>
 
-    <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    <ul class="grid gap-4 md:grid-cols-2">
         {
-            OFF_HOURS_CARDS.map((card, index) => (
-                <li class:list={[index === 0 && "sm:col-span-2 lg:col-span-1"]}>
+            OFF_HOURS_CARDS.map((card) => (
+                <li>
                     <article
-                        class:list={[
-                            "group flex min-h-72 h-full flex-col overflow-hidden rounded-[1.75rem] p-7 transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-soft",
-                            card.theme
-                        ]}
+                        class:list={["flex h-full min-h-64 flex-col rounded-[1.5rem] p-7 sm:p-8 lg:p-10", card.theme]}
                     >
-                        <div class="flex items-start justify-between gap-4">
-                            <p class="font-mono text-[0.62rem] font-semibold uppercase tracking-[0.16em] opacity-65">
-                                {String(index + 1).padStart(2, "0")} / Off-hours
-                            </p>
-                            <span class="rounded-full border border-current/20 px-3 py-1 font-mono text-[0.58rem] font-semibold uppercase tracking-[0.12em] opacity-70">
-                                More soon
-                            </span>
-                        </div>
-
-                        <p
-                            class="mt-8 text-6xl font-black leading-none tracking-[-0.055em] transition-transform duration-300 group-hover:-rotate-3 group-hover:scale-105"
-                            aria-hidden="true"
-                        >
-                            {card.marker}
-                        </p>
-                        <h3 class="mt-auto max-w-[13rem] pt-10 text-2xl font-black leading-tight tracking-[-0.035em]">
+                        <h3 class="font-display text-2xl font-semibold italic leading-tight lg:text-3xl">
                             {card.title}
                         </h3>
+                        <p class="mt-5 max-w-prose text-base leading-7 opacity-90 lg:text-lg lg:leading-8">
+                            {card.description}
+                        </p>
                     </article>
                 </li>
             ))
