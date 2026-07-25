@@ -83,8 +83,6 @@ chat feature requires a separate architectural decision.
 
 ## Iterative Workflow
 
-Portfolio redesign work stays on `codex/lovable-design-iteration` unless the user explicitly chooses another branch.
-
 For each phase, complete work in this order:
 
 1. State the exact scope and expected behavior.
