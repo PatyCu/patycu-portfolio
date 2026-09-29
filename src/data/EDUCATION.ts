@@ -11,7 +11,7 @@ export interface Education {
 export const EDUCATION: Education[] = [
     {
         id: "computer-engineering-second-cycle",
-        institution: "Enginyeria La Salle",
+        institution: "La Salle University",
         qualification: "Computer Engineering — Second Cycle",
         originalQualification: "Ingeniería Informática (segundo ciclo)",
         projectArea: "Compilers",
@@ -20,7 +20,7 @@ export const EDUCATION: Education[] = [
     },
     {
         id: "technical-engineering-computer-systems",
-        institution: "Enginyeria La Salle",
+        institution: "La Salle University",
         qualification: "Technical Engineering in Computer Systems — Three-Year Degree",
         originalQualification: "Ingeniería Técnica en Informática de Sistemas",
         projectArea: "Operating systems",

@@ -5,12 +5,12 @@ import { getExperienceAnchorId, getExperiencesForFilter } from "./experience-fil
 
 describe("CV experience", () => {
     it("creates a stable deep-link target from the experience ID", () => {
-        expect(getExperienceAnchorId(EXPERIENCE[0])).toBe("experience-glovo-engineering-manager")
+        expect(getExperienceAnchorId(EXPERIENCE[0])).toBe("experience-glovo-senior-engineering-manager")
     })
 
     it.each([
-        ["all", 11],
-        ["leader-of-leaders", 2],
+        ["all", 12],
+        ["leader-of-leaders", 3],
         ["team-lead", 5],
         ["software-engineer", 3]
     ] as const)("returns the roles in the %s filter", (filterId, expectedCount) => {
