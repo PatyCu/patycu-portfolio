@@ -71,8 +71,8 @@ export default function ExperienceExplorer() {
 
                     return (
                         <li key={experience.id} id={anchorId} className="scroll-mt-24">
-                            <details className="expandable-card group overflow-hidden rounded-3xl border border-ink/5 bg-white transition-[background-color,border-color,color,box-shadow] duration-300 open:bg-dark-turquoise open:text-cream open:shadow-soft">
-                                <summary className="cursor-pointer list-none rounded-3xl p-5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-coral md:p-7 [&::-webkit-details-marker]:hidden">
+                            <details className="expandable-card group overflow-hidden rounded-3xl border border-ink/5 bg-white transition-[background-color,border-color,color,box-shadow,transform] duration-300 motion-safe:hover:-translate-y-0.5 hover:border-coral/40 hover:shadow-soft focus-within:border-coral/40 focus-within:shadow-soft open:bg-dark-turquoise open:text-cream open:shadow-soft">
+                                <summary className="flex cursor-pointer list-none items-start justify-between gap-4 rounded-3xl p-5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-coral md:p-7 [&::-webkit-details-marker]:hidden">
                                     <span className="min-w-0">
                                         <span className="mb-2 flex flex-wrap items-center gap-2">
                                             <span className="font-mono text-[0.64rem] font-semibold uppercase tracking-[0.16em] text-ink-muted transition-colors duration-300 group-open:text-coral">
@@ -96,6 +96,21 @@ export default function ExperienceExplorer() {
                                         <span className="mt-3 block max-w-3xl text-sm leading-relaxed text-ink-muted transition-colors duration-300 group-open:text-cream/75">
                                             {experience.description}
                                         </span>
+                                    </span>
+
+                                    <span className="mt-1 flex size-10 shrink-0 items-center justify-center rounded-full border border-ink/15 text-ink-muted transition-[background-color,border-color,color,transform] duration-300 group-hover:border-coral group-hover:bg-coral/10 group-hover:text-coral group-focus-within:border-coral group-focus-within:bg-coral/10 group-focus-within:text-coral group-open:rotate-180 group-open:border-coral group-open:bg-coral group-open:text-ink">
+                                        <svg
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            strokeWidth="2"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            className="size-4"
+                                            aria-hidden="true"
+                                        >
+                                            <path d="m6 9 6 6 6-6" />
+                                        </svg>
                                     </span>
                                 </summary>
 

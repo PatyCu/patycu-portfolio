@@ -21,6 +21,36 @@ export interface ExperienceEntry {
 
 export const EXPERIENCE: ExperienceEntry[] = [
     {
+        id: "glovo-senior-engineering-manager",
+        title: "Senior Engineering Manager, Ads & Search",
+        company: "Glovo",
+        companyType: "Delivery marketplace",
+        location: "Barcelona, Spain",
+        workArrangement: "Hybrid",
+        startDate: "January 2026",
+        endDate: null,
+        description:
+            "Leads engineering across Glovo's Search and AdTech domains, managing one Engineering Manager and 17 engineers across two teams.",
+        highlights: [
+            "Owns engineering execution, organisational health, performance management, and leadership development across two business-critical domains.",
+            "Partners with Product, Data, Commercial, and Engineering leaders to shape priorities and trade-offs around user impact and usage evidence.",
+            "Reset Search engineering priorities to balance product delivery with long-term investment, enabling Product Page capabilities to move out of the monolith and increasing reuse of shared capabilities.",
+            "Led Ads through repeated production incidents, pausing product delivery to restore stability, strengthen engineering practices, and address architectural issues before returning to sustained delivery.",
+            "Built AI-assisted workflows that synthesise evidence from delivery, code review, technical documentation, and project work to improve performance-review quality and preparation efficiency.",
+            "Co-founded the Women in Tech Circle with the CTO and leads company-wide sessions on career development, performance, and practical AI adoption."
+        ],
+        tags: [
+            "Leader of leaders",
+            "Search",
+            "AdTech",
+            "Machine learning",
+            "Architecture",
+            "Reliability",
+            "AI-assisted workflows"
+        ],
+        roleTypes: ["leader-of-leaders"]
+    },
+    {
         id: "glovo-engineering-manager",
         title: "Engineering Manager",
         company: "Glovo",
@@ -28,16 +58,15 @@ export const EXPERIENCE: ExperienceEntry[] = [
         location: "Barcelona, Spain",
         workArrangement: "Hybrid",
         startDate: "March 2024",
-        endDate: null,
+        endDate: "December 2025",
         description:
-            "Engineering Manager for a team of backend and mobile software engineers in a fast-paced, high-bar environment.",
+            "Led backend and cross-functional teams across Catalog and Quick-Commerce, including backend, iOS, and Android engineers, with accountability for people, delivery, team health, quality, and reliability.",
         highlights: [
-            "Leads backend, iOS, and Android engineers.",
-            "Balances product and engineering needs in fast-paced delivery.",
-            "Owns team performance management in a high-bar environment.",
-            "Maintains quality and operational excellence."
+            "Turned around Catalog after an extended period without stable engineering management, resetting ways of working and ownership while preserving strong engineering standards.",
+            "Addressed long-standing interpersonal conflicts and performance issues across Catalog and Quick-Commerce; achieved the highest manager-support score in the subsequent engagement survey.",
+            "Mentored a newly appointed Engineering Manager and a manager transitioning from another professional discipline."
         ],
-        tags: ["Hybrid", "Performance management", "Backend", "Mobile"],
+        tags: ["Team turnaround", "Catalog", "Quick-Commerce", "Performance management", "Backend", "iOS", "Android"],
         roleTypes: ["team-lead"]
     },
     {
@@ -50,13 +79,14 @@ export const EXPERIENCE: ExperienceEntry[] = [
         startDate: "November 2021",
         endDate: "January 2024",
         description:
-            "Software Engineering Lead for Devices and later Canvas Core, teams responsible for the product's core experience across devices.",
+            "Led the Devices group of 10 React Native engineers and one Engineering Manager, and Canvas Core, a team of 10 frontend engineers working with React and TypeScript, across three time zones.",
         highlights: [
-            "Led 10 engineers and one Engineering Manager.",
-            "Owned core product experiences across desktop and mobile devices.",
-            "Mentored two individual contributors through the transition to Engineering Manager roles."
+            "Mentored two senior individual contributors through successful transitions into Engineering Manager roles.",
+            "Led the transition from reliance on manual QA to end-to-end engineering ownership of code and product quality.",
+            "Increased team autonomy by clarifying ownership and decision-making, reducing dependence on the most senior engineers and creating broader leadership opportunities.",
+            "Established clear priorities and operating frameworks through significant organisational change and company scale-down."
         ],
-        tags: ["Mentor", "Remote", "Async work", "Scale down"],
+        tags: ["Leader of leaders", "React Native", "React", "TypeScript", "Quality ownership", "Remote", "Scale down"],
         roleTypes: ["leader-of-leaders"]
     },
     {
@@ -67,15 +97,23 @@ export const EXPERIENCE: ExperienceEntry[] = [
         location: "Barcelona, Spain",
         workArrangement: "Remote",
         startDate: "September 2020",
-        endDate: "October 2021",
+        endDate: "November 2021",
         description:
-            "Software Engineering Leader for Dashboards Ecosystem, a key New Relic initiative spanning customer products and internal libraries.",
+            "Scaled and led the Dashboards Ecosystem organisation, owning Dashboards, Data Explorer, Query Builder, and the shared data-visualisation and dashboarding platform.",
         highlights: [
-            "Led an ecosystem of three products and two internal libraries.",
-            "Grew the organisation from one team to three teams.",
-            "Led approximately 20 engineers and two Engineering Managers."
+            "Grew the ecosystem into a multi-team organisation while maintaining product quality, strong team health, and 95% engineering retention.",
+            "Hired and onboarded engineers and Engineering Managers across seniority levels, and integrated an existing backend team into the group.",
+            "Turned Query Builder from a high-maintenance legacy codebase into a healthier foundation by addressing technical debt, outdated frontend dependencies, and limited test coverage.",
+            "Scaled the shared backend platform and delivered Data Explorer on time and at the expected quality through visible weekly increments."
         ],
-        tags: ["Observability", "Leader of leaders", "Hiring leaders", "Performance as a feature"],
+        tags: [
+            "Observability",
+            "Leader of leaders",
+            "Hiring",
+            "Platform scaling",
+            "Technical debt",
+            "Incremental delivery"
+        ],
         roleTypes: ["leader-of-leaders"]
     },
     {
@@ -89,10 +127,9 @@ export const EXPERIENCE: ExperienceEntry[] = [
         endDate: "August 2020",
         description: "Led the engineering team building the future of New Relic's UI platform.",
         highlights: [
-            "Led five engineers and collaborated closely with a product designer.",
-            "Guided the team through the transition from on-site to remote work during the pandemic.",
-            "Worked across data visualisation, design systems, and platform foundations.",
-            "Hired and onboarded engineers for a React-based platform team."
+            "Led the transition from UI Platform to the DataViz and Dashboards mandate when development of the design system was paused, maintaining engagement through the change in direction.",
+            "Surfaced the capacity gap created by competing product and platform responsibilities, helping secure executive sponsorship to grow the team.",
+            "Built and delivered the next-generation Dashboards product while hiring, onboarding, and establishing the new team; received a company award recognising the impact."
         ],
         tags: ["Hiring", "Onboarding", "Data visualisation", "Design system", "Platform team", "React", "D3"],
         roleTypes: ["team-lead"]
@@ -107,11 +144,11 @@ export const EXPERIENCE: ExperienceEntry[] = [
         startDate: "January 2017",
         endDate: "April 2018",
         description:
-            "Managed a team of software engineers, ensuring they had what they needed to grow the product and advance their careers.",
+            "Managed a cross-functional engineering and QA team responsible for core Typeform product capabilities.",
         highlights: [
-            "Balanced product delivery with individual career development.",
-            "Supported people management, conflict resolution, and performance calibration.",
-            "Led engineers working with React, Vanilla JavaScript, and testing practices."
+            "Resolved long-standing team conflicts that were affecting collaboration and execution, rebuilding a healthier working environment.",
+            "Influenced company priorities to restart the Rendering Engine programme after a previous unsuccessful attempt, replacing an increasingly unmaintainable monolith with a modern React application.",
+            "Restructured the programme around clear milestones and incremental delivery, reducing risk, enabling earlier validation, and successfully launching the new Rendering Engine."
         ],
         tags: [
             "People management",
